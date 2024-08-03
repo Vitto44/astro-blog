@@ -1,8 +1,9 @@
 ---
-// Import AvatarTestimonialSection component for use in this module
 import FullStar from "@/components/ui/stars/FullStar.astro";
 import AvatarTestimonialSection from "../../ui/avatars/AvatarTestimonialSection.astro";
 import HalfStar from "@/components/ui/stars/HalfStar.astro";
+import PrimaryCTA from "@/components/ui/buttons/PrimaryCTA.astro";
+import SecondaryCTA from "@/components/ui/buttons/SecondaryCTA.astro";
 
 // Define props from Astro
 const { title, testimonials } = Astro.props;
@@ -15,19 +16,18 @@ interface Testimonial {
   avatarSrc: string;
   avatarAlt: string;
   title: string;
-
-
-
-  id: number;
-  url: string;
   rating: number;
-  category: string;
+  category: number;
   investment: number;
   reward: number;
   rewardType: string;
-  code: string;
+  url: string;
   disclaimer: string;
-  isMoney?: boolean;
+  
+  
+  
+  code: string;
+  id: number;
   howToRegister: string;
 }
 
@@ -40,7 +40,7 @@ interface Props {
 ---
 <!-- Main div that wraps the testimonials section -->
 <section
-  class="mx-auto max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 2xl:max-w-full"
+  class="max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 2xl:max-w-full rounded-lg shadow-md bg-neutral-100 dark:bg-neutral-700"
   id="testimonials"
 >
   <!-- Title of the testimonials section -->
@@ -52,19 +52,19 @@ interface Props {
     </h2>
   </div>
 
-  <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+  <div class="grid gap-6 lg:grid-cols-2 xl:grid-cols-3">
     <!-- Looping through each testimonial data and rendering it -->
     {
-      testimonials.map(({avatarSrc, avatarAlt, author, role, content, title, rating}) => {
+      testimonials.map(({avatarSrc, avatarAlt, author, role, content, title, rating, category, investment, reward, rewardType, id, url, code, disclaimer, howToRegister}: Testimonial) => {
 
         const actualRating = rating % 1 >= 0.7 ? Math.ceil(rating) : Math.floor(rating);
         const isHalfStar = rating % 1 > 0.2 && rating % 1 < 0.7;
 
         return (
-        <div class="flex h-auto">
+        <div class="w-80 sm:w-96 col-span-1 mx-auto ring-2 rounded-xl ring-neutral-200 dark:ring-neutral-800">
           <div class="flex flex-col rounded-xl bg-neutral-50 dark:bg-neutral-700">
             
-            <div class=" bg-neutral-300/30 p-4 dark:bg-neutral-900/30 md:px-7">
+            <div class=" bg-neutral-300/30 p-4 dark:bg-neutral-900/30 md:px-7 rounded-t-xl">
               <div class="flex items-center">
                 <AvatarTestimonialSection
                   src={avatarSrc}
@@ -72,12 +72,16 @@ interface Props {
                   />
 
                 <div class="ms-3 grow">
-                  <p class="text-sm font-bold text-neutral-800 dark:text-neutral-200 sm:text-xl">
+                  <p class="font-bold text-neutral-800 dark:text-neutral-200 text-xl">
                     {title}
                   </p>
+
+                  <p class="text-sm font-semibold text-neutral-500 dark:text-neutral-200 ">
+                    {category? 'Casino' : 'Sport Betting'}
+                  </p>
                 
-                  <div class="flex flex-col items-center sm:items-start">
-                    <div class="flex space-x-1 pt-5 sm:pt-0">
+                  <div class="flex flex-col items-start mt-2">
+                    <div class="flex space-x-1 ">
                       <div class="flex space-x-1">
 
                         {
@@ -99,29 +103,30 @@ interface Props {
               </div>
             </div>
 
-            <div class="flex-auto p-4 md:p-6">
-              <!-- Testimonial content -->
-              <p class="text-pretty text-base italic text-neutral-600 dark:text-neutral-300 md:text-lg">
-                {content}
+            <div class="text-center px-4 py-10 font-bold text-lg bg-gray-50 dark:bg-neutral-800">
+
+              <p class="text-pretty text-neutral-600 dark:text-neutral-300 mb-6">
+                  Bet ${investment}
+                <span class="text-pretty text-neutral-800 dark:text-neutral-200 text-2xl ">
+                  Get ${reward}
+                </span>
+                  In {rewardType}
               </p>
+
+              <div class="flex gap-6 justify-center">
+                <SecondaryCTA title="How To Register" url={url} />
+                <PrimaryCTA title="Check Out" url={url} />
+              </div>
+
             </div>
 
-            <div class="rounded-b-xl bg-neutral-300/30 p-4 dark:bg-neutral-900/30 md:px-7">
-              <div class="flex items-center">
-                <AvatarTestimonialSection
-                  src={avatarSrc}
-                  alt={avatarAlt}
-                  />
 
-                <div class="ms-3 grow">
-                  <p class="text-sm font-bold text-neutral-800 dark:text-neutral-200 sm:text-base">
-                    {author}
-                  </p>
-                  <p class="text-xs text-neutral-600 dark:text-neutral-400">
-                    {role}
-                  </p>
-                </div>
-              </div>
+            <div class="rounded-b-xl bg-neutral-300/30 dark:bg-neutral-900/30 p-2">
+
+              <p class="text-xs text-neutral-500 dark:text-neutral-200 h-14 overflow-y-auto text-pretty ms-3 ">
+                {disclaimer}
+              </p>
+                  
             </div>
           </div>
         </div>

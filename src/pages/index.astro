@@ -35,6 +35,12 @@ const testimonials = [
     avatarAlt: "Image Description",
     title: "Casino Alpha",
     rating: 4.18,
+    category: 1,
+    investment: 150,
+    reward: 420,
+    rewardType: "Tokens",
+    disclaimer: "T&Cs Apply",
+    url: "https://www.google.com",
   },
   // Second testimonial data
   {
@@ -47,6 +53,11 @@ const testimonials = [
     avatarAlt: "Image Description",
     title: "Sport Betting Turbo",
     rating: 4.4,
+    category: 0,
+    investment: 50,
+    reward: 40,
+    rewardType: "Free Bets",
+    disclaimer: "New UK 18+ only. Register (excl. 13/04/2024) with promo code WELCOME40, Bet £10+ on Sports in one transaction within 7 days of registering. Get £30 Free Bets & £10 free spins within 10hrs of bet settlement. Bonuses expire 7 days after issue. Min odds, eligibility & payment exclusions apply. T&Cs apply.",
   },
   // Third testimonial data
   {
@@ -59,6 +70,11 @@ const testimonials = [
     avatarAlt: "Image Description",
     title: "Casino Chuppa",
     rating: 4.71,
+    category: 1,
+    investment: 10,
+    reward: 50,
+    rewardType: "Free Spins",
+    disclaimer: "New UK 18+ only. Register (excl. 13/04/2024) with promo code WELCOME50, Bet £10+ on Sports in one transaction within 7 days of registering. Get £30 Free Bets & £20 free spins within 10hrs of bet settlement. Bonuses expire 7 days after issue. Min odds, eligibility & payment exclusions apply. T&Cs apply.",
   },
 ];
 ---
@@ -86,7 +102,7 @@ const testimonials = [
   /> -->
 
     <TestimonialsSectionAlt
-    title="What Our Customers Say"
+    title="Offers"
     testimonials={testimonials}
   />
 
