@@ -1,6 +1,8 @@
 ---
 // Import AvatarTestimonialSection component for use in this module
+import FullStar from "@/components/ui/stars/FullStar.astro";
 import AvatarTestimonialSection from "../../ui/avatars/AvatarTestimonialSection.astro";
+import HalfStar from "@/components/ui/stars/HalfStar.astro";
 
 // Define props from Astro
 const { title, testimonials } = Astro.props;
@@ -12,6 +14,21 @@ interface Testimonial {
   role: string;
   avatarSrc: string;
   avatarAlt: string;
+  title: string;
+
+
+
+  id: number;
+  url: string;
+  rating: number;
+  category: string;
+  investment: number;
+  reward: number;
+  rewardType: string;
+  code: string;
+  disclaimer: string;
+  isMoney?: boolean;
+  howToRegister: string;
 }
 
 // Define TypeScript interface for props
@@ -19,6 +36,7 @@ interface Props {
   title: string;
   testimonials: Testimonial[];
 }
+
 ---
 <!-- Main div that wraps the testimonials section -->
 <section
@@ -37,36 +55,78 @@ interface Props {
   <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
     <!-- Looping through each testimonial data and rendering it -->
     {
-      testimonials.map((testimonial) => (
+      testimonials.map(({avatarSrc, avatarAlt, author, role, content, title, rating}) => {
+
+        const actualRating = rating % 1 >= 0.7 ? Math.ceil(rating) : Math.floor(rating);
+        const isHalfStar = rating % 1 > 0.2 && rating % 1 < 0.7;
+
+        return (
         <div class="flex h-auto">
           <div class="flex flex-col rounded-xl bg-neutral-50 dark:bg-neutral-700">
+            
+            <div class=" bg-neutral-300/30 p-4 dark:bg-neutral-900/30 md:px-7">
+              <div class="flex items-center">
+                <AvatarTestimonialSection
+                  src={avatarSrc}
+                  alt={avatarAlt}
+                  />
+
+                <div class="ms-3 grow">
+                  <p class="text-sm font-bold text-neutral-800 dark:text-neutral-200 sm:text-xl">
+                    {title}
+                  </p>
+                
+                  <div class="flex flex-col items-center sm:items-start">
+                    <div class="flex space-x-1 pt-5 sm:pt-0">
+                      <div class="flex space-x-1">
+
+                        {
+                          
+                          Array(actualRating)
+                            .fill(0)
+                            .map((_, i) => <FullStar key={i} />)
+                        }
+                        {
+                          isHalfStar && <HalfStar />
+                        }
+                       
+                      </div>
+                     
+                    </div>
+                   
+                  </div>
+                </div>
+              </div>
+            </div>
+
             <div class="flex-auto p-4 md:p-6">
               <!-- Testimonial content -->
               <p class="text-pretty text-base italic text-neutral-600 dark:text-neutral-300 md:text-lg">
-                {testimonial.content}
+                {content}
               </p>
             </div>
 
             <div class="rounded-b-xl bg-neutral-300/30 p-4 dark:bg-neutral-900/30 md:px-7">
               <div class="flex items-center">
                 <AvatarTestimonialSection
-                  src={testimonial.avatarSrc}
-                  alt={testimonial.avatarAlt}
-                />
+                  src={avatarSrc}
+                  alt={avatarAlt}
+                  />
 
                 <div class="ms-3 grow">
                   <p class="text-sm font-bold text-neutral-800 dark:text-neutral-200 sm:text-base">
-                    {testimonial.author}
+                    {author}
                   </p>
                   <p class="text-xs text-neutral-600 dark:text-neutral-400">
-                    {testimonial.role}
+                    {role}
                   </p>
                 </div>
               </div>
             </div>
           </div>
         </div>
-      ))
+      )
+    })
     }
   </div>
-</section>
+  </section>
