@@ -13,7 +13,6 @@ const {
   primaryBtnURL,
   secondaryBtn,
   secondaryBtnURL,
-  withReview,
   avatars,
   starCount,
   rating,
@@ -30,7 +29,6 @@ interface Props {
   primaryBtnURL?: string;
   secondaryBtn?: string;
   secondaryBtnURL?: string;
-  withReview?: boolean;
   avatars?: Array<string>;
   starCount?: number;
   rating?: string;
@@ -61,19 +59,13 @@ interface Props {
     </p>
   }
     <!-- Action Button Section: This section includes two CTAs with their own styles and URL -->
-    <div class="mt-7 grid w-full gap-3 sm:inline-flex">
+    <div class="mt-7 flex">
       {primaryBtn && 
       <PrimaryCTA title={primaryBtn} url={primaryBtnURL} />
       }
-      {secondaryBtn && 
-      <SecondaryCTA title={secondaryBtn} url={secondaryBtnURL} />
-      }
     </div>
 
-    <!-- Review Section: This section presents avatars, review ratings and the number of reviews -->
-    { withReview ? (
-    <ReviewComponent avatars={avatars} starCount={starCount} rating={rating} reviews={reviews} />
-    ) : "" }
+    <!-- <ReviewComponent avatars={avatars} starCount={starCount} rating={rating} reviews={reviews} /> -->
 
   </div>
   <!-- Hero Image Section -->
@@ -83,7 +75,7 @@ interface Props {
 	<Image
         src={src}
         alt={alt}
-        class="h-full w-full scale-110 object-cover object-center"
+        class="h-full w-full max-w-80 object-cover object-center"
         draggable={"false"}
         loading={"eager"}
         format={"avif"}
