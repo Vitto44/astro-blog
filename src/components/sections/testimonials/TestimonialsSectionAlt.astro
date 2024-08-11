@@ -10,9 +10,6 @@ const { title, testimonials } = Astro.props;
 
 // Define TypeScript interface for Testimonial
 interface Testimonial {
-  content: string;
-  author: string;
-  role: string;
   avatarSrc: string;
   avatarAlt: string;
   title: string;
@@ -23,12 +20,12 @@ interface Testimonial {
   rewardType: string;
   url: string;
   disclaimer: string;
-  
-  
-  
   code: string;
   id: number;
   howToRegister: string;
+  
+  
+  
 }
 
 // Define TypeScript interface for props
@@ -55,7 +52,7 @@ interface Props {
   <div class="grid gap-6 lg:grid-cols-2 xl:grid-cols-3">
     <!-- Looping through each testimonial data and rendering it -->
     {
-      testimonials.map(({avatarSrc, avatarAlt, author, role, content, title, rating, category, investment, reward, rewardType, id, url, code, disclaimer, howToRegister}: Testimonial) => {
+      testimonials.map(({avatarSrc, avatarAlt, title, rating, category, investment, reward, rewardType, id, url, code, disclaimer, howToRegister}: Testimonial) => {
 
         const actualRating = rating % 1 >= 0.7 ? Math.ceil(rating) : Math.floor(rating);
         const isHalfStar = rating % 1 > 0.2 && rating % 1 < 0.7;
