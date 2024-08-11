@@ -61,7 +61,7 @@ interface Props {
         const isHalfStar = rating % 1 > 0.2 && rating % 1 < 0.7;
 
         return (
-        <div class="w-80 sm:w-96 col-span-1 mx-auto ring-2 rounded-xl ring-neutral-200 dark:ring-neutral-800">
+        <div class="w-80 sm:w-96 col-span-1 mx-auto ring-2 rounded-xl ring-neutral-200 dark:ring-neutral-800 text-neutral-800 dark:text-neutral-200">
           <div class="flex flex-col rounded-xl bg-neutral-50 dark:bg-neutral-700">
             
             <div class=" bg-neutral-300/30 p-4 dark:bg-neutral-900/30 md:px-7 rounded-t-xl">
@@ -72,7 +72,7 @@ interface Props {
                   />
 
                 <div class="ms-3 grow">
-                  <p class="font-bold text-neutral-800 dark:text-neutral-200 text-xl">
+                  <p class="font-bold  text-xl">
                     {title}
                   </p>
 
@@ -103,7 +103,7 @@ interface Props {
               </div>
             </div>
 
-            <div class="text-center px-4 py-10 font-bold text-lg bg-gray-50 dark:bg-neutral-800">
+            <div class="text-center px-4 py-4 font-bold text-lg bg-gray-50 dark:bg-neutral-800">
 
               <p class="text-pretty text-neutral-600 dark:text-neutral-300 mb-6">
                   Bet ${investment}
@@ -117,9 +117,12 @@ interface Props {
                 <SecondaryCTA title="How To Register" url={url} />
                 <PrimaryCTA title="Check Out" url={url} />
               </div>
-
             </div>
-
+              {code ? 
+                <p class="text-center h-8 bg-gray-50 dark:bg-neutral-800 pb-1">Use code: <b>{code}</b></p>
+                :
+                <fragment class="h-8 bg-gray-50 dark:bg-neutral-800" />
+              }
 
             <div class="rounded-b-xl bg-neutral-300/30 dark:bg-neutral-900/30 p-2">
 
