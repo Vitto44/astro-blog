@@ -1,10 +1,8 @@
 ---
 // Importing necessary components
 import MainLayout from "@/layouts/MainLayout.astro";
-import PrimaryCTA from "@components/ui/buttons/PrimaryCTA.astro";
 import CardSmall from "@components/ui/cards/CardSmall.astro";
 import CardWide from "@components/ui/cards/CardWide.astro";
-import FeaturesStatsAlt from "@components/sections/features/FeaturesStatsAlt.astro";
 
 // Importing necessary functions from Astro
 import { getCollection } from "astro:content";
@@ -44,6 +42,7 @@ interface Testimonial {
   code: string;
   id: number;
   howToRegister: string;
+  description: string;
 }
 
 const testimonials: Array<Testimonial> = [
@@ -63,6 +62,7 @@ const testimonials: Array<Testimonial> = [
     url: "https://www.google.com",
     code: "WELCOME420",
     howToRegister: "Register with the code WELCOME420",
+    description: "New UK 18+ only. Register (excl. 13/04/2024) with promo code WELCOME420, Bet £10+ on Sports in one transaction within 7 days of registering. Get £30 Free Bets & £20 free spins within 10hrs of bet settlement. Bonuses expire 7 days after issue. Min odds, eligibility & payment exclusions apply. T&Cs apply.",
   },
   {
     id: 2,
@@ -79,6 +79,7 @@ const testimonials: Array<Testimonial> = [
     code: "WELCOME50",
     url: "https://www.google.com",
     howToRegister: "Register with the code WELCOME50",
+    description: "New UK 18+ only. Register (excl. 13/04/2024) with promo code WELCOME50, Bet £10+ on Sports in one transaction within 7 days of registering. Get £30 Free Bets & £20 free spins within 10hrs of bet settlement. Bonuses expire 7 days after issue. Min odds, eligibility & payment exclusions apply. T&Cs apply.",
 
   },
   // Second testimonial data
@@ -96,6 +97,7 @@ const testimonials: Array<Testimonial> = [
     code: "WELCOME40",
     url: "https://www.google.com",
     howToRegister: "Register with the code WELCOME40",
+    description: "New UK 18+ only. Register (excl. 13/04/2024) with promo code WELCOME40, Bet £10+ on Sports in one transaction within 7 days of registering. Get £30 Free Bets & £10 free spins within 10hrs of bet settlement. Bonuses expire 7 days after issue. Min odds, eligibility & payment exclusions apply. T&Cs apply.",
     disclaimer: "New UK 18+ only. Register (excl. 13/04/2024) with promo code WELCOME40, Bet £10+ on Sports in one transaction within 7 days of registering. Get £30 Free Bets & £10 free spins within 10hrs of bet settlement. Bonuses expire 7 days after issue. Min odds, eligibility & payment exclusions apply. T&Cs apply.",
   },
   // Third testimonial data
@@ -113,6 +115,7 @@ const testimonials: Array<Testimonial> = [
     howToRegister: "Register with the code WELCOME50",
     reward: 50,
     rewardType: "Free Spins",
+    description: "New UK 18+ only. Register (excl. 13/04/2024) with promo code WELCOME50, Bet £10+ on Sports in one transaction within 7 days of registering. Get £30 Free Bets & £20 free spins within 10hrs of bet settlement. Bonuses expire 7 days after issue. Min odds, eligibility & payment exclusions apply. T&Cs apply.",
     disclaimer: "New UK 18+ only. Register (excl. 13/04/2024) with promo code WELCOME50, Bet £10+ on Sports in one transaction within 7 days of registering. Get £30 Free Bets & £20 free spins within 10hrs of bet settlement. Bonuses expire 7 days after issue. Min odds, eligibility & payment exclusions apply. T&Cs apply.",
   },
 ];
@@ -175,6 +178,8 @@ const testimonials: Array<Testimonial> = [
         })
       }
     </section>
+
+    
   </div>
 
  

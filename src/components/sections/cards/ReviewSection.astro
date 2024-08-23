@@ -23,8 +23,7 @@ interface Testimonial {
   code: string;
   id: number;
   howToRegister: string;
-  
-  
+  description: string;  
   
 }
 
@@ -52,7 +51,7 @@ interface Props {
   <div class="grid gap-6 lg:grid-cols-2 xl:grid-cols-3">
     <!-- Looping through each testimonial data and rendering it -->
     {
-      testimonials.map(({avatarSrc, avatarAlt, title, rating, category, investment, reward, rewardType, id, url, code, disclaimer, howToRegister}: Testimonial) => {
+      testimonials.map(({avatarSrc, avatarAlt, title, rating, category, investment, reward, rewardType, id, url, code, disclaimer, howToRegister, description}: Testimonial) => {
 
         const actualRating = rating % 1 >= 0.7 ? Math.ceil(rating) : Math.floor(rating);
         const isHalfStar = rating % 1 > 0.2 && rating % 1 < 0.7;
@@ -101,31 +100,21 @@ interface Props {
               </div>
             </div>
 
-            <div class="text-center px-4 py-4 font-bold text-lg bg-gray-50 dark:bg-neutral-800">
+            <div class="px-4 py-4 bg-gray-50 dark:bg-neutral-800">
 
-              <p class="text-pretty text-neutral-600 dark:text-neutral-300 mb-6">
-                  Bet ${investment}
-                <span class="text-pretty text-neutral-800 dark:text-neutral-200 text-2xl ">
-                  Get ${reward}
-                </span>
-                  In {rewardType}
+              <p class="text-pretty text-neutral-600 dark:text-neutral-300 line-clamp-4">
+                  {description}
+               
               </p>
 
-              <div class="flex gap-6 justify-center">
-                <SecondaryCTA title="How To Register" url={url} />
-                <PrimaryCTA title="Check Out" url={url} />
-              </div>
+
             </div>
-              {code ? 
-                <p class="text-center h-8 bg-gray-50 dark:bg-neutral-800 pb-1">Use code: <b class="">{code}</b></p>
-                :
-                <fragment class="h-8 bg-gray-50 dark:bg-neutral-800" />
-              }
+             
 
             <div class="rounded-b-xl bg-neutral-300/30 dark:bg-neutral-900/30 p-2">
 
-              <p class="text-xs text-neutral-500 dark:text-neutral-200 h-14 overflow-y-auto text-pretty ms-3 ">
-                {disclaimer}
+              <p class="text-xs text-neutral-500 dark:text-neutral-200 h-14 text-pretty mx-3 ">
+                <PrimaryCTA title="More" url={url} style="w-full" />
               </p>
                   
             </div>

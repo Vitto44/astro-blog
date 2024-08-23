@@ -6,6 +6,8 @@ import PrimaryCTA from "@components/ui/buttons/PrimaryCTA.astro";
 import { Image } from "astro:assets";
 import { getCollection } from "astro:content";
 import { SITE } from "@data/constants";
+import FullStar from "@/components/ui/stars/FullStar.astro";
+import HalfStar from "@/components/ui/stars/HalfStar.astro";
 
 // Global declaration for gsap animation library
 declare global {
@@ -25,50 +27,75 @@ export async function getStaticPaths() {
 const { product } = Astro.props;
 
 const pageTitle: string = `${product.data.title} | ${SITE.title}`;
+
+  const rating = product.data.rating;
+
+ const actualRating = rating % 1 >= 0.7 ? Math.ceil(rating) : Math.floor(rating);
+  const isHalfStar = rating % 1 > 0.2 && rating % 1 < 0.7;
+
 ---
 
 <MainLayout title={pageTitle}>
-  <div id="overlay" class="fixed inset-0 bg-neutral-200 dark:bg-neutral-800">
-  </div>
+  <div id="overlay" class="fixed inset-0 bg-neutral-200 dark:bg-neutral-800"/>
 
-  <section
-    class="mx-auto flex max-w-[85rem] flex-col px-4 py-10 sm:px-6 lg:px-8 lg:py-14 2xl:max-w-full"
+  <div
+    class="grid max-w-[85rem] grid-cols-8 px-4 py-10 sm:px-6 lg:px-8 lg:py-14 2xl:max-w-full"
   >
-    <div>
+    <!-- <div>
       <p
         id="fadeText"
-        class="mb-8 max-w-prose text-pretty font-light text-neutral-700 dark:text-neutral-300 sm:text-xl"
+        class="mb-8 text-pretty font-light text-neutral-700 dark:text-neutral-300 sm:text-xl"
       >
-        {product.data.main.content}
+        {product.data.description}
       </p>
-    </div>
-    <div
-      class="flex flex-col items-center justify-between space-y-4 sm:flex-row sm:space-y-0"
+    </div> -->
+    <section
+      class="grid grid-cols-1 gap-8 sm:grid-cols-2 col-span-8 pb-4 lg:col-span-2 border-b-2 lg:border-b-0 lg:border-r-2 border-orange-300"
     >
-      <div id="fadeInUp">
-        <h1
-          class="block text-4xl font-bold tracking-tighter text-neutral-800 dark:text-neutral-200 sm:text-5xl md:text-6xl lg:text-7xl"
-        >
-          {product.data.title}
-        </h1>
-        <p class="text-lg text-neutral-600 dark:text-neutral-400">
-          {product.data.description}
-        </p>
-      </div>
-      <div>
-        <Image
-          id="fadeInMoveRight"
-          src={product.data.main.imgMain}
-          class="w-[600px]"
-          alt={product.data.main.imgAlt}
-          format={"avif"}
-          loading={"eager"}
-        />
-      </div>
-    </div>
-  </section>
+      <div class="flex lg:flex-col justify-between lg:justify-start gap-4 lg:gap-12 col-span-2">
+        <div class="text-neutral-800 dark:text-neutral-200">
 
-  <div class="mx-auto max-w-[85rem] px-4 pt-10 sm:px-6 lg:px-8 lg:pt-14">
+            <h1
+              class="block text-2xl font-bold tracking-tighter lg:text-4xl "
+              >
+              {product.data.title}
+            </h1>
+            
+            <p class="lg:text-xl font-semibold text-neutral-600 dark:text-neutral-400">
+              {product.data.type}
+            </p>
+
+            <div class="flex space-x-1">
+
+                {
+                  actualRating > 0 && 
+                  Array(actualRating)
+                    .fill(0)
+                    .map((_, i) => <FullStar key={i} />)
+                }
+                {
+                  isHalfStar && <HalfStar />
+                }
+            </div>
+
+      </div>
+
+      <Image
+        src={product.data.main.imgMain}
+        class="w-[100px] lg:min-w-[220px] rounded-full"
+        alt={product.data.main.imgAlt}
+        format={"png"}
+        loading={"eager"}
+      />
+        <!-- <p class="text-lg text-neutral-600 dark:text-neutral-400">
+          
+          {product.data.main.content}
+        </p> -->
+        
+      </div>
+    </section>
+
+    <div class="mx-auto max-w-[85rem] px-4 pt-10 lg:pt-0 col-span-8 lg:col-span-6 ">
     <nav
       class="mx-auto grid max-w-6xl gap-y-px sm:flex sm:gap-x-4 sm:gap-y-0"
       aria-label="Tabs"
@@ -210,6 +237,9 @@ const pageTitle: string = `${product.data.title} | ${SITE.title}`;
       </div>
     </div>
   </div>
+  </div>
+
+ 
 
   <div id="tabs-with-card-3" class="hidden" role="tabpanel">
     <div class="mx-auto mb-20 flex w-full md:mb-28 2xl:w-4/5">
@@ -273,16 +303,11 @@ const pageTitle: string = `${product.data.title} | ${SITE.title}`;
     willChange: "transform, opacity",
   });
 
-  setElementAnimationDefaults("#fadeInMoveRight", {
-    autoAlpha: 0,
-    x: 300,
-    willChange: "transform, opacity",
-  });
 
   let timeline = gsap.timeline({ defaults: { overwrite: "auto" } });
 
   timeline.to("#fadeText", {
-    duration: 1.5,
+    duration: 0.5,
     autoAlpha: 1,
     y: 0,
     delay: 1,
@@ -291,15 +316,10 @@ const pageTitle: string = `${product.data.title} | ${SITE.title}`;
 
   timeline.to(
     "#fadeInUp",
-    { duration: 1.5, autoAlpha: 1, y: 0, ease: "power2.out" },
+    { duration: 0.5, autoAlpha: 1, y: 0, ease: "power2.out" },
     "-=1.2"
   );
 
-  timeline.to(
-    "#fadeInMoveRight",
-    { duration: 1.5, autoAlpha: 1, x: 0, ease: "power2.inOut" },
-    "-=1.4"
-  );
 
   timeline.to("#overlay", { duration: 1, autoAlpha: 0, delay: 0.2 });
 </script>
