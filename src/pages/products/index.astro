@@ -5,12 +5,12 @@ import PrimaryCTA from "@components/ui/buttons/PrimaryCTA.astro";
 import CardSmall from "@components/ui/cards/CardSmall.astro";
 import CardWide from "@components/ui/cards/CardWide.astro";
 import FeaturesStatsAlt from "@components/sections/features/FeaturesStatsAlt.astro";
-import TestimonialsSectionAlt from "@components/sections/testimonials/TestimonialsSectionAlt.astro";
 
 // Importing necessary functions from Astro
 import { getCollection } from "astro:content";
 import type { CollectionEntry } from "astro:content";
 import { SITE } from "@data/constants";
+import ReviewSection from "@/components/sections/cards/ReviewSection.astro";
 
 // Fetching all the product related content and sorting it by main.id
 const product: CollectionEntry<"products">[] = (
@@ -21,45 +21,101 @@ const product: CollectionEntry<"products">[] = (
 );
 
 // Define variables for page content
-const title: string = "Products";
+const title: string = "Casions & Betting Companies";
 const subTitle: string =
-  "Explore the durability and precision of ScrewFast tools, designed for both professionals and enthusiasts. Each of our products is crafted with precision and built to last, ensuring you have the right tool for every job.";
+  "Explore the best offers from top casinos and betting companies. Register now to claim your rewards!";
 
-// Testimonial data that will be rendered in the component
-const testimonials = [
+
+
+const pageTitle: string = `Products | ${SITE.title}`;
+
+
+interface Testimonial {
+  avatarSrc: string;
+  avatarAlt: string;
+  title: string;
+  rating: number;
+  category: number;
+  investment: number;
+  reward: number;
+  rewardType: string;
+  url: string;
+  disclaimer: string;
+  code: string;
+  id: number;
+  howToRegister: string;
+}
+
+const testimonials: Array<Testimonial> = [
   // First testimonial data
   {
-    content:
-      " \"Since switching to ScrewFast's hardware tools, the efficiency on our construction sites has skyrocketed. The durability of the hex bolts and precision of the machine screws are simply unmatched. It's refreshing to work with a company that truly understands the daily demands of the industry.\" ",
-    author: "Jason Clark",
-    role: "Site Foreman | TopBuild",
+    id: 1,
     avatarSrc:
-      "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=1374&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=facearea&facepad=2&w=320&h=320&q=80",
+      "https://www.shutterstock.com/image-vector/sport-bet-logo-icon-live-260nw-2147401823.jpg",
     avatarAlt: "Image Description",
+    title: "Casino Alpha",
+    rating: 4.18,
+    category: 1,
+    investment: 150,
+    reward: 420,
+    rewardType: "Tokens",
+    disclaimer: "T&Cs Apply",
+    url: "https://www.google.com",
+    code: "WELCOME420",
+    howToRegister: "Register with the code WELCOME420",
+  },
+  {
+    id: 2,
+    avatarSrc:
+      "https://www.shutterstock.com/image-vector/sport-bet-logo-icon-live-260nw-2147401823.jpg",
+    avatarAlt: "Image Description",
+    title: "Bet Fat",
+    rating: 4.58,
+    category: 1,
+    investment: 20,
+    reward: 50,
+    rewardType: "Tokens",
+    disclaimer: "T&Cs Apply",
+    code: "WELCOME50",
+    url: "https://www.google.com",
+    howToRegister: "Register with the code WELCOME50",
+
   },
   // Second testimonial data
   {
-    content:
-      " \"As an interior designer, I'm always looking for high-quality materials and tools that help bring my visions to life. ScrewFast's mixed screws assortment has been a game-changer for my projects, providing the perfect blend of quality and variety. The outstanding customer support was just the cherry on top!\" ",
-    author: "Maria Gonzalez",
-    role: "Interior Designer | Creative Spaces",
+    id: 3,
     avatarSrc:
-      "https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=1376&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D8&auto=format&fit=facearea&facepad=2&w=320&h=320&q=80",
+    "https://images-platform.99static.com//dCLJ4R40XbxzyY6tFhBFLQ2ZEJI=/420x0:1500x1080/fit-in/500x500/99designs-contests-attachments/90/90536/attachment_90536419",
     avatarAlt: "Image Description",
+    title: "Sport Betting Turbo",
+    rating: 4.4,
+    category: 0,
+    investment: 50,
+    reward: 40,
+    rewardType: "Free Bets",
+    code: "WELCOME40",
+    url: "https://www.google.com",
+    howToRegister: "Register with the code WELCOME40",
+    disclaimer: "New UK 18+ only. Register (excl. 13/04/2024) with promo code WELCOME40, Bet £10+ on Sports in one transaction within 7 days of registering. Get £30 Free Bets & £10 free spins within 10hrs of bet settlement. Bonuses expire 7 days after issue. Min odds, eligibility & payment exclusions apply. T&Cs apply.",
   },
   // Third testimonial data
   {
-    content:
-      " \"I’ve been a professional carpenter for over 15 years, and I can sincerely say that ScrewFast’s tap bolts and nuts are some of the best I've used. They grip like no other, and I have full confidence in every joint and fixture. Plus, the service is impeccable – they truly care about my project's success.\" ",
-    author: "Richard Kim",
-    role: "Master Carpenter | WoodWright",
+    id: 4,
     avatarSrc:
-      "https://images.unsplash.com/photo-1474176857210-7287d38d27c6?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D8&auto=format&fit=facearea&facepad=2&w=320&h=320&q=80",
+      "https://i.pinimg.com/474x/d1/92/23/d1922396d297ac426cf04265a3674d3b.jpg",
     avatarAlt: "Image Description",
+    title: "Casino Chuppa",
+    rating: 4.71,
+    category: 1,
+    investment: 10,
+    code: "WELCOME50",
+    url: "https://www.google.com",
+    howToRegister: "Register with the code WELCOME50",
+    reward: 50,
+    rewardType: "Free Spins",
+    disclaimer: "New UK 18+ only. Register (excl. 13/04/2024) with promo code WELCOME50, Bet £10+ on Sports in one transaction within 7 days of registering. Get £30 Free Bets & £20 free spins within 10hrs of bet settlement. Bonuses expire 7 days after issue. Min odds, eligibility & payment exclusions apply. T&Cs apply.",
   },
 ];
-
-const pageTitle: string = `Products | ${SITE.title}`;
 ---
 
 <MainLayout
@@ -98,8 +154,13 @@ const pageTitle: string = `Products | ${SITE.title}`;
           )
         }
       </div>
-      <PrimaryCTA title="Customer Stories" url="#testimonials" noArrow={true} />
     </div>
+
+    <ReviewSection
+      title="Casions & Betting Companies"
+      testimonials={testimonials}
+  />
+
     <!--Displaying products in alternating styles. Alternative product gets different card styling.-->
     <!--Maps through all product entries and displays them with either CardSmall or CardWide based on their position.-->
     <section class="grid grid-cols-1 gap-4 sm:grid-cols-3 md:gap-6 xl:gap-8">
@@ -115,19 +176,6 @@ const pageTitle: string = `Products | ${SITE.title}`;
       }
     </section>
   </div>
-  <!--Features statistics section-->
-  <FeaturesStatsAlt
-    title="Why Choose ScrewFast?"
-    subTitle="Transform your ideas into tangible results with ScrewFast tools. Whether you're starting with a sketch on a napkin or diving into a comprehensive construction project, our tools are engineered to help you build with confidence."
-    benefits={[
-      "Robust and reliable tools for long-lasting performance.",
-      "Innovative solutions tailored to modern construction needs.",
-      "Customer support dedicated to your project's success.",
-    ]}
-  />
-  <!--Testimonials section-->
-  <TestimonialsSectionAlt
-    title="What Our Customers Say"
-    testimonials={testimonials}
-  />
+
+ 
 </MainLayout>

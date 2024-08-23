@@ -13,7 +13,7 @@ import featureImage from "@images/features-image.avif";
 import construction from "@images/construction-image.avif";
 import tools from "@images/automated-tools.avif";
 import dashboard from "@images/dashboard-image.avif";
-import TestimonialsSectionAlt from "@/components/sections/testimonials/TestimonialsSectionAlt.astro";
+import OfferSection from "@/components/sections/cards/OfferSection.astro";
 import EmailFooterInput from "@components/ui/forms/input/EmailFooterInput.astro";
 import EmailMainInput from "@components/ui/forms/input/EmailMainInput.astro";
 
@@ -31,9 +31,6 @@ interface Testimonial {
   code: string;
   id: number;
   howToRegister: string;
-  
-  
-  
 }
 
 
@@ -139,7 +136,7 @@ const testimonials: Array<Testimonial> = [
     subTitle="Experience the reliability chosen by industry giants."
   /> -->
 
-    <TestimonialsSectionAlt
+  <OfferSection
     title="Offers"
     testimonials={testimonials}
   />
