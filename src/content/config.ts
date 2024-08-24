@@ -35,6 +35,7 @@ const productsCollection = defineCollection({
         z.object({
           title: z.string(),
           subTitle: z.string(),
+          pro: z.boolean().optional(),
         }),
       ),
       specificationsLeft: z.array(

@@ -39,7 +39,7 @@ const pageTitle: string = `${product.data.title} | ${SITE.title}`;
   <div id="overlay" class="fixed inset-0 bg-neutral-200 dark:bg-neutral-800"/>
 
   <div
-    class="grid max-w-[85rem] grid-cols-8 px-4 py-10 sm:px-6 lg:px-8 lg:py-14 2xl:max-w-full"
+    class="grid max-w-[85rem] grid-cols-8 px-2 py-10 sm:px-6 lg:px-8 lg:py-14 2xl:max-w-full"
   >
     <!-- <div>
       <p
@@ -95,9 +95,9 @@ const pageTitle: string = `${product.data.title} | ${SITE.title}`;
       </div>
     </section>
 
-    <div class="mx-auto max-w-[85rem] px-4 pt-10 lg:pt-0 col-span-8 lg:col-span-6 ">
+    <div class="mx-auto max-w-[85rem] md:px-4 pt-10 lg:pt-0 col-span-8 lg:col-span-6 ">
     <nav
-      class="mx-auto grid max-w-6xl gap-y-px sm:flex sm:gap-x-4 sm:gap-y-0"
+      class="mx-auto flex max-w-6xl gap-y-px gap-x-2 sm:gap-x-4 sm:gap-y-0"
       aria-label="Tabs"
       role="tablist"
     >
@@ -117,7 +117,7 @@ const pageTitle: string = `${product.data.title} | ${SITE.title}`;
       <div id="tabs-with-card-1" role="tabpanel">
         <div class="mx-auto max-w-[85rem] px-4 pb-10 sm:px-6 lg:px-8 lg:pb-14">
           <div class="grid gap-12 md:grid-cols-2">
-            <div class="lg:w-3/4">
+            <div >
               <h2
                 class="text-balance text-3xl font-bold tracking-tight text-neutral-800 dark:text-neutral-200 md:leading-tight lg:text-4xl"
               >
@@ -128,15 +128,15 @@ const pageTitle: string = `${product.data.title} | ${SITE.title}`;
               >
                 {product.data.longDescription.subTitle}
               </p>
+              
               <p class="mt-5">
                 <PrimaryCTA
                   title={product.data.longDescription.btnTitle}
                   url={product.data.longDescription.btnURL}
                 />
               </p>
-            </div>
 
-            <div class="space-y-6 lg:space-y-10">
+               <div class="space-y-6 lg:space-y-10 mt-4">
               {
                 product.data.descriptionList.map((list) => (
                   <div class="flex">
@@ -144,6 +144,7 @@ const pageTitle: string = `${product.data.title} | ${SITE.title}`;
                       <h3 class="text-base font-bold text-neutral-800 dark:text-neutral-200 sm:text-lg">
                         {list.title}
                       </h3>
+                      <hr class={`h-px my-1 border-0 ${list.pro? "bg-green-500": "bg-red-400"}`}/>
                       <p class="mt-1 text-neutral-600 dark:text-neutral-400">
                         {list.subTitle}
                       </p>
@@ -152,6 +153,20 @@ const pageTitle: string = `${product.data.title} | ${SITE.title}`;
                 ))
               }
             </div>
+            </div>
+            
+            
+            <div class="space-y-6">
+               <h2 class="text-balance text-3xl font-bold tracking-tight text-neutral-800 dark:text-neutral-200 md:leading-tight lg:text-4xl">
+                  Review
+                </h2>
+              
+                <p class="mt-1 text-neutral-600 dark:text-neutral-400">
+                  {product.data.longDescription.subTitle}
+                </p>
+                   
+            </div>
+           
           </div>
         </div>
       </div>
