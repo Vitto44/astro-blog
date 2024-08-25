@@ -87,12 +87,31 @@ const pageTitle: string = `${product.data.title} | ${SITE.title}`;
         format={"png"}
         loading={"eager"}
       />
-        <!-- <p class="text-lg text-neutral-600 dark:text-neutral-400">
-          
-          {product.data.main.content}
-        </p> -->
+        
+         
         
       </div>
+
+       {
+            product.data.featuredOffer && (
+              <div class="border-2 border-orange-300 rounded-lg p-4 m-4 w-full">
+                <p class="text-pretty text-neutral-600 dark:text-neutral-300 mb-6">
+                    Bet ${product.data.featuredOffer.investment}
+                  <span class="text-pretty text-neutral-800 dark:text-neutral-200 text-2xl ">
+                    Get ${product.data.featuredOffer.reward}
+                  </span>
+                    In {product.data.featuredOffer.rewardType}
+                </p>
+                <span class="text-lg font-semibold text-neutral-600 dark:text-neutral-400">
+                  
+                  Or Use Code: {product.data.featuredOffer.code}
+
+                </span>
+                <PrimaryCTA title="Check Out" url={product.data.featuredOffer.redeemLink} />
+              </div>
+            )
+          }
+
     </section>
 
     <div class="mx-auto max-w-[85rem] md:px-4 pt-10 lg:pt-0 col-span-8 lg:col-span-6 ">
@@ -227,82 +246,29 @@ const pageTitle: string = `${product.data.title} | ${SITE.title}`;
       </div>
 
       <div id="tabs-with-card-2" class="hidden" role="tabpanel">
-        <div class="mx-auto max-w-[85rem] px-4 pb-10 sm:px-6 lg:px-8 lg:pb-14">
-          <div class="grid w-full grid-cols-1 gap-x-16 md:grid-cols-2">
-            <div class="max-w-md space-y-6">
-              {
-                product.data.specificationsLeft.map((spec) => (
-                  <div>
-                    <h3 class="block font-bold text-neutral-800 dark:text-neutral-200">
-                      {spec.title}
-                    </h3>
-                    <p class="text-neutral-600 dark:text-neutral-400">
-                      {spec.subTitle}
-                    </p>
-                  </div>
-                ))
-              }
-            </div>
-            {
-              product.data.specificationsRight ? (
-                <div class="mt-6 max-w-md space-y-6 md:ml-auto md:mt-0">
-                  {product.data.specificationsRight?.map((spec) => (
-                    <div>
-                      <h3 class="block font-bold text-neutral-800 dark:text-neutral-200">
-                        {spec.title}
-                      </h3>
-                      <p class="text-neutral-600 dark:text-neutral-400">
-                        {spec.subTitle}
-                      </p>
-                    </div>
-                  ))}
-                </div>
-              ) : product.data.tableData ? (
-                <div class="mt-6 space-y-6 md:ml-auto md:mt-0">
-                  <div class="flex flex-col">
-                    <div class="-m-1.5 overflow-x-auto">
-                      <div class="inline-block min-w-full p-1.5 align-middle">
-                        <div class="overflow-hidden">
-                          <table class="min-w-full divide-y divide-neutral-300 dark:divide-neutral-700">
-                            <thead>
-                              <tr>
-                                {product.data.tableData?.[0].feature?.map(
-                                  (header) => (
-                                    <th
-                                      scope="col"
-                                      class="px-6 py-3 text-start text-xs font-medium uppercase text-neutral-500 dark:text-neutral-500"
-                                    >
-                                      {header}
-                                    </th>
-                                  )
-                                )}
-                              </tr>
-                            </thead>
-                            <tbody class="divide-y divide-neutral-300 dark:divide-neutral-700">
-                              {product.data.tableData?.map((row) =>
-                                // Wrap each row's content in a separate <tr> element
-                                row.description.map((rowData) => (
-                                  <tr>
-                                    {/* Iterate through each cell value in the row's description array */}
-                                    {rowData.map((cellValue) => (
-                                      // Render each cell value in its own <td> element
-                                      <td class="whitespace-nowrap px-6 py-4 text-sm font-medium text-neutral-600 dark:text-neutral-400">
-                                        {cellValue}
-                                      </td>
-                                    ))}
-                                  </tr>
-                                ))
-                              )}
-                            </tbody>
-                          </table>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              ) : null
-            }
-          </div>
+        <div class="mx-auto max-w-[85rem] px-6 pb-10 sm:px-6 lg:px-12 lg:pb-14 space-y-6">
+          {product.data.howToClaim?.map((claim) => (
+
+              <div class="space-y-3">
+                <h2 class="text-balance text-xl font-bold tracking-tight text-neutral-800 dark:text-neutral-200 md:leading-tight lg:text-2xl border-b-2 p-2 w-fit border-gray-400 dark:border-gray-700">
+                  {claim.title}
+                </h2>
+                <p class="mt-1 text-neutral-600 dark:text-neutral-400">
+                  {claim.content}
+                </p>
+                {claim.image && (
+                  <Image
+                    src={claim.image}
+                    class="w-full rounded-lg max-h-[400px] object-cover"
+                    alt={claim.imageAlt? claim.imageAlt : "Image"}
+                    format={"png"}
+                    loading={"eager"}
+                  />
+                )}
+              </div>
+
+          ))}
+           
         </div>
       </div>
 

@@ -12,6 +12,25 @@ const productsCollection = defineCollection({
       description: z.string(),
       rating: z.number(),
       termsAndConditions: z.string().optional(),
+      featuredOffer: z
+        .object({
+          investment: z.number().optional(),
+          reward: z.number().optional(),
+          rewardType: z.string().optional(),
+          code: z.string().optional(),
+          redeemLink: z.string().optional(),
+        })
+        .optional(),
+      howToClaim: z
+        .array(
+          z.object({
+            title: z.string(),
+            content: z.string().optional(),
+            image: image().optional(),
+            imageAlt: z.string().optional(),
+          }),
+        )
+        .optional(),
       main: z.object({
         id: z.number(),
         content: z.string(),
