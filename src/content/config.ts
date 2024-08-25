@@ -11,6 +11,7 @@ const productsCollection = defineCollection({
       type: z.string(),
       description: z.string(),
       rating: z.number(),
+      termsAndConditions: z.string().optional(),
       main: z.object({
         id: z.number(),
         content: z.string(),
@@ -30,6 +31,13 @@ const productsCollection = defineCollection({
         subTitle: z.string(),
         btnTitle: z.string(),
         btnURL: z.string(),
+        customerSupport: z.string().optional(),
+        license: z.string().optional(),
+        pros: z.array(z.string()).optional(),
+        cons: z.array(z.string()).optional(),
+        games: z.array(z.string()).optional(),
+        countries: z.array(z.string()).optional(),
+        depositMethods: z.array(z.string()).optional(),
       }),
       descriptionList: z.array(
         z.object({
