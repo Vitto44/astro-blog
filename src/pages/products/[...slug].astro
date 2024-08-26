@@ -39,7 +39,7 @@ const pageTitle: string = `${product.data.title} | ${SITE.title}`;
   <div id="overlay" class="fixed inset-0 bg-neutral-200 dark:bg-neutral-800"/>
 
   <div
-    class="grid max-w-[85rem] grid-cols-8 px-2 py-10 sm:px-6 lg:px-8 lg:py-14 2xl:max-w-full"
+    class="grid max-w-[85rem] grid-cols-8 px-2 py-10 lg:py-14 2xl:max-w-full"
   >
     <!-- <div>
       <p
@@ -50,9 +50,9 @@ const pageTitle: string = `${product.data.title} | ${SITE.title}`;
       </p>
     </div> -->
     <section
-      class="grid grid-cols-1 gap-8 sm:grid-cols-2 col-span-8 pb-4 lg:col-span-2 border-b-2 lg:border-b-0 lg:border-r-2 border-orange-300"
+      class="flex 1 gap-16 md:flex-col flex-wrap col-span-8 pb-4 lg:col-span-2 border-b-2 lg:border-b-0 md:pr-4 lg:border-r-2 border-orange-300"
     >
-      <div class="flex lg:flex-col justify-between lg:justify-start gap-4 lg:gap-12 col-span-2">
+      <div class="flex lg:flex-col justify-between lg:justify-start gap-6 lg:gap-8 col-span-2">
         <div class="text-neutral-800 dark:text-neutral-200">
 
             <h1
@@ -79,38 +79,39 @@ const pageTitle: string = `${product.data.title} | ${SITE.title}`;
             </div>
 
       </div>
-
       <Image
         src={product.data.main.imgMain}
-        class="w-[100px] lg:min-w-[220px] rounded-full"
+        class="w-[100px] lg:min-w-[220px] mx-auto rounded-full lg:order-first"
         alt={product.data.main.imgAlt}
         format={"png"}
         loading={"eager"}
       />
+
         
          
+    </div>
         
-      </div>
+        
+    {
+      product.data.featuredOffer && (
+        <div class="rounded-lg p-4 mx-auto shadow-md bg-neutral-100 dark:bg-neutral-700 col-span-2 w-full text-center h-fit">
+            <p class=" text-neutral-600 dark:text-neutral-300 mb-6 font-semibold">
+                Bet ${product.data.featuredOffer.investment}
+              <span class=" text-neutral-800 dark:text-neutral-200 text-2xl font-bold">
+                Get ${product.data.featuredOffer.reward}
+              </span>
+                In {product.data.featuredOffer.rewardType}!
+            </p>
+            <span class="text-sm mb-1 block font-semibold text-neutral-600 dark:text-neutral-400">
+              
+              Or Use Code: {product.data.featuredOffer.code}
 
-       {
-            product.data.featuredOffer && (
-              <div class="border-2 border-orange-300 rounded-lg p-4 m-4 w-full">
-                <p class="text-pretty text-neutral-600 dark:text-neutral-300 mb-6">
-                    Bet ${product.data.featuredOffer.investment}
-                  <span class="text-pretty text-neutral-800 dark:text-neutral-200 text-2xl ">
-                    Get ${product.data.featuredOffer.reward}
-                  </span>
-                    In {product.data.featuredOffer.rewardType}
-                </p>
-                <span class="text-lg font-semibold text-neutral-600 dark:text-neutral-400">
-                  
-                  Or Use Code: {product.data.featuredOffer.code}
+            </span>
+            <PrimaryCTA title="Check Out" url={product.data.featuredOffer.redeemLink} style="w-full animate-pulse"/>
+          </div>
+        )
+      }
 
-                </span>
-                <PrimaryCTA title="Check Out" url={product.data.featuredOffer.redeemLink} />
-              </div>
-            )
-          }
 
     </section>
 
@@ -152,7 +153,7 @@ const pageTitle: string = `${product.data.title} | ${SITE.title}`;
                       </h3>
                        <ul class="mt-2 flex gap-2 flex-wrap  ml-2">
                           {product.data.longDescription.games?.map((game) => (
-                            <li class="bg-orange-400 text-white px-3 font-semibold py-1 rounded-md">{game}</li>
+                            <li class="bg-gray-300 dark:bg-gray-600 text-black dark:text-white px-3 font-semibold py-1 rounded-md">{game}</li>
                           ))}
                           
                       </ul>
@@ -163,7 +164,7 @@ const pageTitle: string = `${product.data.title} | ${SITE.title}`;
                       </h3>
                        <ul class="mt-2 flex gap-2 flex-wrap  ml-2">
                           {product.data.longDescription.countries?.map((country) => (
-                            <li class="bg-yellow-500 text-black px-3 font-semibold py-1 rounded-md">{country}</li>
+                            <li class="bg-gray-300 dark:bg-gray-600 text-black dark:text-white px-3 font-semibold py-1 rounded-md">{country}</li>
                           ))}
 
                       </ul>
