@@ -48,9 +48,9 @@ const pageTitle: string = `${product.data.title} | ${SITE.title}`;
   >
 
     <section
-      class="flex 1 gap-16 md:flex-col flex-wrap col-span-8 pb-4 lg:col-span-2 border-b-2 lg:border-b-0 md:pr-4 lg:border-r-2 border-orange-300"
+      class="flex gap-6 md:gap-16 md:flex-col flex-wrap col-span-8 pb-4 lg:col-span-2 border-b-2 lg:border-b-0 md:pr-4 lg:border-r-2 border-orange-300"
     >
-      <div class="flex lg:flex-col justify-between lg:justify-start gap-6 lg:gap-8 col-span-2">
+      <div class="flex lg:flex-col justify-between lg:justify-start gap-6 lg:gap-8 col-span-2 w-full ">
         <div class="text-neutral-800 dark:text-neutral-200">
 
             <h1
@@ -79,7 +79,7 @@ const pageTitle: string = `${product.data.title} | ${SITE.title}`;
       </div>
       <Image
         src={product.data.main.imgMain}
-        class="w-[100px] lg:min-w-[220px] mx-auto rounded-full lg:order-first"
+        class="w-[100px] lg:min-w-[220px] lg:mx-auto rounded-full lg:order-first"
         alt={product.data.main.imgAlt}
         format={"png"}
         loading={"eager"}
