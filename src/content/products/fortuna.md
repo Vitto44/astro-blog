@@ -1,19 +1,19 @@
 ---
-title: "CAYO - casioon & sit dowen"
-type: "Casino"
-rating: 4.5
+title: "Fortuna"
+type: "Sportsbook"
+rating: 4.1
 termsAndConditions: "By registering an account with us, you agree to our Terms and Conditions. Please make sure you read and understand them before proceeding."
 featuredOffer:
   investment: 20
   reward: 100
   rewardType: "Free Spins"
-  code: "T845"
+  code: "fortuna"
   redeemLink: "#"
 main:
   id: 1
   content: |
-    Introducing the SF-TB T845 – your go-to solution for precision fastening in machinery and equipment. This comprehensive set of machine screws is meticulously crafted to meet the stringent demands of industrial applications, ensuring secure and reliable fastening.
-  imgMain: "@/images/cayo.png"
+    Introducing the SF-TB fortuna – your go-to solution for precision fastening in machinery and equipment. This comprehensive set of machine screws is meticulously crafted to meet the stringent demands of industrial applications, ensuring secure and reliable fastening.
+  imgMain: "@/images/fortuna.jpg"
   imgAlt: "Mockup boxes of machine screws set"
 tabs:
   - id: "tabs-with-card-item-1"
@@ -41,7 +41,7 @@ howToClaim:
 longDescription:
   title: "Specifications"
   subTitle: |
-    The SF-TB T845 Machine Screws offer unparalleled precision and reliability for industrial applications, ensuring seamless operation and longevity for your machinery and equipment.
+    The SF-TB fortuna Machine Screws offer unparalleled precision and reliability for industrial applications, ensuring seamless operation and longevity for your machinery and equipment.
   pros:
     - "Crafted from high-quality materials for exceptional durability"
     - "Precision-engineered threads for a secure and reliable fit"
@@ -73,5 +73,5 @@ longDescription:
     - "Paysafecard"
   customerSupport: "info@support.de"
   license: "Curacao"
-slug: t845
+slug: fortuna
 ---

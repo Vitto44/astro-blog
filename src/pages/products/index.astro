@@ -11,7 +11,7 @@ import { SITE } from "@data/constants";
 import ReviewSection from "@/components/sections/cards/ReviewSection.astro";
 
 // Fetching all the product related content and sorting it by main.id
-const product: CollectionEntry<"products">[] = (
+const products: CollectionEntry<"products">[] = (
   await getCollection("products")
 ).sort(
   (a: CollectionEntry<"products">, b: CollectionEntry<"products">) =>
@@ -28,97 +28,6 @@ const subTitle: string =
 const pageTitle: string = `Products | ${SITE.title}`;
 
 
-interface Testimonial {
-  avatarSrc: string;
-  avatarAlt: string;
-  title: string;
-  rating: number;
-  category: number;
-  investment: number;
-  reward: number;
-  rewardType: string;
-  url: string;
-  disclaimer: string;
-  code: string;
-  id: number;
-  howToRegister: string;
-  description: string;
-}
-
-const testimonials: Array<Testimonial> = [
-  // First testimonial data
-  {
-    id: 1,
-    avatarSrc:
-      "https://www.shutterstock.com/image-vector/sport-bet-logo-icon-live-260nw-2147401823.jpg",
-    avatarAlt: "Image Description",
-    title: "Casino Alpha",
-    rating: 4.18,
-    category: 1,
-    investment: 150,
-    reward: 420,
-    rewardType: "Tokens",
-    disclaimer: "T&Cs Apply",
-    url: "https://www.google.com",
-    code: "WELCOME420",
-    howToRegister: "Register with the code WELCOME420",
-    description: "New UK 18+ only. Register (excl. 13/04/2024) with promo code WELCOME420, Bet £10+ on Sports in one transaction within 7 days of registering. Get £30 Free Bets & £20 free spins within 10hrs of bet settlement. Bonuses expire 7 days after issue. Min odds, eligibility & payment exclusions apply. T&Cs apply.",
-  },
-  {
-    id: 2,
-    avatarSrc:
-      "https://www.shutterstock.com/image-vector/sport-bet-logo-icon-live-260nw-2147401823.jpg",
-    avatarAlt: "Image Description",
-    title: "Bet Fat",
-    rating: 4.58,
-    category: 1,
-    investment: 20,
-    reward: 50,
-    rewardType: "Tokens",
-    disclaimer: "T&Cs Apply",
-    code: "WELCOME50",
-    url: "https://www.google.com",
-    howToRegister: "Register with the code WELCOME50",
-    description: "New UK 18+ only. Register (excl. 13/04/2024) with promo code WELCOME50, Bet £10+ on Sports in one transaction within 7 days of registering. Get £30 Free Bets & £20 free spins within 10hrs of bet settlement. Bonuses expire 7 days after issue. Min odds, eligibility & payment exclusions apply. T&Cs apply.",
-
-  },
-  // Second testimonial data
-  {
-    id: 3,
-    avatarSrc:
-    "https://images-platform.99static.com//dCLJ4R40XbxzyY6tFhBFLQ2ZEJI=/420x0:1500x1080/fit-in/500x500/99designs-contests-attachments/90/90536/attachment_90536419",
-    avatarAlt: "Image Description",
-    title: "Sport Betting Turbo",
-    rating: 4.4,
-    category: 0,
-    investment: 50,
-    reward: 40,
-    rewardType: "Free Bets",
-    code: "WELCOME40",
-    url: "https://www.google.com",
-    howToRegister: "Register with the code WELCOME40",
-    description: "New UK 18+ only. Register (excl. 13/04/2024) with promo code WELCOME40, Bet £10+ on Sports in one transaction within 7 days of registering. Get £30 Free Bets & £10 free spins within 10hrs of bet settlement. Bonuses expire 7 days after issue. Min odds, eligibility & payment exclusions apply. T&Cs apply.",
-    disclaimer: "New UK 18+ only. Register (excl. 13/04/2024) with promo code WELCOME40, Bet £10+ on Sports in one transaction within 7 days of registering. Get £30 Free Bets & £10 free spins within 10hrs of bet settlement. Bonuses expire 7 days after issue. Min odds, eligibility & payment exclusions apply. T&Cs apply.",
-  },
-  // Third testimonial data
-  {
-    id: 4,
-    avatarSrc:
-      "https://i.pinimg.com/474x/d1/92/23/d1922396d297ac426cf04265a3674d3b.jpg",
-    avatarAlt: "Image Description",
-    title: "Casino Chuppa",
-    rating: 4.71,
-    category: 1,
-    investment: 10,
-    code: "WELCOME50",
-    url: "https://www.google.com",
-    howToRegister: "Register with the code WELCOME50",
-    reward: 50,
-    rewardType: "Free Spins",
-    description: "New UK 18+ only. Register (excl. 13/04/2024) with promo code WELCOME50, Bet £10+ on Sports in one transaction within 7 days of registering. Get £30 Free Bets & £20 free spins within 10hrs of bet settlement. Bonuses expire 7 days after issue. Min odds, eligibility & payment exclusions apply. T&Cs apply.",
-    disclaimer: "New UK 18+ only. Register (excl. 13/04/2024) with promo code WELCOME50, Bet £10+ on Sports in one transaction within 7 days of registering. Get £30 Free Bets & £20 free spins within 10hrs of bet settlement. Bonuses expire 7 days after issue. Min odds, eligibility & payment exclusions apply. T&Cs apply.",
-  },
-];
 ---
 
 <MainLayout
@@ -159,28 +68,12 @@ const testimonials: Array<Testimonial> = [
       </div>
     </div>
     
-    {console.log(product)}
-
-    <!-- TODO change testimonials to product -->
-    <ReviewSection
-      title="Casions & Betting Companies"
-      testimonials={testimonials}
-  />
-
-    <!--Displaying products in alternating styles. Alternative product gets different card styling.-->
-    <!--Maps through all product entries and displays them with either CardSmall or CardWide based on their position.-->
-    <section class="grid grid-cols-1 gap-4 sm:grid-cols-3 md:gap-6 xl:gap-8">
-      {
-        product.map((product, index) => {
-          const position = index % 4;
-          if (position === 0 || position === 3) {
-            return <CardSmall product={product} />;
-          } else {
-            return <CardWide product={product} />;
-          }
-        })
-      }
+    <section>
+        <ReviewSection
+          product={products}
+        />
     </section>
+   
 
     
   </div>

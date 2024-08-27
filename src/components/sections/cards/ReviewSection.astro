@@ -1,37 +1,21 @@
 ---
 import FullStar from "@/components/ui/stars/FullStar.astro";
-import AvatarTestimonialSection from "../../ui/avatars/AvatarTestimonialSection.astro";
 import HalfStar from "@/components/ui/stars/HalfStar.astro";
 import PrimaryCTA from "@/components/ui/buttons/PrimaryCTA.astro";
-import SecondaryCTA from "@/components/ui/buttons/SecondaryCTA.astro";
+import type { CollectionEntry } from "astro:content";
+import { Image } from "astro:assets";
 
 // Define props from Astro
-const { title, testimonials } = Astro.props;
+const { title, product } = Astro.props;
 
-// Define TypeScript interface for Testimonial
-interface Testimonial {
-  avatarSrc: string;
-  avatarAlt: string;
-  title: string;
-  rating: number;
-  category: number;
-  investment: number;
-  reward: number;
-  rewardType: string;
-  url: string;
-  disclaimer: string;
-  code: string;
-  id: number;
-  howToRegister: string;
-  description: string;  
-  
-}
-
-// Define TypeScript interface for props
 interface Props {
-  title: string;
-  testimonials: Testimonial[];
+  title?: string;
+  product: CollectionEntry<"products">[];
 }
+
+product.forEach((item) => {
+  console.log(item);
+});
 
 ---
 <!-- Main div that wraps the testimonials section -->
@@ -40,22 +24,27 @@ interface Props {
   id="testimonials"
 >
   <!-- Title of the testimonials section -->
-  <div class="mb-6 w-3/4 max-w-2xl sm:mb-10 md:mb-16 lg:w-1/2">
-    <h2
-      class="text-balance text-2xl font-bold text-neutral-800 dark:text-neutral-200 sm:text-3xl lg:text-4xl"
-    >
-      {title}
-    </h2>
-  </div>
+   {title &&
+      <div class="mb-6 w-3/4 max-w-2xl sm:mb-10 md:mb-16 lg:w-1/2">
+        <h2
+          class="text-balance text-2xl font-bold text-neutral-800 dark:text-neutral-200 sm:text-3xl lg:text-4xl"
+          >
+          {title}
+        </h2>
+      </div>
+    }
 
   <div class="grid gap-6 lg:grid-cols-2 xl:grid-cols-3">
     <!-- Looping through each testimonial data and rendering it -->
     {
-      testimonials.map(({avatarSrc, avatarAlt, title, rating, category, investment, reward, rewardType, id, url, code, disclaimer, howToRegister, description}: Testimonial) => {
+      product.map((p) => {
 
+        
+        const {data} = p;
+        const { title, rating, type, main} = data;
+        
         const actualRating = rating % 1 >= 0.7 ? Math.ceil(rating) : Math.floor(rating);
         const isHalfStar = rating % 1 > 0.2 && rating % 1 < 0.7;
-
 
         return (
         <div class="w-80 sm:w-96 col-span-1 mx-auto ring-2 rounded-xl ring-neutral-300 dark:ring-neutral-700 text-neutral-800 dark:text-neutral-200">
@@ -63,10 +52,14 @@ interface Props {
             
             <div class=" bg-neutral-300/30 p-4 dark:bg-neutral-900/30 md:px-7 rounded-t-xl">
               <div class="flex items-center">
-                <AvatarTestimonialSection
-                  src={avatarSrc}
-                  alt={avatarAlt}
-                  />
+ 
+                <Image
+                  src={main.imgMain}
+                  class="size-8 rounded-full h-[6rem] w-[6rem]"
+                  alt={main.imgAlt}
+                  format={"png"}
+                  loading={"eager"}
+                />
 
                 <div class="ms-3 grow">
                   <p class="font-bold  text-xl">
@@ -74,7 +67,7 @@ interface Props {
                   </p>
 
                   <p class="text-sm font-semibold text-neutral-500 dark:text-neutral-200 ">
-                    {category? 'Casino' : 'Sport Betting'}
+                    {type}
                   </p>
                 
                   <div class="flex flex-col items-start mt-2">
@@ -103,7 +96,7 @@ interface Props {
             <div class="px-4 py-4 bg-gray-50 dark:bg-neutral-800">
 
               <p class="text-pretty text-neutral-600 dark:text-neutral-300 line-clamp-4">
-                  {description}
+                  {main.content}
                
               </p>
 
@@ -114,7 +107,7 @@ interface Props {
             <div class="rounded-b-xl bg-neutral-300/30 dark:bg-neutral-900/30 p-2">
 
               <p class="text-xs text-neutral-500 dark:text-neutral-200 h-14 text-pretty mx-3 ">
-                <PrimaryCTA title="More" url={url} style="w-full" />
+                <PrimaryCTA title="View" url={"/products/" + p.slug} style="w-full" />
               </p>
                   
             </div>

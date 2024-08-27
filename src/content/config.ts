@@ -9,7 +9,6 @@ const productsCollection = defineCollection({
     z.object({
       title: z.string(),
       type: z.string(),
-      description: z.string(),
       rating: z.number(),
       termsAndConditions: z.string().optional(),
       featuredOffer: z
@@ -34,7 +33,6 @@ const productsCollection = defineCollection({
       main: z.object({
         id: z.number(),
         content: z.string(),
-        imgCard: image(),
         imgMain: image(),
         imgAlt: z.string(),
       }),
@@ -48,8 +46,6 @@ const productsCollection = defineCollection({
       longDescription: z.object({
         title: z.string(),
         subTitle: z.string(),
-        btnTitle: z.string(),
-        btnURL: z.string(),
         customerSupport: z.string().optional(),
         license: z.string().optional(),
         pros: z.array(z.string()).optional(),
@@ -57,39 +53,6 @@ const productsCollection = defineCollection({
         games: z.array(z.string()).optional(),
         countries: z.array(z.string()).optional(),
         depositMethods: z.array(z.string()).optional(),
-      }),
-      descriptionList: z.array(
-        z.object({
-          title: z.string(),
-          subTitle: z.string(),
-          pro: z.boolean().optional(),
-        }),
-      ),
-      specificationsLeft: z.array(
-        z.object({
-          title: z.string(),
-          subTitle: z.string(),
-        }),
-      ),
-      specificationsRight: z
-        .array(
-          z.object({
-            title: z.string(),
-            subTitle: z.string(),
-          }),
-        )
-        .optional(),
-      tableData: z
-        .array(
-          z.object({
-            feature: z.array(z.string()),
-            description: z.array(z.array(z.string())),
-          }),
-        )
-        .optional(),
-      blueprints: z.object({
-        first: image().optional(),
-        second: image().optional(),
       }),
     }),
 });
