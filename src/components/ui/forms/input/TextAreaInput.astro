@@ -1,16 +1,18 @@
 ---
-const { label, id, name } = Astro.props;
+const { label, id, name, required } = Astro.props;
 
 interface Props {
   label: string;
   name: string;
   id: string;
+  required?: boolean;
 }
 ---
 
 <div>
   <label for={id} class="sr-only">{label}</label>
   <textarea
+    required={required}
     id={id}
     name={name}
     rows="4"
