@@ -86,7 +86,8 @@ const pageTitle: string = `${post.data.title} | ${SITE.title}`;
             const customStyle = block.style || ""; // Use custom style if provided
             if (block.type === "text") {
               return <p class={`text-pretty text-lg text-neutral-700 dark:text-neutral-300 ${customStyle}`}>{block.value}</p>;
-            } else if (block.type === "image") {
+            } 
+            else if (block.type === "image") {
               block.src && block.alt && (
                 <figure class={customStyle}>
                   <Image
@@ -99,9 +100,10 @@ const pageTitle: string = `${post.data.title} | ${SITE.title}`;
                   <figcaption class="text-sm text-neutral-500 dark:text-neutral-400">{block.caption}</figcaption>
                 </figure>
               );
-            } else if (block.type === "table") {
+            } 
+            else if (block.type === "table") {
               return (
-                <table class={`min-w-full divide-y divide-neutral-300 dark:divide-neutral-700 ${customStyle}`}>
+                <table class={`divide-y divide-neutral-300 dark:divide-neutral-700 ${customStyle}`}>
                   <thead>
                     <tr>
                       {block.headers?.map((header) => (
@@ -113,7 +115,7 @@ const pageTitle: string = `${post.data.title} | ${SITE.title}`;
                     {block.rows?.map((row) => (
                       <tr>
                         {row.map((cell) => (
-                          <td class="px-6 py-4 whitespace-nowrap text-sm text-neutral-700 dark:text-neutral-300">{cell}</td>
+                          <td class="px-6 py-4 text-sm text-neutral-700 dark:text-neutral-300">{cell}</td>
                         ))}
                       </tr>
                     ))}
