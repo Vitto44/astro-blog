@@ -1,5 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 import colors from "tailwindcss/colors";
+
 export default {
   content: [
     "./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}",
@@ -33,7 +34,11 @@ export default {
       zinc: colors.zinc, // Used mainly for box-shadow
       green: colors.green, // Used for success alert
     },
-    extend: {},
+    extend: {
+      boxShadow: {
+        own: "0 0 0 1px, 10px 10px 0 0",
+      },
+    },
   },
   plugins: [
     require("tailwindcss/nesting"),
