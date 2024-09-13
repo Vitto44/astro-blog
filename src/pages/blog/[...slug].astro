@@ -11,6 +11,8 @@ import { capitalize, formatDate } from "@utils/utils";
 import { getCollection } from "astro:content";
 import type { CollectionEntry } from "astro:content";
 import { SITE } from "@data/constants";
+import SidebarEmailInput from "@/components/ui/forms/input/SidebarEmailInput.astro";
+import OfferCard from "@/components/sections/cards/OfferCard.astro";
 
 // getStaticPaths is used to pre-render all routes based on the blog posts
 export async function getStaticPaths() {
@@ -21,6 +23,8 @@ export async function getStaticPaths() {
     params: { slug: post.slug },
     props: { post },
   }));
+
+ 
 }
 
 // Get the current post's data
@@ -34,12 +38,21 @@ const blogPosts: CollectionEntry<"blog">[] = await getCollection(
   }
 );
 
+const offer: CollectionEntry<"products">[] = await getCollection(
+  "products",
+  ({ id }) => {
+    return id.startsWith("en/")
+  }
+);
+
 // Filter out the current post to get related posts
 const relatedPosts: CollectionEntry<"blog">[] = blogPosts.filter(
   (blogEntry) => blogEntry.slug !== post.slug
 );
 
 const pageTitle: string = `${post.data.title} | ${SITE.title}`;
+
+console.log('yep', offer)
 ---
 
 <MainLayout title={pageTitle}>
@@ -138,22 +151,24 @@ const pageTitle: string = `${post.data.title} | ${SITE.title}`;
 
       <div class="sticky" id="progress-mobile">
         <div class="overflow-hidden rounded-lg bg-neutral-100 dark:bg-neutral-900 md:max-w-96 p-4 space-y-6 shadow-xl">
-          <h4 class="text-pretty text-lg text-neutral-700 dark:text-neutral-300">Suggested Offer:</h4>
-          <Image
+          <h3 class="py-1 px-3 w-fit rounded-lg font-semibold text-pretty text-lg text-neutral-200 bg-neutral-700 dark:bg-neutral-200 dark:text-neutral-900">Suggested Offer:</h3>
+          <!-- <Image
             class="h-full w-full object-cover object-center"
             src={post.data.cardImage}
             alt={post.data.cardImageAlt}
             draggable={"false"}
             format={"avif"}
+          /> -->
+
+           <OfferCard
+            testimonial={offer[0].data}
           />
-          <h4 class="text-pretty text-lg text-neutral-700 dark:text-neutral-300">Suggested Article:</h4>
-          <Image
-            class="h-full w-full object-cover object-center"
-            src={post.data.cardImage}
-            alt={post.data.cardImageAlt}
-            draggable={"false"}
-            format={"avif"}
-          />
+
+          <SidebarEmailInput />
+
+          <h3 class="py-1 px-3 w-fit rounded-lg font-semibold text-pretty text-lg text-neutral-200 bg-neutral-700 dark:bg-neutral-200 dark:text-neutral-900">Newest Articles:</h3>
+          {relatedPosts.map((entry) => <CardRelated blogEntry={entry} />)}
+
         </div>
       </div>
     </div>

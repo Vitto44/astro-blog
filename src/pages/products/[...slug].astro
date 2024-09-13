@@ -78,9 +78,9 @@ const pageTitle: string = `${product.data.title} | ${SITE.title}`;
 
       </div>
       <Image
-        src={product.data.main.imgMain}
+        src={product.data.imgMain}
         class="w-[100px] lg:min-w-[220px] lg:mx-auto rounded-full lg:order-first"
-        alt={product.data.main.imgAlt}
+        alt={product.data.imgAlt}
         format={"png"}
         loading={"eager"}
       />
@@ -91,21 +91,21 @@ const pageTitle: string = `${product.data.title} | ${SITE.title}`;
         
         
     {
-      product.data.featuredOffer && (
+      product.data && (
         <div class="rounded-lg p-4 mx-auto shadow-md bg-neutral-100 dark:bg-neutral-700 col-span-2 w-full text-center h-fit">
             <p class=" text-neutral-600 dark:text-neutral-300 mb-6 font-semibold">
-                Bet ${product.data.featuredOffer.investment}
+                Bet ${product.data.investment}
               <span class=" text-neutral-800 dark:text-neutral-200 text-2xl font-bold">
-                Get ${product.data.featuredOffer.reward}
+                Get ${product.data.reward}
               </span>
-                In {product.data.featuredOffer.rewardType}!
+                In {product.data.rewardType}!
             </p>
             <span class="text-sm mb-1 block font-semibold text-neutral-600 dark:text-neutral-400">
               
-              Or Use Code: {product.data.featuredOffer.code}
+              Or Use Code: {product.data.code}
 
             </span>
-            <PrimaryCTA title="Check Out" url={product.data.featuredOffer.redeemLink} style="w-full"/>
+            <PrimaryCTA title="Check Out" url={product.data.redeemLink} style="w-full"/>
           </div>
         )
       }
@@ -120,7 +120,7 @@ const pageTitle: string = `${product.data.title} | ${SITE.title}`;
       role="tablist"
     >
       {
-        product.data.tabs.map((tab, index) => (
+        product.data.tabs.map((tab, index: number) => (
           <ProductTabBtn
             title={tab.title}
             id={tab.id}

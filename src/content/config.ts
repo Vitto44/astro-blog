@@ -11,15 +11,14 @@ const productsCollection = defineCollection({
       type: z.string(),
       rating: z.number(),
       termsAndConditions: z.string().optional(),
-      featuredOffer: z
-        .object({
-          investment: z.number().optional(),
-          reward: z.number().optional(),
-          rewardType: z.string().optional(),
-          code: z.string().optional(),
-          redeemLink: z.string().optional(),
-        })
-        .optional(),
+      investment: z.number().optional(),
+      reward: z.number().optional(),
+      rewardType: z.string().optional(),
+      code: z.string().optional(),
+      redeemLink: z.string().optional(),
+      imgMain: image(),
+      imgAlt: z.string(),
+      btnURL: z.string(),
       howToClaim: z
         .array(
           z.object({
@@ -33,8 +32,6 @@ const productsCollection = defineCollection({
       main: z.object({
         id: z.number(),
         content: z.string(),
-        imgMain: image(),
-        imgAlt: z.string(),
       }),
       tabs: z.array(
         z.object({
