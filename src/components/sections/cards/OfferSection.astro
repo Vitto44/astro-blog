@@ -1,31 +1,10 @@
 ---
 import OfferCard from "./OfferCard.astro";
+import type { CollectionEntry } from 'astro:content';
 
-// Define props from Astro
-const { title, testimonials } = Astro.props;
 
-// Define TypeScript interface for Testimonial
-interface Testimonial {
-  imgMain: string;
-  imgAlt: string;
-  title: string;
-  rating: number;
-  category: number;
-  investment: number;
-  reward: number;
-  rewardType: string;
-  btnURL: string;
-  termsAndConditions: string;
-  code: string;
-  id: number;
-  howToRegister: string;
-}
-
-// Define TypeScript interface for props
-interface Props {
-  title: string;
-  testimonials: Testimonial[];
-}
+const testimoniales = Astro.props.testimonials as CollectionEntry<'products'>['data'][];
+const { title } = Astro.props as { title: string };
 
 ---
 <!-- Main div that wraps the testimonials section -->
@@ -45,7 +24,7 @@ interface Props {
   <div class="grid gap-12 lg:grid-cols-2 xl:grid-cols-3">
     <!-- Looping through each testimonial data and rendering it -->
     {
-      testimonials.map((t: Testimonial) => {
+      testimoniales.map((t) => {
 
 
         return (

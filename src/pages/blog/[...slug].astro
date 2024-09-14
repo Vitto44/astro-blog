@@ -52,7 +52,6 @@ const relatedPosts: CollectionEntry<"blog">[] = blogPosts.filter(
 
 const pageTitle: string = `${post.data.title} | ${SITE.title}`;
 
-console.log('yep', offer)
 ---
 
 <MainLayout title={pageTitle}>
@@ -151,18 +150,15 @@ console.log('yep', offer)
 
       <div class="sticky" id="progress-mobile">
         <div class="overflow-hidden rounded-lg bg-neutral-100 dark:bg-neutral-900 md:max-w-96 p-4 space-y-6 shadow-xl">
-          <h3 class="py-1 px-3 w-fit rounded-lg font-semibold text-pretty text-lg text-neutral-200 bg-neutral-700 dark:bg-neutral-200 dark:text-neutral-900">Suggested Offer:</h3>
-          <!-- <Image
-            class="h-full w-full object-cover object-center"
-            src={post.data.cardImage}
-            alt={post.data.cardImageAlt}
-            draggable={"false"}
-            format={"avif"}
-          /> -->
 
-           <OfferCard
-            testimonial={offer[0].data}
-          />
+          {offer.length > 0 && offer[0].data && (
+            <h3 class="py-1 px-3 w-fit rounded-lg font-semibold text-pretty text-lg text-neutral-200 bg-neutral-700 dark:bg-neutral-200 dark:text-neutral-900">Suggested Offer:</h3>
+            
+            <OfferCard
+              testimonial={offer[0].data}
+            />
+
+          )}
 
           <SidebarEmailInput />
 
@@ -174,15 +170,4 @@ console.log('yep', offer)
     </div>
   </section>
 
-  <!-- Related Articles Section -->
-  <section class="mx-auto max-w-3xl px-4 py-10 sm:px-6 lg:px-8 lg:py-14">
-    <div class="mb-10 max-w-2xl">
-      <h2 class="text-balance text-2xl font-bold text-neutral-800 dark:text-neutral-200 md:text-4xl md:leading-tight">
-        Related articles
-      </h2>
-    </div>
-    <div class="grid grid-cols-2 gap-6">
-      {relatedPosts.map((entry) => <CardRelated blogEntry={entry} />)}
-    </div>
-  </section>
 </MainLayout>
