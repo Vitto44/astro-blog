@@ -15,7 +15,7 @@ const isHalfStar = rating % 1 > 0.2 && rating % 1 < 0.7;
 ---
 
 
-<div class="max-w-80 sm:w-96 col-span-1 mx-auto rounded-xl dark:ring-neutral-700 text-neutral-800 dark:text-neutral-200 shadow-own">
+<div class="max-w-92 w-full col-span-1 mx-auto rounded-xl dark:ring-neutral-700 text-neutral-800 dark:text-neutral-200 shadow-own">
   <div class="flex flex-col rounded-xl bg-neutral-50 dark:bg-neutral-700">
     <div class="bg-neutral-200 p-4 dark:bg-neutral-900/30 md:px-7 rounded-t-xl">
       <div class="flex items-center">
@@ -25,6 +25,7 @@ const isHalfStar = rating % 1 > 0.2 && rating % 1 < 0.7;
             src={imgMain}
             alt={imgAlt}
             format="png"
+            loading="eager"
           />
         )}
 

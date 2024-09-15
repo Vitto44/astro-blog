@@ -62,14 +62,16 @@ const blogCollection = defineCollection({
       description: z.string(),
       contents: z.array(
         z.object({
-          type: z.enum(["text", "image", "table"]),
+          type: z.enum(["text", "image", "table", "list", "heading"]),
           value: z.string().optional(), // Used for text content
-          src: image().optional(), // Used for image content
-          alt: z.string().optional(), // Alt text for images
+          imgSrc: image().optional(), // Used for image content
+          imgAlt: z.string().optional(), // Alt text for images
           caption: z.string().optional(), // Caption for images
           headers: z.array(z.string()).optional(), // Table headers
           rows: z.array(z.array(z.string())).optional(), // Table rows
           style: z.string().optional(), // Custom style for the content block
+          items: z.array(z.string()).optional(), // List items
+          level: z.number().optional(), // Heading power
         }),
       ),
       pubDate: z.date(),

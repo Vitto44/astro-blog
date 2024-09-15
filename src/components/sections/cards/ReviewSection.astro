@@ -38,7 +38,7 @@ interface Props {
 
         
         const {data} = p;
-        const { title, rating, type, main} = data;
+        const { title, rating, type, main, imgMain, imgAlt } = data;
         
         const actualRating = rating % 1 >= 0.7 ? Math.ceil(rating) : Math.floor(rating);
         const isHalfStar = rating % 1 > 0.2 && rating % 1 < 0.7;
@@ -51,9 +51,9 @@ interface Props {
               <div class="flex items-center">
  
                 <Image
-                  src={main.imgMain}
+                  src={imgMain}
                   class="size-8 rounded-full h-[6rem] w-[6rem]"
-                  alt={main.imgAlt}
+                  alt={imgAlt}
                   format={"png"}
                   loading={"eager"}
                 />

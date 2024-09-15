@@ -8,6 +8,8 @@ import { getCollection, type CollectionEntry } from "astro:content";
 import { SITE } from "@data/constants";
 import FullStar from "@/components/ui/stars/FullStar.astro";
 import HalfStar from "@/components/ui/stars/HalfStar.astro";
+import OfferCard from "@/components/sections/cards/OfferCard.astro";
+import SecondaryCTA from "@/components/ui/buttons/SecondaryCTA.astro";
 
 // Global declaration for gsap animation library
 declare global {
@@ -37,6 +39,8 @@ const pageTitle: string = `${product.data.title} | ${SITE.title}`;
 
  const actualRating = rating % 1 >= 0.7 ? Math.ceil(rating) : Math.floor(rating);
   const isHalfStar = rating % 1 > 0.2 && rating % 1 < 0.7;
+
+console.log(product.data);
 
 ---
 
@@ -92,21 +96,19 @@ const pageTitle: string = `${product.data.title} | ${SITE.title}`;
         
     {
       product.data && (
-        <div class="rounded-lg p-4 mx-auto shadow-md bg-neutral-100 dark:bg-neutral-700 col-span-2 w-full text-center h-fit">
-            <p class=" text-neutral-600 dark:text-neutral-300 mb-6 font-semibold">
-                Bet ${product.data.investment}
-              <span class=" text-neutral-800 dark:text-neutral-200 text-2xl font-bold">
-                Get ${product.data.reward}
-              </span>
-                In {product.data.rewardType}!
-            </p>
-            <span class="text-sm mb-1 block font-semibold text-neutral-600 dark:text-neutral-400">
-              
-              Or Use Code: {product.data.code}
 
-            </span>
-            <PrimaryCTA title="Check Out" url={product.data.redeemLink} style="w-full"/>
+        <div class="text-pretty text-2xl text-center w-full dark:text-neutral-800 text-neutral-100 bg-neutral-800 dark:bg-neutral-100 mx-auto px-8 rounded-lg font-bold">
+          <p class="py-1">Bet {product.data.investment}$ And Get</p>
+          <span class="text-pretty rounded-lg text-neutral-800 dark:text-neutral-100 text-5xl block bg-neutral-50 dark:bg-neutral-800 py-3 px-12">
+            {product.data.reward}$
+          </span>
+          <p class="py-1">In {product.data.rewardType}</p>
+          <div class="py-4">
+            <PrimaryCTA title="Check Out" url={product.data.btnURL} style="w-full"/>
           </div>
+        </div>
+
+     
         )
       }
 
@@ -292,38 +294,7 @@ const pageTitle: string = `${product.data.title} | ${SITE.title}`;
 <script>
   import { gsap } from "gsap";
 
-  type AnimationSettings = {
-    autoAlpha?: number;
-    y?: number;
-    x?: number;
-    willChange?: string;
-  };
-
-  function setElementAnimationDefaults(
-    id: string,
-    settings: AnimationSettings
-  ) {
-    gsap.set(id, settings);
-  }
-
-
-  setElementAnimationDefaults("#fadeInUp", {
-    autoAlpha: 0,
-    y: 50,
-    willChange: "transform, opacity",
-  });
-
-
   let timeline = gsap.timeline({ defaults: { overwrite: "auto" } });
-
-
-  timeline.to(
-    "#fadeInUp",
-    { duration: 0.1, autoAlpha: 0.5, y: 0, ease: "power2.out" },
-    "-=0.5"
-  );
-
-
   timeline.to("#overlay", { duration: 0.5, autoAlpha: 0, delay: 0.2 });
 </script>
 <script>
