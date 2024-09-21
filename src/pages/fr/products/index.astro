@@ -1,99 +1,62 @@
 ---
 // Importing necessary components
 import MainLayout from "@/layouts/MainLayout.astro";
-import PrimaryCTA from "@components/ui/buttons/PrimaryCTA.astro";
-import CardSmall from "@components/ui/cards/CardSmall.astro";
-import CardWide from "@components/ui/cards/CardWide.astro";
-import FeaturesStatsAlt from "@components/sections/features/FeaturesStatsAlt.astro";
 
 // Importing necessary functions from Astro
 import { getCollection } from "astro:content";
 import type { CollectionEntry } from "astro:content";
+import { SITE } from "@data/constants";
+import ReviewSection from "@/components/sections/cards/ReviewSection.astro";
 
 // Fetching all the product related content and sorting it by main.id
-const product: CollectionEntry<"products">[] = (
+const products: CollectionEntry<"products">[] = (
   await getCollection("products")
 ).sort(
   (a: CollectionEntry<"products">, b: CollectionEntry<"products">) =>
-    a.data.main.id - b.data.main.id
+    a.data.main.id - b.data.main.id,
 );
 
 // Define variables for page content
-const title: string = "Produits";
-const subTitle: string =
-  "Explorez la durabilité et la précision des outils ScrewFast, conçus aussi bien pour les professionnels que pour les amateurs. Chacun de nos produits est fabriqué avec précision et conçu pour durer, garantissant que vous disposez du bon outil pour chaque tâche.";
+const title: string = "Casions & Betting Companies";
+
+
+
+const pageTitle: string = `Products | ${SITE.title}`;
+
 
 ---
 
 <MainLayout
-  title="Produits | ScrewFast"
-  lang="fr"
+  title={pageTitle}
   structuredData={{
     "@context": "https://schema.org",
     "@type": "WebPage",
-    "@id": "https://screwfast.uk/fr/products",
-    url: "https://screwfast.uk/fr/products",
-    name: "Outils Matériels | ScrewFast",
-    description:
-      "Explorez la durabilité et la précision des outils ScrewFast, conçus aussi bien pour les professionnels que pour les passionnés.",
-    isPartOf: {
+    "@id": "https://screwfast.uk/products",
+    "url": "https://screwfast.uk/products",
+    "name": "Hardware Tools | ScrewFast",
+    "description": "Explore the durability and precision of ScrewFast tools, designed for both professionals and enthusiasts.",
+    "isPartOf": {
       "@type": "WebSite",
-      url: "https://screwfast.uk/fr",
-      name: "ScrewFast",
-      description:
-        "ScrewFast propose des outils matériels de premier ordre et des services de construction experts pour répondre à tous vos besoins de projet.",
+      "url": "https://screwfast.uk",
+      "name": "ScrewFast",
+      "description": "ScrewFast offers top-tier hardware tools and expert construction services to meet all your project needs."
     },
-    inLanguage: "fr",
+    "inLanguage": "en-US"
   }}
 >
   <div
     class="mx-auto max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 2xl:max-w-full"
   >
-    <div class="mb-4 flex items-center justify-between gap-8 sm:mb-8 md:mb-12">
-      <div class="flex items-center gap-12">
-        <h1
-          class="text-balance text-2xl font-bold tracking-tight text-neutral-800 dark:text-neutral-200 md:text-4xl md:leading-tight"
-        >
-          {title}
-        </h1>
-        {
-          subTitle && (
-            <p class="hidden max-w-screen-sm text-pretty text-neutral-600 dark:text-neutral-400 md:block">
-              {subTitle}
-            </p>
-          )
-        }
-      </div>
-      <PrimaryCTA
-        title="Histoires de clients"
-        url="#testimonials"
-        noArrow={true}
-      />
-    </div>
-    <!--Displaying products in alternating styles. Alternative product gets different card styling.-->
-    <!--Maps through all product entries and displays them with either CardSmall or CardWide based on their position.-->
-    <section class="grid grid-cols-1 gap-4 sm:grid-cols-3 md:gap-6 xl:gap-8">
-      {
-        product.map((product, index) => {
-          const position = index % 4;
-          if (position === 0 || position === 3) {
-            return <CardSmall product={product} />;
-          } else {
-            return <CardWide product={product} />;
-          }
-        })
-      }
+    
+    <section>
+        <ReviewSection
+          product={products}
+        />
     </section>
-  </div>
-  <!--Features statistics section-->
-  <FeaturesStatsAlt
-    title="Pourquoi choisir ScrewFast ?"
-    subTitle="Transformez vos idées en résultats tangibles avec les outils ScrewFast. Que vous commenciez par un croquis sur un coin de table ou plongiez dans un projet de construction complet, nos outils sont conçus pour vous aider à construire en toute confiance."
-    benefits={[
-      "Outils robustes et fiables pour des performances durables.",
-      "Solutions innovantes adaptées aux besoins de construction modernes.",
-      "Support client dédié au succès de votre projet.",
-    ]}
-  />
+   
 
+    
+  </div>
+
+ 
 </MainLayout>

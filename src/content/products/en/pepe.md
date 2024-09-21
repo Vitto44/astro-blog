@@ -1,6 +1,6 @@
 ---
 title: "Pepe"
-type: "Casino"
+type: 0
 rating: 2.4
 termsAndConditions: "By registering an account with us, you agree to our Terms and Conditions. Please make sure you read and understand them before proceeding."
 investment: 10

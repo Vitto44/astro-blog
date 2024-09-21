@@ -10,6 +10,7 @@ import FullStar from "@/components/ui/stars/FullStar.astro";
 import HalfStar from "@/components/ui/stars/HalfStar.astro";
 import OfferCard from "@/components/sections/cards/OfferCard.astro";
 import SecondaryCTA from "@/components/ui/buttons/SecondaryCTA.astro";
+import { getType } from "@/utils/utils";
 
 // Global declaration for gsap animation library
 declare global {
@@ -62,7 +63,7 @@ const pageTitle: string = `${product.data.title} | ${SITE.title}`;
             </h1>
             
             <p class="lg:text-xl font-semibold text-neutral-600 dark:text-neutral-400">
-              {product.data.type}
+              {getType(product.data.type)}
             </p>
 
             <div class="flex space-x-1">

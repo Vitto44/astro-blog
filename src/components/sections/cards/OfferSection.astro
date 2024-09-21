@@ -1,38 +1,66 @@
 ---
+import ListFilter from "../misc/ListFilter.astro";
 import OfferCard from "./OfferCard.astro";
 import type { CollectionEntry } from 'astro:content';
 
 
-const testimoniales = Astro.props.testimonials as CollectionEntry<'products'>['data'][];
+const offers = Astro.props.testimonials as CollectionEntry<'products'>['data'][];
 const { title } = Astro.props as { title: string };
 
 ---
-<!-- Main div that wraps the testimonials section -->
 <section
   class="max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 2xl:max-w-full rounded-lg"
   id="testimonials"
 >
-  <!-- Title of the testimonials section -->
-  <div class="mb-6 w-3/4 max-w-2xl sm:mb-10 md:mb-16 lg:w-1/2">
+  <div class="mb-6 max-w-2xl sm:mb-10 md:mb-16 flex flex-wrap gap-4">
     <h2
       class="text-balance text-2xl font-bold text-neutral-800 dark:text-neutral-200 sm:text-3xl lg:text-4xl"
     >
       {title}
     </h2>
+    <ListFilter/>
   </div>
 
-  <div class="grid gap-12 lg:grid-cols-2 xl:grid-cols-3">
-    <!-- Looping through each testimonial data and rendering it -->
-    {
-      testimoniales.map((t) => {
-
-
-        return (
-            <OfferCard
-              testimonial={t}
-            />
-      )
-    })
-    }
+   <div class="grid gap-12 lg:grid-cols-2 xl:grid-cols-3" id="offers">
+    {offers.map((offer) => (
+      <div data-offer data-category={offer.type} class="offer-card">
+        <OfferCard testimonial={offer} />
+      </div>
+    ))}
   </div>
+  <p data-no-offers class="text-center text-xl mt-8 text-neutral-500 dark:text-neutral-400 hidden">
+    No offers found.
+  </p>
   </section>
+
+<script>
+  window.addEventListener('filterCategory', (event) => {
+    const selectedCategory = (event as CustomEvent).detail.category;
+    
+    const offers = document.querySelectorAll('[data-offer]');
+    const noOffers = document.querySelectorAll('[data-no-offers]');
+
+    let counter = 0;
+    
+    offers.forEach((offer) => {
+      const offerCategory = offer.getAttribute('data-category');
+      // Show all if category is 0 or match with the selected category
+      if (selectedCategory == 0 || offerCategory == selectedCategory) {
+        (offer as HTMLElement).style.display = 'block';
+        counter++;
+      } else {
+        (offer as HTMLElement).style.display = 'none';
+      }
+    });
+
+     if (counter === 0) {
+      noOffers.forEach((noOffer) => {
+        (noOffer as HTMLElement).style.display = 'block';
+      });
+    } else {
+      noOffers.forEach((noOffer) => {
+        (noOffer as HTMLElement).style.display = 'none';
+      });
+    }
+  });
+</script>

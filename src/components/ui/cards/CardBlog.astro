@@ -42,7 +42,7 @@ interface Props {
 
         <div class="ms-2.5 sm:ms-4">
          
-          <p class="text-xs text-neutral-50/[.8]">
+          <p class="text-xs text-neutral-50 bg-neutral-800/[.8] p-2 rounded-lg">
             {formatDate(blogEntry.data.pubDate)}
           </p>
         </div>
@@ -50,7 +50,7 @@ interface Props {
     </div>
   </div>
   <!-- The container for the blog post's title and description -->
-  <div class="absolute inset-x-0 bottom-0 z-10 bg-neutral-800/[.8] rounded-xl">
+  <div class="absolute inset-x-0 bottom-0 z-10 bg-neutral-800/[.8] rounded-t-xl">
     <div class="flex h-full flex-col p-4">
       <h3
         class="text-balance text-lg font-bold text-neutral-50 group-hover:text-neutral-50/[.8] sm:text-3xl"

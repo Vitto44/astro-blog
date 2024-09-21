@@ -1,6 +1,6 @@
 ---
 title: "Nike"
-type: "Sportsbook"
+type: 3
 rating: 3.8
 termsAndConditions: "By registering an account with us, you agree to our Terms and Conditions. Please make sure you read and understand them before proceeding."
 investment: 20

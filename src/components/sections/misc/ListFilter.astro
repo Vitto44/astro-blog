@@ -1,0 +1,90 @@
+---
+import { getType } from '@/utils/utils';
+import { languages } from '@utils/ui';
+
+const langData = Astro.url.pathname.split('/')[1] as keyof typeof languages;
+
+const selectedLanguage =  !langData || langData.length > 2 ? 'en' : langData;
+---
+
+<div class="flex flex-col md:flex-row gap-4 items-center justify-center">
+
+  <ul class="flex gap-2 p-2 rounded-md dark:bg-neutral-700 bg-neutral-100">
+    {Object.entries(languages).map(([lang, label]) => (
+      <li>
+        <button
+          data-lang={lang}
+          class={`text-neutral-800 dark:text-white dark:border-white border-neutral-800 p-2 rounded-lg font-semibold border-2 ${selectedLanguage == lang ? 'bg-orange-400' : 'bg-transparent'}`}
+        >
+          {label}
+        </button>
+      </li>
+    ))}
+  </ul>
+
+
+  <!-- Category Filter Buttons -->
+  <ul class="flex flex-wrap md:flex-nowrap gap-2 p-2 rounded-md dark:bg-neutral-700 bg-neutral-100">
+    {Array.from({ length: 5 }, (_, i) => (
+      <li>
+        <button
+          data-selecter
+          class="text-neutral-800 dark:text-white border-2 dark:border-white border-neutral-800 p-2 rounded-lg text-nowrap font-semibold"
+          value={i}
+        >
+          {getType(i, true)}
+        </button>
+      </li>
+    ))}
+  </ul>
+
+ 
+  </div>
+</div>
+
+<script define:vars={{languages}}>
+
+  // Category filter logic
+  const buttons = document.querySelectorAll('[data-selecter]');
+  buttons.forEach((button) => {
+    const category = button.getAttribute('value');
+    button.addEventListener('click', () => {
+      buttons.forEach((btn) => {
+        if (btn !== button) {
+          if (btn instanceof HTMLElement) {
+            btn.style.backgroundColor = 'transparent';
+          }
+        } else {
+          if (btn instanceof HTMLElement) {
+            btn.style.backgroundColor = '#fa5a15';
+          }
+        }
+      });
+      const customEvent = new CustomEvent('filterCategory', { detail: { category } });
+      window.dispatchEvent(customEvent);
+    });
+  });
+
+   // Language picker logic (buttons instead of dropdown)
+  const langButtons = document.querySelectorAll('[data-lang]');
+  langButtons.forEach((button) => {
+    const lang = button.getAttribute('data-lang');
+    button.addEventListener('click', function (event) {
+      event.preventDefault();
+      const url = new URL(window.location.href);
+      const pathParts = url.pathname.split('/').filter((part) => part && !Object.keys(languages).includes(part));
+
+      const t = url.pathname.split("/")[1]
+      
+      // Disable the selection of the same language
+      if ((t.length !== 2 && lang === 'en') || lang === t) return;
+      
+      if (lang && lang !== 'en') {
+        pathParts.unshift(lang);
+      }
+
+      url.pathname = pathParts.join('/');
+      window.location.href = url.toString();
+    });
+  });
+</script>

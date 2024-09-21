@@ -4,6 +4,7 @@ import PrimaryCTA from '@/components/ui/buttons/PrimaryCTA.astro';
 import SecondaryCTA from '@/components/ui/buttons/SecondaryCTA.astro';
 import FullStar from '@/components/ui/stars/FullStar.astro';
 import HalfStar from '@/components/ui/stars/HalfStar.astro';
+import { getType } from '@/utils/utils';
 import { Image } from 'astro:assets';
 import type { CollectionEntry } from 'astro:content';
 
@@ -36,7 +37,7 @@ const isHalfStar = rating % 1 > 0.2 && rating % 1 < 0.7;
           <p class="font-bold text-xl">{title}</p>
 
           <p class="text-sm font-semibold text-neutral-500 dark:text-neutral-200 ">
-            {type}
+            {getType(type)}
           </p>
 
           <div class="flex flex-col items-start mt-2">

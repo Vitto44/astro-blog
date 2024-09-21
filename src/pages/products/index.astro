@@ -18,8 +18,6 @@ const products: CollectionEntry<"products">[] = (
 
 // Define variables for page content
 const title: string = "Casions & Betting Companies";
-const subTitle: string =
-  "Explore the best offers from top casinos and betting companies. Register now to claim your rewards!";
 
 
 
@@ -49,22 +47,6 @@ const pageTitle: string = `Products | ${SITE.title}`;
   <div
     class="mx-auto max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 2xl:max-w-full"
   >
-    <div class="mb-4 flex items-center justify-between gap-8 sm:mb-8 md:mb-12">
-      <div class="flex items-center gap-12">
-        <h1
-          class="text-balance text-2xl font-bold tracking-tight text-neutral-800 dark:text-neutral-200 md:text-4xl md:leading-tight"
-        >
-          {title}
-        </h1>
-        {
-          subTitle && (
-            <p class="hidden max-w-screen-sm text-pretty text-neutral-600 dark:text-neutral-400 md:block">
-              {subTitle}
-            </p>
-          )
-        }
-      </div>
-    </div>
     
     <section>
         <ReviewSection
