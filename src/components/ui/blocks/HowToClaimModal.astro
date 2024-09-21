@@ -1,0 +1,44 @@
+---
+import { Image } from "astro:assets";
+
+const { id, open, howToClaim } = Astro.props;
+---
+
+<button onclick={`document.getElementById('${id}').showModal()`}>{open}</button>
+
+  <dialog
+      data-modal id={`modal-${id}`} class="rounded-lg bg-gray-100 dark:bg-neutral-800 p-4 backdrop:backdrop-blur backdrop:bg-gray-500/80"
+  >
+   <div class="mx-auto max-w-[85rem] px-6 pb-10 sm:px-6 lg:px-12 lg:pb-14 space-y-6 max-h-[calc(100vh-10rem)] overflow-y-auto">
+    {howToClaim?.map((claim: any) => (
+
+        <div class="space-y-3">
+          <h2 class="text-balance text-xl font-bold tracking-tight text-neutral-800 dark:text-neutral-200 md:leading-tight lg:text-2xl border-b-2 p-2 w-fit border-gray-400 dark:border-gray-700">
+            {claim.title}
+          </h2>
+          <p class="mt-1 text-neutral-600 dark:text-neutral-400">
+            {claim.content}
+          </p>
+          {claim.image && (
+            <Image
+              src={claim.image}
+              class="w-full rounded-lg max-h-[400px] object-cover"
+              alt={claim.imageAlt? claim.imageAlt : "Image"}
+              format={"png"}
+              loading={"eager"}
+            />
+          )}
+        </div>
+      ))}
+
+    </div>
+  <button slot="close" class="absolute top-1 right-8 text-4xl text-neutral-800 dark:text-neutral-200 bg-gray-100 dark:bg-neutral-800 rounded-b-full p-2" onclick={`document.getElementById('modal-${id}').close()`}>
+    &times;
+  </button>
+</dialog>
+  <script define:vars={{id}}>
+    const modal = document.getElementById(`modal-${id}`);
+    if (modal) {
+      modal.addEventListener('click', (e) => { if (e.target === e.currentTarget) modal.close() });
+    }
+  </script>

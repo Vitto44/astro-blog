@@ -27,7 +27,7 @@ tabs:
     title: "Terms and Conditions"
 howToClaim:
   - title: "Step 1"
-    content: "Click the 'Register' button on the top right corner of the page."
+    content: "Click the 'Register' button on the top right corner of the page. Ass!"
     image: "@/images/aerial-view.avif"
     imageAlt: "Aerial view of a city"
   - title: "Step 2"

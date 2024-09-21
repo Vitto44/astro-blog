@@ -1,4 +1,5 @@
 ---
+import HowToClaimModal from '@/components/ui/blocks/HowToClaimModal.astro';
 import PrimaryCTA from '@/components/ui/buttons/PrimaryCTA.astro';
 import SecondaryCTA from '@/components/ui/buttons/SecondaryCTA.astro';
 import FullStar from '@/components/ui/stars/FullStar.astro';
@@ -12,11 +13,13 @@ const { imgAlt, imgMain, title, rating, type, investment, reward, rewardType, bt
 
 const actualRating = rating % 1 >= 0.7 ? Math.ceil(rating) : Math.floor(rating);
 const isHalfStar = rating % 1 > 0.2 && rating % 1 < 0.7;
+
+
 ---
 
 
 <div class="max-w-92 w-full col-span-1 mx-auto rounded-xl dark:ring-neutral-700 text-neutral-800 dark:text-neutral-200 shadow-own">
-  <div class="flex flex-col rounded-xl bg-neutral-50 dark:bg-neutral-700">
+  <div class="flex flex-col rounded-xl bg-neutral-50 dark:bg-neutral-700 h-full">
     <div class="bg-neutral-200 p-4 dark:bg-neutral-900/30 md:px-7 rounded-t-xl">
       <div class="flex items-center">
         {imgMain && (
@@ -56,26 +59,35 @@ const isHalfStar = rating % 1 > 0.2 && rating % 1 < 0.7;
         </span>
         <p class="py-1">In {rewardType}</p>
         <div class="flex flex-col gap-2 md:flex-row md:gap-6 py-4 justify-between">
-          <SecondaryCTA title="How To Register" url={btnURL} />
+            
+          <button
+              class="bg-neutral-100 dark:bg-neutral-800 text-neutral-800 dark:text-neutral-100 py-2 px-4 rounded-lg text-sm"
+              onclick={`document.getElementById('modal-${title}').showModal()`}
+              >
+            How to Claim
+          </button>      
+
           <PrimaryCTA title="Check Out" url={btnURL} />
         </div>
       </div>
     </div>
-
+    
     {code ? 
       <p class="text-center h-8 bg-gray-50 dark:bg-neutral-800 pb-1">Or Use Code: <b>{code}</b></p>
       :
       <div class="h-8 bg-gray-50 dark:bg-neutral-800" />
     }
 
-    <div class="rounded-b-xl bg-neutral-200 dark:bg-neutral-900/30">
-      <div class="group flex relative gap-1 m-2 cursor-pointer">
-        <svg class="w-4 h-4 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
-          <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 11h2v5m-2 0h4m-2.592-8.5h.01M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
-        </svg>
-        <p class="text-xs">Advertiser Disclosure</p>
-        <span class="group-hover:opacity-100 transition-opacity text-sm rounded-md top-5 absolute opacity-0 py-2 px-4 -mx-2 my-2 bg-neutral-100 dark:bg-neutral-700">{termsAndConditions}</span>
-      </div>
+  <div class="rounded-b-xl bg-neutral-200 dark:bg-neutral-900/30 h-full">
+    <div class="group flex relative gap-1 m-2 cursor-pointer">
+      <svg class="w-5 h-5 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 11h2v5m-2 0h4m-2.592-8.5h.01M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+      </svg>
+      <p class="text-sm">Advertiser Disclosure</p>
+      <span class="group-hover:block hidden text-sm rounded-md top-5 absolute py-2 px-4 -mx-2 my-2 bg-neutral-100 dark:bg-neutral-700">{termsAndConditions}</span>
     </div>
   </div>
+</div>
+
+  <HowToClaimModal id={title} howToClaim={howToClaim}/>
 </div>

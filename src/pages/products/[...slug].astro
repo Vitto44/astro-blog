@@ -40,8 +40,6 @@ const pageTitle: string = `${product.data.title} | ${SITE.title}`;
  const actualRating = rating % 1 >= 0.7 ? Math.ceil(rating) : Math.floor(rating);
   const isHalfStar = rating % 1 > 0.2 && rating % 1 < 0.7;
 
-console.log(product.data);
-
 ---
 
 <MainLayout title={pageTitle}>
