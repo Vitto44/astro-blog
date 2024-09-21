@@ -71,8 +71,9 @@ const homeUrl = Astro.currentLocale === "fr" ? "/fr" : "/";
         </button>
       </div>
       <!-- ThemeIcon component specifically for smaller screens -->
-      <span class="inline-block md:hidden">
+      <span class="flex gap-4 md:hidden">
         <ThemeIcon />
+        <LanguagePicker />
       </span>
     </div>
     <!-- Contains navigation links -->
@@ -88,12 +89,13 @@ const homeUrl = Astro.currentLocale === "fr" ? "/fr" : "/";
         {strings.navBarLinks.map(link => (
           <NavLink url={link.url} name={link.name} />
         ))}
-
-        <LanguagePicker />
-        <!-- ThemeIcon component specifically for larger screens -->
+        
         <span class="hidden md:inline-block">
           <ThemeIcon />
         </span>
+        <div class="hidden md:inline-block">
+          <LanguagePicker />
+        </div>
       </div>
     </div>
   </nav>
