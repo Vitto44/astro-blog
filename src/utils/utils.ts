@@ -8,13 +8,6 @@ function formatDate(date: Date): string {
 
   return new Date(date).toLocaleDateString(undefined, options);
 }
-// Capitalize the first letter
-function capitalize(str: string): string {
-  if (typeof str !== "string" || str.length === 0) {
-    return str;
-  }
-  return str.charAt(0).toUpperCase() + str.slice(1);
-}
 
 function getType(type: number, withEmoji = false): string {
   switch (type) {
@@ -33,4 +26,4 @@ function getType(type: number, withEmoji = false): string {
   }
 }
 
-export { formatDate, capitalize, getType };
+export { formatDate, getType };

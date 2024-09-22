@@ -31,6 +31,7 @@ export default defineConfig({
         locales: {
           en: "en", // The `defaultLocale` value must present in `locales` keys
           fr: "fr",
+          sk: "sk",
         },
       },
     }),
