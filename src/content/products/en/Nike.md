@@ -28,11 +28,11 @@ tabs:
 howToClaim:
   - title: "Step 1"
     content: "Click the 'Register' button on the top right corner of the page."
-    image: "@/images/aerial-view.avif"
+    image: "@/images/social.png"
     imageAlt: "Aerial view of a city"
   - title: "Step 2"
     content: "Fill in your details in the registration form."
-    image: "@/images/blueprint-1.avif"
+    image: "@/images/social.png"
     imageAlt: "Blueprint of a machine screw"
   - title: "Step 3"
     content: "Read and accept the Terms and Conditions."
