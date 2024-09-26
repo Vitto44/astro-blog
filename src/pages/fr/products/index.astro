@@ -6,7 +6,7 @@ import MainLayout from "@/layouts/MainLayout.astro";
 import { getCollection } from "astro:content";
 import type { CollectionEntry } from "astro:content";
 import { SITE } from "@data/constants";
-import ReviewSection from "@/components/sections/cards/ReviewSection.astro";
+import ReviewSection from "@/components/sections/ReviewSection.astro";
 
 // Fetching all the product related content and sorting it by main.id
 const products: CollectionEntry<"products">[] = (

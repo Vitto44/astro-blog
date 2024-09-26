@@ -1,11 +1,12 @@
 ---
-import ListFilter from "../misc/ListFilter.astro";
-import OfferCard from "./OfferCard.astro";
+import ListFilter from "./misc/ListFilter.astro";
+import OfferCard from "./cards/OfferCard.astro";
 import type { CollectionEntry } from 'astro:content';
-
 
 const offers = Astro.props.testimonials as CollectionEntry<'products'>['data'][];
 const { title } = Astro.props as { title: string };
+
+console.log(offers);
 
 ---
 <section

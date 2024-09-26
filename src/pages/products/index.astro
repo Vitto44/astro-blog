@@ -6,14 +6,13 @@ import MainLayout from "@/layouts/MainLayout.astro";
 import { getCollection } from "astro:content";
 import type { CollectionEntry } from "astro:content";
 import { SITE } from "@data/constants";
-import ReviewSection from "@/components/sections/cards/ReviewSection.astro";
+import ReviewSection from "@/components/sections/ReviewSection.astro";
 
-// Fetching all the product related content and sorting it by main.id
-const products: CollectionEntry<"products">[] = (
-  await getCollection("products")
-).sort(
-  (a: CollectionEntry<"products">, b: CollectionEntry<"products">) =>
-    a.data.main.id - b.data.main.id,
+const products: CollectionEntry<"products">[] = await getCollection(
+  "products",
+  ({ id }) => {
+    return id.startsWith("en/")
+  }
 );
 
 

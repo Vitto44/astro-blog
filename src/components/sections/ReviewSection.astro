@@ -5,7 +5,7 @@ import PrimaryCTA from "@/components/ui/buttons/PrimaryCTA.astro";
 import type { CollectionEntry } from "astro:content";
 import { Image } from "astro:assets";
 import { getType } from "@/utils/utils";
-import ListFilter from "../misc/ListFilter.astro";
+import ListFilter from "./misc/ListFilter.astro";
 
 // Define props from Astro
 const { product } = Astro.props;
@@ -44,7 +44,7 @@ interface Props {
         const isHalfStar = rating % 1 > 0.2 && rating % 1 < 0.7;
 
         return (
-        <div data-offer data-category={type} class="w-80 sm:w-96 col-span-1 mx-auto ring-2 rounded-xl ring-neutral-300 dark:ring-neutral-700 text-neutral-800 dark:text-neutral-200">
+        <div data-offer data-category={type} class="sm:w-96 col-span-1 mx-auto ring-2 rounded-xl max-w-92 w-full ring-neutral-300 dark:ring-neutral-700 text-neutral-800 dark:text-neutral-200">
           <div class="flex flex-col rounded-xl bg-neutral-50 dark:bg-neutral-700">
             
             <div class=" bg-neutral-300/30 p-4 dark:bg-neutral-900/30 md:px-7 rounded-t-xl">

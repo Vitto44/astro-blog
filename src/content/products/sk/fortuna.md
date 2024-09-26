@@ -1,6 +1,6 @@
 ---
 title: "Fortuna SK"
-type: 3
+type: 1
 rating: 4.1
 termsAndConditions: "By registering an account with us, you agree to our Terms and Conditions. Please make sure you read and understand them before proceeding."
 investment: 20
