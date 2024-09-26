@@ -75,10 +75,11 @@ const flagImages = await Promise.all(
 </script>
 
 <script>
+  import { languages } from "@utils/ui";
   // Type alias for supported languages
-  type TLanguage = "en" | "fr";
+  type TLanguage = keyof typeof languages;
   // array of supported languages
-  const languages: TLanguage[] = ["en", "fr"];
+  const supportedLanguages: TLanguage[] = Object.keys(languages) as TLanguage[];
 
   document.addEventListener("DOMContentLoaded", function () {
     const languageLinks = document.querySelectorAll(".hs-dropdown-menu a");
@@ -95,7 +96,7 @@ const flagImages = await Promise.all(
         const url = new URL(window.location.href);
         const pathParts = url.pathname
           .split("/")
-          .filter((part) => part && !languages.includes(part as TLanguage));
+          .filter((part) => part && !supportedLanguages.includes(part as TLanguage));
 
         // Disable the selection of the same language
         if (lang === url.pathname.split("/")[1]) return;

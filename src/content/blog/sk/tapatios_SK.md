@@ -2,12 +2,12 @@
 title: "Maximizing Efficiency with ScrewFast's Cutting-Edge Tools, eh? SKSKSKSKSKSKSK"
 description: "Innovating Construction Efficiency with Precision Tools & Support"
 pubDate: 2024-02-06
-cardImage: "@/images/construction-workers.avif"
+cardImage: "@/images/fortuna.jpg"
 cardImageAlt: "Top view mechanical tools arrangement"
 readTime: 4
 contents:
   - type: image
-    imgSrc: "@/images/blog/post-2.avif"
+    imgSrc: "@/images/social.png"
     imgAlt: "Tool in use"
     caption: "ScrewFast's power drill in action"
 
@@ -22,7 +22,7 @@ contents:
       - ["Fastener", "Quick Installation", "Reduces setup time"]
 
   - type: image
-    imgSrc: "@/images/blog/jacob.avif"
+    imgSrc: "@/images/social.png"
     imgAlt: "Tool in use"
     caption: "ScrewFast's power drill in action"
 

@@ -1,41 +1,48 @@
 ---
 // Import necessary components and utilities
 import MainLayout from "@/layouts/MainLayout.astro";
-import AvatarBlogLarge from "@components/ui/avatars/AvatarBlogLarge.astro";
 import CardRelated from "@components/ui/cards/CardRelated.astro";
-import Bookmark from "@components/ui/buttons/Bookmark.astro";
 import SocialShare from "@components/ui/buttons/SocialShare.astro";
-import PostFeedback from "@components/ui/feedback/PostFeedback.astro";
 import { Image } from "astro:assets";
-import { capitalize, formatDate } from "@utils/utils";
+import { formatDate } from "@utils/utils";
 import { getCollection } from "astro:content";
 import type { CollectionEntry } from "astro:content";
 import { SITE } from "@data/constants";
+import SidebarEmailInput from "@/components/ui/forms/input/SidebarEmailInput.astro";
+import OfferCard from "@/components/sections/cards/OfferCard.astro";
 
 // getStaticPaths is used to pre-render all routes based on the blog posts
 export async function getStaticPaths() {
   const blogPosts = await getCollection("blog", ({ id }) => {
-    return id.startsWith("fr/");
+    return id.startsWith("en/");
   });
   return blogPosts.map((post) => ({
     params: { slug: post.slug },
     props: { post },
   }));
+
+ 
 }
+
 // Get the current post's data
 const { post } = Astro.props;
 
 // Get all blog posts
-const blogPosts: CollectionEntry<"blog">[] = await getCollection("blog",
+const blogPosts: CollectionEntry<"blog">[] = await getCollection(
+  "blog",
   ({ id }) => {
-    return id.startsWith("fr/");
+    return id.startsWith("en/");
+  }
+);
+
+const offer: CollectionEntry<"products">[] = await getCollection(
+  "products",
+  ({ id }) => {
+    return id.startsWith("en/")
   }
 );
 
 // Filter out the current post to get related posts
-// Note: This is a very basic way of choosing related posts, just for the purpose of the example.
-// In a production site, you might want to implement a more robust algorithm, choosing related posts based on tags, categories, dates, authors, or keywords.
-// See example: https://blog.codybrunner.com/2024/adding-related-articles-with-astro-content-collections/
 const relatedPosts: CollectionEntry<"blog">[] = blogPosts.filter(
   (blogEntry) => blogEntry.slug !== post.slug
 );
@@ -44,122 +51,147 @@ const pageTitle: string = `${post.data.title} | ${SITE.title}`;
 
 ---
 
-<MainLayout
-  title={pageTitle}
->
-  <section class="mx-auto max-w-3xl px-4 pb-12 pt-6 sm:px-6 lg:px-8 lg:pt-10">
-    <div class="max-w-2xl">
-      <div class="mb-6 flex items-center justify-between">
-        <div class="flex w-full gap-x-5 sm:items-center sm:gap-x-3">
-          <AvatarBlogLarge blogEntry={post} />
-          <div class="grow">
-            <div class="flex items-center justify-between gap-x-2">
-              <div>
-                <div
-                  class="hs-tooltip inline-block [--placement:bottom] [--trigger:hover]"
-                >
-                  <!--Post metadata and author info-->
-                  <span
-                    class="font-bold text-neutral-700 dark:text-neutral-300"
-                  >
-                    {post.data.author}
-                  </span>
+<MainLayout title={pageTitle}>
+  <section class="mx-auto max-w-screen-xl px-4 pb-12 pt-6 sm:px-6 lg:px-8 lg:pt-10">
+    <div class="grid gap-8 md:grid-cols-3 relative">
+      <div class="max-w-2xl md:col-span-2">
+        <!-- Post Metadata -->
+        <div class="mb-6 flex items-center justify-between">
+          <div class="flex w-full gap-x-5 sm:items-center sm:gap-x-3">
+            <div class="grow">
+              <div class="flex items-center justify-between gap-x-2">
+                <div>
+                  <ul class="text-xs text-neutral-500">
+                    <li class="relative inline-block pe-6 before:absolute before:end-2 before:top-1/2 before:size-1 before:-translate-y-1/2 before:rounded-full before:bg-neutral-300 last:pe-0 last-of-type:before:hidden dark:text-neutral-400 dark:before:bg-neutral-600">
+                      {formatDate(post.data.pubDate)}
+                    </li>
+                    <li class="relative inline-block pe-6 before:absolute before:end-2 before:top-1/2 before:size-1 before:-translate-y-1/2 before:rounded-full before:bg-neutral-300 last:pe-0 last-of-type:before:hidden dark:text-neutral-400 dark:before:bg-neutral-600">
+                      {post.data.readTime} min read
+                    </li>
+                  </ul>
                 </div>
-                <ul class="text-xs text-neutral-500">
-                  <li
-                    class="relative inline-block pe-6 before:absolute before:end-2 before:top-1/2 before:size-1 before:-translate-y-1/2 before:rounded-full before:bg-neutral-300 last:pe-0 last-of-type:before:hidden dark:text-neutral-400 dark:before:bg-neutral-600"
-                  >
-                    {formatDate(post.data.pubDate)}
-                  </li>
-                  <li
-                    class="relative inline-block pe-6 before:absolute before:end-2 before:top-1/2 before:size-1 before:-translate-y-1/2 before:rounded-full before:bg-neutral-300 last:pe-0 last-of-type:before:hidden dark:text-neutral-400 dark:before:bg-neutral-600"
-                  >
-                    {post.data.readTime} min read
-                  </li>
-                </ul>
               </div>
             </div>
           </div>
         </div>
+        
+        <!-- Post Title -->
+        <h2 class="mb-3 text-2xl font-bold text-neutral-800 dark:text-neutral-200 md:text-3xl">
+          {post.data.title}
+        </h2>
+
+        <!-- Featured Image -->
+        <Image
+          class="w-full max-h-92 object-cover object-center my-6 rounded-xl text-pretty"
+          src={post.data.cardImage}
+          alt={post.data.cardImageAlt}
+          draggable={"false"}
+          format={"avif"}
+          loading={"eager"}
+        />
+
+       
+
+        {post.data.contents.map((i) => {
+           if (i.type === "image" && i.imgSrc && i.imgAlt) {
+              return (
+                <figure class={`my-6 ${i.style}`}>
+                  <Image
+                    src={i.imgSrc}
+                    alt={i.imgAlt}
+                    class="w-full object-cover object-center rounded-xl"
+                    format={"png"}
+                    draggable={"false"}
+                    loading={"lazy"}
+                    />
+                  <figcaption class="text-sm text-neutral-500 dark:text-neutral-400">{i.caption}</figcaption>
+                </figure>
+              );
+            } else if (i.type === "text") {
+              return <p class={`text-lg text-neutral-700 dark:text-neutral-300 ${i.style}`}>{i.value}</p>;
+
+            } else if (i.type === "heading") {
+              if (i.level && i.level === 3) {
+                return <h3 class={`text-2xl my-3 text-neutral-700 dark:text-neutral-300 font-semibold uppercase ${i.style}`}>{i.value}</h3>;
+              } else if (i.level && i.level === 4) {
+                return <h4 class={`text-xl my-2 text-neutral-700 dark:text-neutral-300 font-semibold uppercase ${i.style}`}>{i.value}</h4>;
+              } else if (i.level && i.level === 5) {
+                return <h5 class={`text-lg my-2 text-neutral-700 dark:text-neutral-300 font-semibold uppercase ${i.style}`}>{i.value}</h5>;
+              } else if (i.level && i.level === 6) {
+                return <h6 class={`text-lg my-2 text-neutral-700 dark:text-neutral-300 font-semibold uppercase ${i.style}`}>{i.value}</h6>;
+              } else {
+                return <h2 class={`text-3xl my-3 text-neutral-700 dark:text-neutral-300 font-semibold uppercase ${i.style}`}>{i.value}</h2>;
+              }
+
+            } else if (i.type === "list") {
+              return (
+                <ul class={`list-disc
+                  text-neutral-700 dark:text-neutral-300 ${i.style}`}>
+                  {i.items?.map((item) => (
+                    <li>{item}</li>
+                  ))}
+                </ul>
+              );
+            } else if (i.type === "table") {
+              return (
+                <table class={`divide-y divide-neutral-300 dark:divide-neutral-700 ${i.style}`}>
+                  <thead>
+                    <tr>
+                      {i.headers?.map((header) => (
+                        <th class="px-6 py-3 text-left text-xs font-medium text-neutral-500 uppercase tracking-wider dark:text-neutral-400">{header}</th>
+                      ))}
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {i.rows?.map((row) => (
+                      <tr>
+                        {row.map((cell) => (
+                          <td class="px-6 py-4 text-sm text-neutral-700 dark:text-neutral-300">{cell}</td>
+                        ))}
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              );
+            }
+        })}
+
+        <!-- Share Buttons -->
+        <div class="mx-auto grid max-w-screen-lg gap-y-5 sm:flex sm:items-center sm:justify-between sm:gap-y-0 mt-6">
+          <div class="flex items-center justify-end gap-x-1.5">
+            <div class="inline-flex">
+              <SocialShare pageTitle={post.data.title} />
+            </div>
+          </div>
+        </div>
       </div>
-      <!--Blog post title-->
-      <h2
-        class="mb-3 text-2xl font-bold text-neutral-800 dark:text-neutral-200 md:text-3xl"
-      >
-        {post.data.title}
-      </h2>
-      <!--Blog post contents-->
-      <div class="mb-5 space-y-5 md:mb-8 md:space-y-8">
-        {
-          post.data.contents.map((content: string, index: any) =>
-            index === 1 ? (
-              <>
-                <p class="text-pretty text-lg text-neutral-700 dark:text-neutral-300">
-                  {content}
-                </p>
-                <Image
-                  class="w-full rounded-xl object-cover"
-                  src={post.data.cardImage}
-                  alt={post.data.cardImageAlt}
-                  draggable={"false"}
-                  format={"avif"}
-                />
-              </>
-            ) : (
-              <p class="text-pretty text-lg text-neutral-700 dark:text-neutral-300">
-                {content}
-              </p>
-            )
-          )
+
+      <div class="sticky" id="progress-mobile">
+        <div class="overflow-hidden rounded-lg bg-neutral-100 dark:bg-neutral-900 md:max-w-96 p-4 space-y-6 shadow-xl">
+
+          {offer.length > 0 && offer[0].data && (
+            <h3 class="py-1 px-3 w-fit rounded-lg font-semibold text-pretty text-lg text-neutral-200 bg-neutral-700 dark:bg-neutral-200 dark:text-neutral-900">Suggested Offer:</h3>
+            
+            <OfferCard
+              testimonial={offer[0].data}
+            />
+
+          )}
+
+          <SidebarEmailInput />
+
+          <h3 class="py-1 px-3 w-fit rounded-lg font-semibold text-pretty text-lg text-neutral-200 bg-neutral-700 dark:bg-neutral-200 dark:text-neutral-900">Newest Articles:</h3>
+          {relatedPosts.map((entry) => <CardRelated blogEntry={entry} />)}
+
+         {
+          Object.values(relatedPosts).slice(0, 3).forEach((entry) => (
+            <CardRelated blogEntry={entry} />
+          ))
         }
-      </div>
-      <div
-        class="mx-auto grid max-w-screen-lg gap-y-5 sm:flex sm:items-center sm:justify-between sm:gap-y-0"
-      >
-        <!--Blog post tags-->
-        <div
-          class="flex flex-wrap gap-x-2 gap-y-1 sm:flex-nowrap sm:items-center sm:gap-y-0"
-        >
-          {
-            post.data.tags?.map((tag: string, index) => (
-              <span class="inline-flex items-center gap-x-1.5 rounded-lg bg-neutral-400/30 px-3 py-1.5 text-xs font-medium text-neutral-700 outline-none focus:outline-none focus-visible:outline-none focus-visible:ring dark:bg-neutral-700/60 dark:text-neutral-300">
-                {capitalize(tag)}
-              </span>
-            ))
-          }
-        </div>
-        <!--Bookmark and Share buttons-->
-        <div class="flex items-center justify-end gap-x-1.5">
-          <Bookmark />
-          <div
-            class="mx-3 block h-4 border-e border-neutral-400 dark:border-neutral-500"
-          >
-          </div>
-          <div class="inline-flex">
-            <SocialShare pageTitle={post.data.title} />
-          </div>
+
         </div>
       </div>
     </div>
-    <PostFeedback
-      title="Cet article était-il utile?"
-      firstChoice="Oui"
-      secondChoice="Non"
-    />
   </section>
 
-  <!--Related articles section-->
-  <section class="mx-auto max-w-3xl px-4 py-10 sm:px-6 lg:px-8 lg:py-14">
-    <div class="mb-10 max-w-2xl">
-      <h2
-        class="text-balance text-2xl font-bold text-neutral-800 dark:text-neutral-200 md:text-4xl md:leading-tight"
-      >
-        Articles connexes
-      </h2>
-    </div>
-
-    <div class="grid grid-cols-2 gap-6">
-      {relatedPosts.map((entry) => <CardRelated blogEntry={entry} recentBlogLocale="fr" /> )}
-    </div>
-  </section>
 </MainLayout>

@@ -2,18 +2,13 @@
 title: "Maximizing Efficiency with ScrewFast's Cutting-Edge Tools 2"
 description: "Innovating Construction Efficiency with Precision Tools & Support"
 pubDate: 2024-03-06
-cardImage: "@/images/blog/post-1.avif"
+cardImage: "@/images/social.png"
 cardImageAlt: "Top view mechanical tools arrangement"
-readTime: 4
+readTime: 12
 contents:
   - type: text
     value: "In today's fast-paced construction industry, efficiency is key to success. At ScrewFast, we understand the importance of optimizing your project workflow to meet deadlines and stay within budget. That's why we're thrilled to introduce our cutting-edge tools designed to empower your projects like never before."
     style: "bg-orange-400"
-
-  - type: image
-    imgSrc: "@/images/blog/post-2.avif"
-    imgAlt: "Tool in use"
-    caption: "ScrewFast's power drill in action"
 
   - type: text
     value: "Our range of hardware tools combines precision engineering with user-centric design, ensuring maximum productivity on every job site. From power drills to advanced fastening solutions, ScrewFast's tools are built to withstand the rigors of construction while streamlining your workflow."
@@ -28,7 +23,7 @@ contents:
     value: "One of our standout offerings is our intuitive dashboards, which provide real-time insights into project progress, resource allocation, and more. With user-friendly interfaces, navigating and overseeing your projects has never been easier."
 
   - type: image
-    imgSrc: "@/images/blog/post-1.avif"
+    imgSrc: "@/images/social.png"
     imgAlt: "Dashboard interface"
     caption: "Real-time project management dashboard"
 
