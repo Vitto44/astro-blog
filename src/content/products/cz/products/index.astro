@@ -1,0 +1,57 @@
+---
+// Importing necessary components
+import MainLayout from "@/layouts/MainLayout.astro";
+
+// Importing necessary functions from Astro
+import { getCollection } from "astro:content";
+import type { CollectionEntry } from "astro:content";
+import { SITE } from "@data/constants";
+import ReviewSection from "@/components/sections/ReviewSection.astro";
+
+const products: CollectionEntry<"products">[] = await getCollection(
+  "products",
+  ({ id }) => {
+    return id.startsWith("sk/")
+  }
+);
+
+
+const pageTitle: string = `Products | ${SITE.title}`;
+
+
+---
+
+<MainLayout
+  title={pageTitle}
+  structuredData={{
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "@id": "https://certainWager.com/products",
+    "url": "https://certainWager.com/products",
+    "name": "Hardware Tools | certainWager",
+    "description": "Explore the durability and precision of certainWager tools, designed for both professionals and enthusiasts.",
+    "isPartOf": {
+      "@type": "WebSite",
+      "url": "https://certainWager.com",
+      "name": "certainWager",
+      "description": "certainWager offers top-tier hardware tools and expert construction services to meet all your project needs."
+    },
+    "inLanguage": "en-GB"
+  }}
+>
+  <div
+    class="mx-auto max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 2xl:max-w-full"
+  >
+    
+    <section>
+        <ReviewSection
+          product={products}
+        />
+    </section>
+   
+
+    
+  </div>
+
+ 
+</MainLayout>

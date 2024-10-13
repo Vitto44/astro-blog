@@ -1,5 +1,6 @@
 ---
 import { getImage } from "astro:assets";
+import { languages } from "@utils/ui";
 import { OG, SEO, SITE } from "@data/constants";
 import faviconSvgSrc from "@images/icon.svg";
 import faviconSrc from "@images/icon.png";
@@ -34,16 +35,9 @@ const socialImageRes = await getImage({
 });
 const socialImage = Astro.url.origin + socialImageRes.src; // Get the full URL of the image (https://stackoverflow.com/a/9858694)
 
-const languages: { [key: string]: string } = {
-  en: "",
-  fr: "fr",
-  sk: "sk",
-  cz: "cz",
-  de: "de",
-};
-
 function createHref(lang: string, prefix: string, path: string): string {
   const hasPrefix = path.startsWith(`/${prefix}/`);
+
 
   const basePath = hasPrefix ? path : `/${prefix}${path}`;
   const normalizedBasePath = basePath.replace(/\/\/+/g, "/");
@@ -55,7 +49,7 @@ const fullPath: string = Astro.url.pathname;
 const alternateLanguageLinks: string = Object.entries(languages)
   .map(([lang, prefix]: [string, string]) => {
     const basePath: string =
-      lang === "en" ? fullPath.replace(/^\/fr\//, "/") : fullPath;
+      lang === "en" ? fullPath : fullPath.replace(`/${lang}`, "");      
 
     const href: string = createHref(lang, prefix, basePath);
 
