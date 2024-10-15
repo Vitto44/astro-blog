@@ -4,12 +4,15 @@ import { Image } from "astro:assets";
 import { formatDate } from "@utils/utils";
 import type { CollectionEntry } from "astro:content";
 
-const { blogEntry, blogLocale = "" } = Astro.props;
+const { blogEntry } = Astro.props;
 
 interface Props {
   blogEntry: CollectionEntry<"blog">;
-  blogLocale?: string;
 }
+
+const blogLocale = Astro.currentLocale;
+
+console.log(blogEntry)
 ---
 
 <!-- The following anchor tag is the main container for the card.
@@ -18,8 +21,7 @@ interface Props {
      which automatically prefetches the linked page to speed up navigation. -->
 <a
   class="group relative block rounded-xl outline-none ring-zinc-500 transition duration-500 focus-visible:ring dark:ring-zinc-200 dark:focus:outline-none"
-  href={blogLocale !== "" ? `/${blogLocale}/blog/${blogEntry.slug}/` : `/blog/${blogEntry.slug}/`}
-  data-astro-prefetch
+  href={`/${blogLocale}/blog/${blogEntry.slug}/`}
 >
   <!-- The container for the blog post's cover image. Uses astro:assets' Image for image source -->
   <div

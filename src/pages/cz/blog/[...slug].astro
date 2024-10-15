@@ -14,31 +14,29 @@ import OfferCard from "@/components/sections/cards/OfferCard.astro";
 // getStaticPaths is used to pre-render all routes based on the blog posts
 export async function getStaticPaths() {
   const blogPosts = await getCollection("blog", ({ id }) => {
-    return id.startsWith("en/");
+    return id.startsWith("cz/");
   });
   return blogPosts.map((post) => ({
     params: { slug: post.slug },
     props: { post },
   }));
-
- 
 }
-
 // Get the current post's data
 const { post } = Astro.props;
+
 
 // Get all blog posts
 const blogPosts: CollectionEntry<"blog">[] = await getCollection(
   "blog",
   ({ id }) => {
-    return id.startsWith("en/");
+    return id.startsWith("cz/");
   }
 );
 
 const offer: CollectionEntry<"products">[] = await getCollection(
   "products",
   ({ id }) => {
-    return id.startsWith("en/")
+    return id.startsWith("cz/")
   }
 );
 

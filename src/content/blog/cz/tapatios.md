@@ -1,5 +1,5 @@
 ---
-title: "Maximizing Efficiency with ScrewFast's Cutting-Edge Tools, eh? SKSKSKSKSKSKSK"
+title: "Maximizing Efficiency with ScrewFast's Cutting-Edge Tools, eh? CZs"
 description: "Innovating Construction Efficiency with Precision Tools & Support"
 pubDate: 2024-02-06
 cardImage: "@/images/fortuna.jpg"

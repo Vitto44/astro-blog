@@ -58,7 +58,7 @@ const flagImages = await Promise.all(
   >
     {flagImages.map(({ lang, src }) => (
         <a
-          href={`/${lang === "en" ? "" : lang}`}
+          href={lang}
           class={`text-neutral-800 dark:text-white p-2 cursor-pointer rounded-lg font-semibold hover:bg-yellow-400 mt-2 flex gap-2 justify-between ${selectedLanguage == lang ? 'bg-yellow-500' : 'bg-transparent'}`}
         >
           {languages[lang as keyof typeof languages]}
@@ -90,36 +90,32 @@ const flagImages = await Promise.all(
         ?.replace("/", "")
         .replace("/", "") as TLanguage;
 
+
       link.addEventListener("click", function (event) {
         event.preventDefault();
 
         const url = new URL(window.location.href);
         const pathParts = url.pathname
           .split("/")
-          .filter((part) => part && !supportedLanguages.includes(part as TLanguage));
+          .reduce((acc, part) => {
+           if (part.length === 2 && supportedLanguages.includes(part as TLanguage)) {
+              acc.push(lang);
+            } else {
+            acc.push(part);
+            }
+            return acc;
+          }, [] as string[]);
 
-        // Disable the selection of the same language
-        if (lang === url.pathname.split("/")[1]) return;
-
-        if (
-          url.pathname.includes("/post") ||
-          url.pathname.includes("/insight")
-        ) {
-          if (url.pathname.includes("en")) {
-            pathParts.unshift(lang);
-            pathParts.splice(2, 0, lang);
-          } else {
-            pathParts.unshift(lang);
-            pathParts.splice(2, 0, "en");
-          }
-        } else {
-          if (lang !== "en") {
-            pathParts.unshift(lang);
-          }
-        }
-
-        url.pathname = pathParts.join("/");
-        window.location.href = url.toString();
+          
+          // Disable the selection of the same language
+          if (lang === url.pathname.split("/")[1]) return;
+          
+          
+          // pathParts.unshift(lang);
+          
+          
+          url.pathname = pathParts.join("/");
+          window.location.href = url.toString();
       });
     });
   });
