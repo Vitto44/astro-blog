@@ -11,11 +11,11 @@ import ReviewSection from "@/components/sections/ReviewSection.astro";
 const reviews: CollectionEntry<"reviews">[] = await getCollection(
   "reviews",
   ({ id }) => {
-    return id.startsWith("en/")
+    return id.startsWith("cz")
   }
 );
 
-const texts = TEXTS.en;
+const texts = TEXTS.cz;
 
 const pageTitle: string = `reviews | ${SITE.title}`;
 
@@ -27,9 +27,9 @@ const pageTitle: string = `reviews | ${SITE.title}`;
   structuredData={{
     "@context": "https://schema.org",
     "@type": "WebPage",
-    "@id": "https://certainWager.com/en/reviews",
-    "url": "https://certainWager.com/en/reviews",
-    "name": "Hardware Tools | certainWager",
+    "@id": "https://certainWager.com/czreviews",
+    "url": "https://certainWager.com/czreviews",
+    "name": texts.reviewLayoutName,
     "description": texts.reviewLayoutDescription,
     "isPartOf": {
       "@type": "WebSite",
@@ -37,7 +37,7 @@ const pageTitle: string = `reviews | ${SITE.title}`;
       "name": "certainWager",
       "description": texts.heroSubtitle,
     },
-    "inLanguage": "en-GB"
+    "inLanguage": "cz"
   }}
 >
   <section

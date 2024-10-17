@@ -6,10 +6,10 @@ import { getCollection } from "astro:content";
 import type { CollectionEntry } from "astro:content";
 import { SITE, TEXTS } from "@data/constants";
 
-const texts = TEXTS.en;
+const texts = TEXTS.sk;
 
 const englishBlogEntries = await getCollection("blog", ({ id }) => {
-  return id.startsWith("en/");
+  return id.startsWith("sk/");
 });
 
 const blogPosts: CollectionEntry<"blog">[] = englishBlogEntries.sort(
@@ -27,8 +27,8 @@ const pageTitle: string = `Blog | ${SITE.title}`;
   structuredData={{
     "@context": "https://schema.org",
     "@type": "WebPage",
-    "@id": "https://certainWager.com/en/blog",
-    url: "https://certainWager.com/en/blog",
+    "@id": "https://certainWager.com/sk/blog",
+    url: "https://certainWager.com/sk/blog",
     name: "Blog | CertainWager",
     description: texts.blogLayoutDescription,
     isPartOf: {
@@ -37,7 +37,7 @@ const pageTitle: string = `Blog | ${SITE.title}`;
       name: "CertainWager",
       description: texts.heroSubtitle,  
     },
-    inLanguage: "en-GB",
+    inLanguage: "sk",
   }}
 >
   <section

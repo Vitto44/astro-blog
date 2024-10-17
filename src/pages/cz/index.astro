@@ -11,11 +11,11 @@ import { SITE, TEXTS } from "@data/constants";
 const offers: CollectionEntry<"reviews">[] = await getCollection(
   "reviews",
   ({ id }) => {
-    return id.startsWith("en/")
+    return id.startsWith("cz/")
   }
 );
 
-const texts = TEXTS.en;
+const texts = TEXTS.cz;
 ---
 
 <MainLayout
@@ -23,23 +23,22 @@ const texts = TEXTS.en;
   structuredData={{
     "@context": "https://schema.org",
     "@type": "WebPage",
-    "@id": "https://certainWager.com/en/blog",
-    url: "https://certainWager.com/en/blog",
+    "@id": "https://certainWager.com/cz/blog",
+    url: "https://certainWager.com/cz/blog",
     name: "Blog | CertainWager",
-    description:
-      "List of the best free and exclusive deals in a world of sports betting and casinos.",
+    description: texts.mainDescription,
     isPartOf: {
       "@type": "WebSite",
       url: "https://certainWager.com",
       name: "CertainWager",
       description: texts.heroSubtitle,
     },
-    inLanguage: "en-GB",
+    inLanguage: "cz",
   }}
 >
 
   <HeroSection
-    title=`Maximize Winnings with <span class="text-yellow-500 dark:text-yellow-400 text-5xl lg:text-8xl">Exclusive</span> And <span class="text-orange-500 dark:text-orange-300 text-5xl lg:text-8xl">Free</span> Bets`
+    title=`Vyhrávejte s <span class="text-yellow-500 dark:text-yellow-400 text-5xl lg:text-8xl">Exluzivními</span> Sázkami <span class="text-orange-500 dark:text-orange-300 text-5xl lg:text-8xl">Zdarma</span>`
     subTitle={texts.heroSubtitle}
     src={heroImage}
     alt={texts.heroAlt}

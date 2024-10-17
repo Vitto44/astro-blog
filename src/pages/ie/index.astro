@@ -11,7 +11,7 @@ import { SITE, TEXTS } from "@data/constants";
 const offers: CollectionEntry<"reviews">[] = await getCollection(
   "reviews",
   ({ id }) => {
-    return id.startsWith("en/")
+    return id.startsWith("ie/")
   }
 );
 
@@ -23,11 +23,10 @@ const texts = TEXTS.en;
   structuredData={{
     "@context": "https://schema.org",
     "@type": "WebPage",
-    "@id": "https://certainWager.com/en/blog",
-    url: "https://certainWager.com/en/blog",
+    "@id": "https://certainWager.com/ie/blog",
+    url: "https://certainWager.com/ie/blog",
     name: "Blog | CertainWager",
-    description:
-      "List of the best free and exclusive deals in a world of sports betting and casinos.",
+    description: texts.mainDescription,
     isPartOf: {
       "@type": "WebSite",
       url: "https://certainWager.com",
