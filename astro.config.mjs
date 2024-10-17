@@ -13,14 +13,14 @@ export default defineConfig({
   },
   i18n: {
     defaultLocale: "en",
-    locales: ["en", "sk", "cz", "ir"],
+    locales: ["en", "sk", "cz", "ie"],
     fallback: {
       sk: "en",
       cz: "en",
-      ir: "en",
+      ie: "en",
     },
     routing: {
-      prefixDefaultLocale: true,
+      prefixDefaultLocale: false,
     },
   },
   prefetch: true,
@@ -33,7 +33,7 @@ export default defineConfig({
           en: "en",
           sk: "sk",
           cz: "cz",
-          ir: "ir",
+          ie: "ie",
         },
       },
     }),

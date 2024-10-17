@@ -7,6 +7,8 @@ import { getType } from '@/utils/utils';
 const langData = Astro.url.pathname.split('/')[1] as keyof typeof languages;
 const selectedLanguage = !langData || langData.length > 2 ? 'en' : langData;
 
+const categoryOnly = Astro.props.categoryOnly;
+
 // Preload the flag images for each language
 const flagImages = await Promise.all(
   Object.keys(languages).map(async (lang) => {
@@ -26,19 +28,21 @@ const flagImages = await Promise.all(
 
 <div class="flex flex-col md:flex-row gap-4 items-center justify-center">
 
-  <ul class="flex gap-2 p-2 rounded-md dark:bg-neutral-700 bg-neutral-100 flex-wrap md:justify-start justify-center">
+  {!categoryOnly && (
+    <ul class="flex gap-2 p-2 rounded-md dark:bg-neutral-700 bg-neutral-100 flex-wrap md:justify-start justify-center">
      {flagImages.map(({ lang, src }) => (
-      <li>
+       <li>
         <button
           data-lang={lang}
           class={`text-neutral-800 dark:text-white dark:border-white border-neutral-800 hover:bg-neutral-200 dark:hover:bg-neutral-500 p-2 rounded-lg font-semibold border-2 flex gap-4 ${selectedLanguage == lang ? 'bg-orange-400' : 'bg-transparent'}`}
-        >
+          >
           {languages[lang as keyof typeof languages]}
           <img width={24} height={24} alt={`${lang} flag`} src={src} />
         </button>
       </li>
     ))}
   </ul>
+  )}
 
 
   <!-- Category Filter Buttons -->
@@ -97,9 +101,7 @@ const flagImages = await Promise.all(
       // Disable the selection of the same language
       if ((t.length !== 2 && lang === 'en') || lang === t) return;
       
-      if (lang && lang !== 'en') {
         pathParts.unshift(lang);
-      }
 
       url.pathname = pathParts.join('/');
       window.location.href = url.toString();
