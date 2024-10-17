@@ -4,12 +4,9 @@ import AuthBtn from "@components/ui/buttons/AuthBtn.astro";
 import TextInput from "@components/ui/forms/input/TextInput.astro";
 import EmailContactInput from "@components/ui/forms/input/EmailContactInput.astro";
 import TextAreaInput from "@components/ui/forms/input/TextAreaInput.astro";
+import { TEXTS } from "@/data_files/constants";
 
-// Define the variables that will be used in this component
-const title: string = "Contact usss";
-const subTitle: string =
-  "Have questions or want to discuss a project? Reach out, and let's craft the perfect solution with our tools and services.";
-const formTitle: string = "Fill in the form below";
+const texts = TEXTS.en;
 ---
 
 <!-- Contact Us -->
@@ -19,20 +16,14 @@ const formTitle: string = "Fill in the form below";
       <h1
         class="text-balance text-2xl font-bold tracking-tight text-neutral-800 dark:text-neutral-200 md:text-4xl md:leading-tight"
       >
-        {title}
+        {texts.contactTitle}
       </h1>
       <p class="mt-1 text-pretty text-neutral-600 dark:text-neutral-400">
-        {subTitle}
+        {texts.contactDescription}
       </p>
     </div>
 
       <div class="flex flex-col rounded-xl p-4 sm:p-6 lg:p-8">
-        <h2
-          class="mb-8 text-xl font-bold text-neutral-700 dark:text-neutral-300"
-        >
-          {formTitle}
-        </h2>
-        <!-- Form for user input with various input fields.-->
         <!-- Each field utilizes a different input component for the specific type of input (text, email, phone, and textarea)-->
         <form>
           <div class="grid gap-4">

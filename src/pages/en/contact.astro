@@ -2,9 +2,10 @@
 // Import the necessary components
 import MainLayout from "@/layouts/MainLayout.astro";
 import ContactSection from "@components/sections/misc/ContactSection.astro";
-import { SITE } from "@data/constants";
-
+import { SITE, TEXTS } from "@data/constants";
 const pageTitle: string = `Contact | ${SITE.title}`;
+
+const texts = TEXTS.en;
 ---
 
 <!--Utilizing MainLayout for the outer layout of the page, and defining meta for SEO purposes-->
@@ -16,14 +17,13 @@ const pageTitle: string = `Contact | ${SITE.title}`;
     "@id": "https://certainWager.com/en/contact",
     "url": "https://certainWager.com/en/contact",
     "name": "Contact Us | CertainWager",
-    "description":
-      "Have questions or want to discuss a project? Reach out, and let's craft the perfect solution with our tools and services.",
+    "description": texts.contactDescription,
     "isPartOf": {
       "@type": "WebSite",
       "url": "https://certainWager.com",
       "name": "CertainWager",
-      "description":
-        "CertainWager offers top-tier hardware tools and expert construction services to meet all your project needs.",
+      "description": texts.heroSubtitle,
+        
     },
     "inLanguage": "en-GB"
   }}

@@ -4,9 +4,9 @@ import MainLayout from "@/layouts/MainLayout.astro";
 import CardBlog from "@components/ui/cards/CardBlog.astro";
 import { getCollection } from "astro:content";
 import type { CollectionEntry } from "astro:content";
-import { SITE } from "@data/constants";
+import { SITE, TEXTS } from "@data/constants";
 
-// Get all blogs post in English and sort them based on publish date
+const texts = TEXTS.en;
 
 const englishBlogEntries = await getCollection("blog", ({ id }) => {
   return id.startsWith("en/");
@@ -18,12 +18,6 @@ const blogPosts: CollectionEntry<"blog">[] = englishBlogEntries.sort(
 );
 
 const otherPosts: CollectionEntry<"blog">[] = blogPosts;
-
-// Define variables for page content
-const title: string = "Your Gateway to Construction Excellence";
-const subTitle: string =
-  "Explore the latest news, tips, and insights from CertainWager to enhance your construction projects. From product spotlights to project management strategies, our blog is your go-to resource for all things hardware and construction.";
-
 
 const pageTitle: string = `Blog | ${SITE.title}`;
 ---
@@ -37,13 +31,12 @@ const pageTitle: string = `Blog | ${SITE.title}`;
     url: "https://certainWager.com/en/blog",
     name: "Blog | CertainWager",
     description:
-      "Stay up-to-date with the latest trends and developments in the construction industry with insights from CertainWager's team of industry experts.",
+      "Read up on the latest news, tips and tricks in the world of sports betting and casinos.",
     isPartOf: {
       "@type": "WebSite",
       url: "https://certainWager.com",
       name: "CertainWager",
-      description:
-        "CertainWager offers top-tier hardware tools and expert construction services to meet all your project needs.",
+      description: texts.heroSubtitle,  
     },
     inLanguage: "en-GB",
   }}
@@ -56,13 +49,13 @@ const pageTitle: string = `Blog | ${SITE.title}`;
       <h1
         class="block text-balance text-2xl md:text-3xl font-bold tracking-tight text-neutral-800 dark:text-neutral-200"
       >
-        {title}
+        {texts.blogTitle}
       </h1>
 
       <p
         class="mt-4 text-pretty text-sm text-neutral-600 dark:text-neutral-400"
       >
-        {subTitle}
+        {texts.blogDescription}
       </p>
     </div>
   </section>

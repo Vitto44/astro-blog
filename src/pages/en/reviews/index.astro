@@ -5,7 +5,7 @@ import MainLayout from "@/layouts/MainLayout.astro";
 // Importing necessary functions from Astro
 import { getCollection } from "astro:content";
 import type { CollectionEntry } from "astro:content";
-import { SITE } from "@data/constants";
+import { SITE, TEXTS } from "@data/constants";
 import ReviewSection from "@/components/sections/ReviewSection.astro";
 
 const reviews: CollectionEntry<"reviews">[] = await getCollection(
@@ -15,6 +15,7 @@ const reviews: CollectionEntry<"reviews">[] = await getCollection(
   }
 );
 
+const texts = TEXTS.en;
 
 const pageTitle: string = `reviews | ${SITE.title}`;
 
@@ -29,16 +30,35 @@ const pageTitle: string = `reviews | ${SITE.title}`;
     "@id": "https://certainWager.com/en/reviews",
     "url": "https://certainWager.com/en/reviews",
     "name": "Hardware Tools | certainWager",
-    "description": "Explore the durability and precision of certainWager tools, designed for both professionals and enthusiasts.",
+    "description": "See reviews of Casinos and Sports Betting sites. 100% real and honest review from exprerts in the field.",
     "isPartOf": {
       "@type": "WebSite",
       "url": "https://certainWager.com",
       "name": "certainWager",
-      "description": "certainWager offers top-tier hardware tools and expert construction services to meet all your project needs."
+      "description": texts.heroSubtitle,
     },
     "inLanguage": "en-GB"
   }}
 >
+  <section
+    class="mx-auto max-w-[85rem] space-y-8 px-4 pt-16 sm:px-6 lg:px-8 2xl:max-w-full"
+  >
+    <!--Page header-->
+    <div class="mx-auto max-w-3xl text-left sm:text-center">
+      <h1
+        class="block text-balance text-2xl md:text-3xl font-bold tracking-tight text-neutral-800 dark:text-neutral-200"
+      >
+        {texts.reviewTitle}
+      </h1>
+
+      <p
+        class="mt-4 text-pretty text-sm text-neutral-600 dark:text-neutral-400"
+      >
+        {texts.reviewDescription}
+      </p>
+    </div>
+  </section>
+  
   <div
     class="mx-auto max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 2xl:max-w-full"
   >

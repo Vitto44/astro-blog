@@ -11,6 +11,43 @@ export const SITE = {
   author: "Viktor Hajdu",
 };
 
+export const TEXTS = {
+  en: {
+    reviewTitle: "Top Betting Sites & Casinos: Reviews",
+    reviewDescription:
+      "Find the best online betting sites and casinos. Read reviews and compare offers.",
+    blogTitle: "Your Insider's Guide to Maximizing Profits",
+    blogDescription:
+      "Learn how to maximize your profits with our expert insights and tips.",
+    heroSubtitle:
+      "Discover the best free and exclusive deals and offers. Maximize your winnings effortlessly with CertainWager!",
+    heroAlt: "Technolgoies showcasing money and betting",
+    contactTitle: "Contact Us",
+    emailSubscribe1: "Subscribe to our newsletter to get the ",
+    emailSubscribe2: "Latest Offers!",
+    subscribe: "Subscribe",
+    contactDescription:
+      "We're here to help you with any questions or concerns. Reach out to us and we'll get back to you as soon as possible.",
+  },
+  sk: {
+    reviewTitle: "Top Betting Sites & Casinos: Reviews",
+    reviewDescription:
+      "Find the best online betting sites and casinos. Read reviews and compare offers.",
+    blogTitle: "Your Insider's Guide to Maximizing Profits",
+    blogDescription:
+      "Learn how to maximize your profits with our expert insights and tips.",
+    heroSubtitle:
+      "Discover the best free and exclusive deals and offers. Maximize your winnings effortlessly with CertainWager!",
+    heroAlt: "Technolgoies showcasing money and betting",
+    contactTitle: "Kontaktujte nás",
+    emailSubscribe1: "Prihláste sa k odberu noviniek a získajte ",
+    emailSubscribe2: "Najnovšie Ponuky!",
+    subscribe: "Odoberať",
+    contactDescription:
+      "We're here to help you with any questions or concerns. Reach out to us and we'll get back to you as soon as possible.",
+  },
+};
+
 export const SEO = {
   title: SITE.title,
   description: SITE.description,
