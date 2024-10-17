@@ -1,124 +1,18 @@
 # Versatile Landing, Blog & Docs Template for a Simplified Web Presence
 
-![ScrewFast](https://github.com/mearashadowfax/ScrewFast/assets/125820963/cdf299bd-414a-4a2d-baf0-d188bb4709c7)
+![CertainWager](https://github.com/mearashadowfax/CertainWager/assets/125820963/cdf299bd-414a-4a2d-baf0-d188bb4709c7)
 
-ScrewFast is an open-source template designed for quick and efficient web project setup, blending minimalism with functionality. Whether you're showcasing a portfolio, launching a company landing page, or running a blog, ScrewFast provides everything you need. By combining the power of the [Astro](https://astro.build/), [Tailwind CSS](https://tailwindcss.com/), and [Preline UI](https://preline.co/), this template offers a functional and aesthetically pleasing solution for your web presence.
+CertainWager is an open-source template designed for quick and efficient web project setup, blending minimalism with functionality. Whether you're showcasing a portfolio, launching a company landing page, or running a blog, CertainWager provides everything you need. By combining the power of the [Astro](https://astro.build/), [Tailwind CSS](https://tailwindcss.com/), and [Preline UI](https://preline.co/), this template offers a functional and aesthetically pleasing solution for your web presence.
 
-**[View Live Demo](https://screwfast.uk)**
-
-## Table of Contents
-
-- [Why Choose ScrewFast?](#why-choose-screwfast)
-- [Features](#features)
-- [What's New](#whats-new)
-- [Getting Started](#getting-started)
-  - [Installation](#installation)
-  - [Development Commands](#development-commands)
-- [Deployment](#deployment)
-  - [Building Your Site](#building-your-site)
-  - [Deploying to Vercel](#deploying-to-vercel)
-- [Project Structure](#project-structure)
-- [Static Assets and Public Resources](#static-assets-and-public-resources)
-- [Customization](#customization)
-  - [Editing Component Variables](#editing-component-variables)
-  - [Props in Component Instances](#props-in-component-instances)
-  - [Customizing Navigation and Footer Links](#customizing-navigation-and-footer-links)
-    - [Navigation Bar Links](#navigation-bar-links)
-    - [Footer Links](#footer-links)
-    - [Social Media Links](#social-media-links)
-- [Integrations and Enhancements](#integrations-and-enhancements)
-  - [Starlight Documentation](#starlight-documentation)
-  - [GSAP Integration](#gsap-integration)
-  - [Hiding Scrollbar](#hiding-scrollbar)
-  - [SEO Configuration](#seo-configuration)
-    - [Using constants.ts](#using-constantsts)
-    - [Applying Metadata in Layouts](#applying-metadata-in-layouts)
-    - [Passing Individual Schema](#passing-individual-schema)
-    - [Extending Metadata for SEO](#extending-metadata-for-seo)
-    - [Structured Data and Rich Snippets](#structured-data-and-rich-snippets)
-    - [Using Astro SEO Integrations](#using-astro-seo-integrations)
-  - [Robots.txt](#robotstxt)
-  - [Markdown/MDX](#markdownmdx)
-    - [Image Integration](#image-integration)
-  - [Astro Integrations](#astro-integrations)
-  - [Flexibility with Integrations](#flexibility-with-integrations)
-- [Tools and Technologies](#tools-and-technologies)
-  - [Preline UI](#preline-ui)
-  - [Tailwind CSS](#tailwind-css)
-  - [Deployment and Security](#deployment-and-security)
-  - [HTML Minification](#html-minification)
-- [Contributing](#contributing)
-- [License](#license)
-
-## Why Choose ScrewFast?
-
-- **Efficient Architecture:** Deploy faster with a template that's simple to set up and navigate.
-- **Optimized for Small Projects:** Perfect for crisp, professional web personas without excess complexity.
-- **Highly Customizable:** Flexibly adapt and style your site using Astro and Tailwind CSS.
+**[View Live](https://certainwager.com/en)**
 
 ## Features
 
 - **Astro-Powered:** Utilize a modern static-site generation framework.
 - **Tailwind CSS:** Enjoy rapid UI development with a utility-first CSS framework.
 - **Preline UI:** Implement prebuilt UI components for added elegance.
-- **GSAP Integration:** Impress with professional and polished animations.
-- **Markdown Content Collections:** Organize and manage your content seamlessly.
-- **Starlight Documentation:** A sleek, user-friendly, full-featured documentation theme.
 - **Internationalization (i18n):** Integrates Astro’s internationalization features.
 - **SEO and Responsiveness:** Ensure your site is discoverable and accessible on any device.
-
-## What's New
-
-### Added Features
-
-- [x] **Social Share Component**:
-
-  - Enables users to share blog posts on social media platforms.
-  - Provides easy sharing of a blog post's title and URL.
-  - Integrates Clipboard.js for link URL copy functionality.
-
-- [x] **Bookmark Button Component**:
-
-  - Allows users to bookmark blog posts for later reference.
-  - Provides a visual indication of whether a post is bookmarked.
-  - Utilizes `localStorage` to store bookmarks locally in the browser.
-  - For SSR, replace `localStorage` with cookies to persist bookmarked posts.
-    - This setup opens up the possibility for the server to dynamically render content based on user-specific bookmarks, should you choose to implement this feature.
-
-- [x] **Post Feedback Component**:
-  - Collects user feedback at the end of each blog post.
-  - Serves as a UI demonstration with no live back-end integration.
-- [x] **Starlight Documentation Theme Integration**:
-
-  - A sleek, user-friendly, full-featured documentation theme, which enhances the readability and usability of documentation.
-  - Offers a range of features such as site navigation, built-in search functionality, dark mode, syntax highlighting for code, and improved SEO.
-  - Seamlessly integrates internationalization (i18n) to provide support for documentation in multiple languages, catering to a global audience.
-  - Designed to facilitate ease of use while offering a modern aesthetic in both light and dark themes to accommodate user preferences.
-
-- [x] **Icon Set Component**:
-
-  - Convenient and reusable Icon component that allows adding icons simply by providing a name prop.
-  - Render any pre-defined icon SVG using `<Icon name="iconName" />` in your Astro components.
-  - The Icon Component offers a centralized location for all SVG Icons across the project in one TypeScript file - allowing unified updates and easy maintenance.
-  - **Note:** Developers have the option to use other community integrations like [astro-icons](https://github.com/natemoo-re/astro-icon). However, the author decided to create a custom icon set component for managing custom icons.
-
-- [x] **Internationalization (i18n) Features**:
-
-  - Integrates [Astro’s internationalization (i18n) features](https://docs.astro.build/en/guides/internationalization/).
-  - Additionally, a custom LanguagePicker component has been developed to facilitate language selection.
-  - Developers can access the monolingual version directly from [`monolingual-site` branch](https://github.com/mearashadowfax/ScrewFast/tree/monolingual-site).
-
-- [x] **Dynamic Table of Contents (ToC) with Scroll Progress Indicator**:
-  - Enhances ease of navigation in insight posts by highlighting the relevant section in the ToC, and includes a progress indicator to visually represent scroll progress.
-  - Developers seeking alternatives might consider the [remark-toc](https://github.com/remarkjs/remark-toc) plugin.
-
-### Planned Improvements
-
-- Currently, there are no planned improvements. We'll update this section as plans develop.
-
-### Bug Fixes
-
-- Currently, there are no known bugs. If you encounter any issues, please report them on our [issues page](https://github.com/mearashadowfax/ScrewFast/issues).
 
 ## Getting Started
 
@@ -160,44 +54,7 @@ This creates a `dist/` directory with your built site (configurable via [outDir 
 
 Click the button below to start deploying your project on Vercel:
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fmearashadowfax%2FScrewFast)
-
-## Project Structure
-
-ScrewFast organizes modular components, content, and layouts to streamline development and content management.
-
-```md
-src/
-├── assets/  
-│ ├── scripts/ # JS scripts
-│ └── styles/ # CSS styles
-├── components/ # Reusable components
-│ ├── Meta.astro # Meta component for SEO
-│ ├── sections/ # Components for various sections of the website
-│ ├── ThemeIcon.astro # Component for toggling light/dark themes
-│ └── ui/ # UI components categorized by functionality
-├── content/ # Markdown files for blog posts, insights, products, and site configuration
-│ ├── blog/
-│ ├── docs/  
-│ ├── insights/  
-│ ├── products/  
-│ └── config.ts # Contains site-wide configuration options
-├── data_files/ # Strings stored as JSON files
-├── images/ # Static image assets for use across the website
-├── layouts/ # Components defining layout templates
-│ └── MainLayout.astro # The main wrapping layout for all pages
-├── pages/ # Astro files representing individual pages and website sections
-│ ├── 404.astro # Custom 404 page
-│ ├── blog/  
-│ ├── fr/ # Localized content
-│ ├── contact.astro  
-│ ├── index.astro # The landing/home page
-│ ├── insights/  
-│ ├── products/  
-│ ├── robots.txt.ts # Dynamically generates robots.txt
-│ └── services.astro
-└── utils/ # Shared utility functions and helpers
-```
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FVitto44x%2FCertainWager)
 
 ## Static Assets and Public Resources
 
@@ -210,49 +67,7 @@ public/
 
 ## Customization
 
-ScrewFast allows for easy customization to suit your specific needs. Here are a couple of ways you can configure components and content:
-
-### Editing Component Variables
-
-Some components have properties defined as TypeScript variables within the component file. Here's an example of customizing the `FeaturesGeneral` component:
-
-```typescript
-// Define the string variables title and subTitle for the main heading and sub-heading text.
-const title: string = "Meeting Industry Demands";
-const subTitle: string =
-  "At ScrewFast, we tackle the unique challenges encountered in the hardware and construction sectors.";
-```
-
-For collections of content like testimonials or statistics, edit the corresponding array of objects:
-
-```typescript
-// An array of testimonials
-const testimonials: Testimonial[] = [...];
-
-// An array of statistics
-const statistics: StatProps[] = [...];
-```
-
-Modify the content within these arrays to reflect your data.
-
-### Props in Component Instances
-
-You can pass values to props directly in the page files for components used across pages. Here's an example of a `HeroSection` and `ClientsSection` component with inline props:
-
-```html
-<HeroSection
-  subTitle="Top-quality hardware tools and expert construction services for every project need."
-  primaryBtn="Start Exploring"
-  primaryBtnURL="/explore"
-/>
-
-<ClientsSection
-  title="Trusted by Industry Leaders"
-  subTitle="Experience the reliability chosen by industry giants."
-/>
-```
-
-Edit the props such as `title`, `subTitle`, `primaryBtn`, etc., to personalize these sections. Ensure that you maintain the structure and data types of the props.
+CertainWager allows for easy customization to suit your specific needs. Here are a couple of ways you can configure components and content:
 
 ### Customizing Navigation and Footer Links
 
@@ -266,43 +81,13 @@ Edit the `navBarLinks` array to adjust navigation bar links:
 // An array of links for the navigation bar
 export const navBarLinks: NavLink[] = [
   { name: "Home", url: "/" },
-  { name: "Products", url: "/products" },
-  { name: "Services", url: "/services" },
+  { name: "Reviews", url: "/reviews" },
   { name: "Blog", url: "/blog" },
   { name: "Contact", url: "/contact" },
 ];
 ```
 
 Replace `name` with the display text and `url` with the appropriate path to pages on your site.
-
-#### Footer Links
-
-Similarly, adjust the links displayed in the footer by editing the `footerLinks` array:
-
-```typescript
-// An array of links for the footer
-export const footerLinks: FooterLinkSection[] = [
-  {
-    section: "Product",
-    links: [
-      { name: "Tools & Equipment", url: "/tools-equipment" },
-      { name: "Construction Services", url: "/construction-services" },
-      { name: "Pricing", url: "/pricing" },
-    ],
-  },
-  {
-    section: "Company",
-    links: [
-      { name: "About us", url: "/about" },
-      { name: "Blog", url: "/blog" },
-      { name: "Careers", url: "/careers" },
-      { name: "Customers", url: "/customers" },
-    ],
-  },
-];
-```
-
-Each section within the `footerLinks` array represents a group of links. Update the `section` value for the group heading and modify each link's `name` and `url` as needed.
 
 #### Social Media Links
 
@@ -328,35 +113,7 @@ We also have `Navbar.astro` and `NavbarMegaMenu.astro` components located in `sr
 
 ## Integrations and Enhancements
 
-ScrewFast leverages the power of Astro — a modern, cutting-edge site building framework — and integrates it seamlessly with the utility-first CSS framework TailwindCSS, to deliver exceptional site performance and a seamless user experience. Here are some notable integrations and enhancements included in the project:
-
-### Starlight Documentation
-
-ScrewFast is now equipped with the Starlight, which is designed to elevate the user's experience with documentation. This modern and elegant theme comes with a suite of features to make the content more accessible and pleasant to navigate.
-
-Key Features:
-
-- **Site Navigation and Search**: Navigate through the documentation with ease using intuitive sidebar and built-in search functionality.
-- **Internationalization**: Cater to a global audience with the ability to switch languages, making documentation accessible to everyone, everywhere.
-- **SEO Friendly**: Optimized for search engines to help users quickly find the information they need.
-- **Code Highlighting and Dark Mode**: Enhances code readability with syntax highlighting, and offers a dark mode to reduce eye strain for users.
-- **Mobile Responsive Design**: Whether you're on a phone, tablet, or desktop, the documentation adapts to your screen size for optimal readability.
-
-With Starlight, you gain access to a wealth of powerful features and integrations, along with extensive customization options to fit your needs.
-
-> [!NOTE]
-> Dive into the Starlight's comprehensive feature list and learn how it can streamline your development process by visiting the theme's [documentation site](https://starlight.astro.build/).
-
-### GSAP Integration
-
-For individual product pages, [GSAP](https://gsap.com/) has been integrated to add engaging animations that execute as soon as the product page loads. You can find and modify the GSAP configuration in the script sections of the product page file located at `src/pages/products/[...slug].astro` and the insights page at `src/pages/insights/[...slug].astro`:
-
-```astro
-<script>
-  import { gsap } from "gsap";
-  // Initialize GSAP animations...
-</script>
-```
+CertainWager leverages the power of Astro — a modern, cutting-edge site building framework — and integrates it seamlessly with the utility-first CSS framework TailwindCSS, to deliver exceptional site performance and a seamless user experience. Here are some notable integrations and enhancements included in the project:
 
 **Customizing Animations:**
 
@@ -399,7 +156,7 @@ Additionally, update the `<html>` tag to remove the `scrollbar-hide` class, resu
 
 ### SEO Configuration
 
-The SEO Configuration in the ScrewFast template is designed to empower users in optimizing their website's visibility on search engines and social media platforms. This documentation outlines the implementation details and usage instructions for effectively managing SEO settings.
+The SEO Configuration in the CertainWager template is designed to empower users in optimizing their website's visibility on search engines and social media platforms. This documentation outlines the implementation details and usage instructions for effectively managing SEO settings.
 
 #### Using constants.ts
 
@@ -411,7 +168,7 @@ To customize SEO settings, modify the values in the `constants.ts` file. Key con
 // constants.ts
 
 export const SITE = {
-  title: "ScrewFast",
+  title: "CertainWager",
   // Other SITE properties...
 };
 
@@ -478,8 +235,8 @@ Structured data in JSON-LD format can be managed by the `Meta.astro` component, 
   structuredData={{
     "@context": "https://schema.org",
     "@type": "WebSite",
-    "name": "ScrewFast",
-    "url": "https://screwfast.uk",
+    "name": "CertainWager",
+    "url": "https://certainwager.com",
     "description": "Discover top-quality hardware tools and services"
   }}
 >
@@ -639,4 +396,4 @@ If you're interested in helping, you can contribute in several ways:
 
 ## License
 
-This project is released under the MIT License. Please read the [LICENSE](https://github.com/mearashadowfax/ScrewFast/blob/main/LICENSE) file for more details.
+This project is released under the MIT License. Please read the [LICENSE](https://github.com/Vitto44/CertainWager/blob/main/LICENSE) file for more details.

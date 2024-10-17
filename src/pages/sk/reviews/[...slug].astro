@@ -18,23 +18,23 @@ declare global {
 }
 
 interface Props {
-  product: CollectionEntry<"products">;
+  review: CollectionEntry<"reviews">;
 }
 
-// This gets the static paths for all the unique products
+// This gets the static paths for all the unique reviews
 export async function getStaticPaths() {
-  const productEntries = await getCollection("products");
-  return productEntries.map((product) => ({
-    params: { slug: product.slug },
-    props: { product },
+  const reviewEntries = await getCollection("reviews");
+  return reviewEntries.map((review) => ({
+    params: { slug: review.slug },
+    props: { review },
   }));
 }
 
-const { product } = Astro.props;
+const { review } = Astro.props;
 
-const pageTitle: string = `${product.data.title} | ${SITE.title}`;
+const pageTitle: string = `${review.data.title} | ${SITE.title}`;
 
-  const rating = product.data.rating;
+  const rating = review.data.rating;
 
  const actualRating = rating % 1 >= 0.7 ? Math.ceil(rating) : Math.floor(rating);
   const isHalfStar = rating % 1 > 0.2 && rating % 1 < 0.7;
@@ -57,11 +57,11 @@ const pageTitle: string = `${product.data.title} | ${SITE.title}`;
             <h1
               class="block text-2xl font-bold tracking-tighter lg:text-4xl "
               >
-              {product.data.title}
+              {review.data.title}
             </h1>
             
             <p class="lg:text-xl font-semibold text-neutral-600 dark:text-neutral-400">
-              {getType(product.data.type)}
+              {getType(review.data.type)}
             </p>
 
             <div class="flex space-x-1">
@@ -79,9 +79,9 @@ const pageTitle: string = `${product.data.title} | ${SITE.title}`;
 
       </div>
       <Image
-        src={product.data.imgMain}
+        src={review.data.imgMain}
         class="w-[100px] lg:min-w-[220px] lg:mx-auto rounded-full lg:order-first"
-        alt={product.data.imgAlt}
+        alt={review.data.imgAlt}
         format={"png"}
         loading={"eager"}
       />
@@ -92,16 +92,16 @@ const pageTitle: string = `${product.data.title} | ${SITE.title}`;
         
         
     {
-      product.data && (
+      review.data && (
 
         <div class="text-pretty text-2xl text-center w-full dark:text-neutral-800 text-neutral-100 bg-neutral-800 dark:bg-neutral-100 mx-auto px-8 rounded-lg font-bold">
-          <p class="py-1">Bet {product.data.investment}$ And Get</p>
+          <p class="py-1">Bet {review.data.investment}$ And Get</p>
           <span class="text-pretty rounded-lg text-neutral-800 dark:text-neutral-100 text-5xl block bg-neutral-50 dark:bg-neutral-800 py-3 px-12">
-            {product.data.reward}$
+            {review.data.reward}$
           </span>
-          <p class="py-1">In {product.data.rewardType}</p>
+          <p class="py-1">In {review.data.rewardType}</p>
           <div class="py-4">
-            <PrimaryCTA title="Check Out" url={product.data.btnURL} style="w-full"/>
+            <PrimaryCTA title="Check Out" url={review.data.btnURL} style="w-full"/>
           </div>
         </div>
 
@@ -119,7 +119,7 @@ const pageTitle: string = `${product.data.title} | ${SITE.title}`;
       role="tablist"
     >
       {
-        product.data.tabs.map((tab, index: number) => (
+        review.data.tabs.map((tab: { title: string; id: string; dataTab: string }, index: number) => (
           <ProductTabBtn
             title={tab.title}
             id={tab.id}
@@ -139,7 +139,7 @@ const pageTitle: string = `${product.data.title} | ${SITE.title}`;
               <h2
                 class="text-balance text-3xl font-bold tracking-tight text-neutral-800 dark:text-neutral-200 md:leading-tight lg:text-4xl"
               >
-                {product.data.longDescription.title}
+                {review.data.longDescription.title}
               </h2>
              
               
@@ -149,7 +149,7 @@ const pageTitle: string = `${product.data.title} | ${SITE.title}`;
                         Games
                       </h3>
                        <ul class="mt-2 flex gap-2 flex-wrap  ml-2">
-                          {product.data.longDescription.games?.map((game) => (
+                          {review.data.longDescription.games?.map((game: string) => (
                             <li class="bg-neutral-300 dark:bg-neutral-600 text-black dark:text-white px-3 font-semibold py-1 rounded-md">{game}</li>
                           ))}
                           
@@ -160,7 +160,7 @@ const pageTitle: string = `${product.data.title} | ${SITE.title}`;
                         Countries
                       </h3>
                        <ul class="mt-2 flex gap-2 flex-wrap  ml-2">
-                          {product.data.longDescription.countries?.map((country) => (
+                          {review.data.longDescription.countries?.map((country:string) => (
                             <li class="bg-neutral-300 dark:bg-neutral-600 text-black dark:text-white px-3 font-semibold py-1 rounded-md">{country}</li>
                           ))}
 
@@ -171,8 +171,8 @@ const pageTitle: string = `${product.data.title} | ${SITE.title}`;
                         Deposit Methods
                       </h3>
                        <ul class="mt-2 flex gap-2 flex-wrap  ml-2">
-                          {product.data.longDescription.depositMethods?.map((country) => (
-                            <li class="bg-neutral-300 dark:bg-neutral-600 text-black dark:text-white px-3 font-semibold py-1 rounded-md">{country}</li>
+                          {review.data.longDescription.depositMethods?.map((method:string) => (
+                            <li class="bg-neutral-300 dark:bg-neutral-600 text-black dark:text-white px-3 font-semibold py-1 rounded-md">{method}</li>
                           ))}
 
                       </ul>
@@ -182,7 +182,7 @@ const pageTitle: string = `${product.data.title} | ${SITE.title}`;
                         Customer Support
                       </h3>
                       <p class="mt-2 text-neutral-600 dark:text-neutral-400 ml-2 text-lg">
-                        {product.data.longDescription.customerSupport}
+                        {review.data.longDescription.customerSupport}
                       </p>
                   </div>
                  <div>
@@ -190,7 +190,7 @@ const pageTitle: string = `${product.data.title} | ${SITE.title}`;
                         License
                       </h3>
                       <p class="mt-2 text-neutral-600 dark:text-neutral-400 ml-2 text-lg">
-                        {product.data.longDescription.license}
+                        {review.data.longDescription.license}
                       </p>
                   </div>
               </div>
@@ -204,7 +204,7 @@ const pageTitle: string = `${product.data.title} | ${SITE.title}`;
                 </h2>
               
                 <p class="mt-1 text-neutral-600 dark:text-neutral-400">
-                  {product.data.longDescription.subTitle}
+                  {review.data.longDescription.subTitle}
                 </p>
 
                 <div class="space-y-6 lg:space-y-10 mt-4">
@@ -215,9 +215,9 @@ const pageTitle: string = `${product.data.title} | ${SITE.title}`;
                           </h3>
                           <hr class={`h-px my-1 border-0 bg-green-500`}/>
                          <ul class="mt-1 font-semibold text-neutral-600 dark:text-neutral-400 ml-8 list-disc marker:text-green-500">
-                            {product.data.longDescription.pros?.map((list) => (
+                            {review.data.longDescription.pros?.map((item: string) => (
                              
-                                <li>{list}</li>
+                                <li>{item}</li>
                             ))}
                           </ul>
                         </div>
@@ -228,9 +228,9 @@ const pageTitle: string = `${product.data.title} | ${SITE.title}`;
                           </h3>
                           <hr class={`h-px my-1 border-0 bg-red-500`}/>
                          <ul class="mt-1 font-semibold text-neutral-600 dark:text-neutral-400 ml-8 list-disc marker:text-red-500">
-                            {product.data.longDescription.cons?.map((list) => (
+                            {review.data.longDescription.cons?.map((item:string) => (
                                
-                                <li>{list}</li>
+                                <li>{item}</li>
                             ))}
                           </ul>
                         </div>
@@ -245,7 +245,7 @@ const pageTitle: string = `${product.data.title} | ${SITE.title}`;
 
       <div id="tabs-with-card-2" class="hidden" role="tabpanel">
         <div class="mx-auto max-w-[85rem] px-6 pb-10 sm:px-6 lg:px-12 lg:pb-14 space-y-6">
-          {product.data.howToClaim?.map((claim) => (
+          {review.data.howToClaim?.map((claim: { title: string; content: string; image: string; imageAlt: string }) => (
 
               <div class="space-y-3">
                 <h2 class="text-balance text-xl font-bold tracking-tight text-neutral-800 dark:text-neutral-200 md:leading-tight lg:text-2xl border-b-2 p-2 w-fit border-gray-400 dark:border-gray-700">
@@ -273,7 +273,7 @@ const pageTitle: string = `${product.data.title} | ${SITE.title}`;
       <div id="tabs-with-card-3" class="hidden" role="tabpanel">
         <div class="mx-4 mb-8">
           <p class="text-neutral-600 dark:text-neutral-400">
-            {product.data.termsAndConditions}
+            {review.data.termsAndConditions}
           </p>
     
           

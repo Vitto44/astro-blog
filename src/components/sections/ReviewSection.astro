@@ -8,10 +8,10 @@ import { getType } from "@/utils/utils";
 import ListFilter from "./misc/ListFilter.astro";
 
 // Define props from Astro
-const { product } = Astro.props;
+const { review } = Astro.props;
 
 interface Props {
-  product: CollectionEntry<"products">[];
+  review: CollectionEntry<"reviews">[];
 }
 
 
@@ -23,18 +23,13 @@ interface Props {
 >
   <!-- Title of the testimonials section -->
   <div class="mb-6 sm:mb-10 md:mb-16 flex flex-wrap gap-4">
-    <h2
-      class="text-balance text-2xl font-bold text-neutral-800 dark:text-neutral-200 sm:text-3xl lg:text-4xl"
-      >
-      Casions & Betting Companies
-    </h2>
     <ListFilter categoryOnly/>
   </div>
 
   <div class="grid gap-6 lg:grid-cols-2 xl:grid-cols-3">
     <!-- Looping through each testimonial data and rendering it -->
     {
-      product.map((p) => {
+      review.map((p) => {
 
         
         const {data} = p;
@@ -104,7 +99,7 @@ interface Props {
             <div class="rounded-b-xl bg-neutral-300/30 dark:bg-neutral-900/30 p-2">
 
               <p class="text-xs text-neutral-500 dark:text-neutral-200 h-14 text-pretty mx-3 ">
-                <PrimaryCTA title="View" url={"/products/" + p.slug} style="w-full" />
+                <PrimaryCTA title="View" url={"/reviews/" + p.slug} style="w-full" />
               </p>
                   
             </div>

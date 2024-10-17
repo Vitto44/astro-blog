@@ -28,7 +28,7 @@ contents:
     caption: "Real-time project management dashboard"
 
   - type: text
-    value: "But efficiency isn't just about the tools you use—it's also about the support you receive. That's why ScrewFast offers comprehensive documentation and expert guidance every step of the way. Our dedicated teams are committed to your success, providing personalized assistance to ensure you get the most out of our products."
+    value: "But efficiency isn't just about the tools you use—it's also about the support you receive. That's why ScrewFast offers comprehensive documentation and expert guidance every step of the way. Our dedicated teams are committed to your success, providing personalized assistance to ensure you get the most out of our reviews."
 
   - type: text
     value: "Join the countless industry leaders who have already experienced the difference ScrewFast tools can make. With our cutting-edge solutions, you can fast-track your projects to success and stay ahead of the competition."

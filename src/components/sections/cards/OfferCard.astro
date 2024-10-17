@@ -7,7 +7,7 @@ import { getType } from '@/utils/utils';
 import { Image } from 'astro:assets';
 import type { CollectionEntry } from 'astro:content';
 
-const testimonial = Astro.props.testimonial as CollectionEntry<'products'>['data'];
+const testimonial = Astro.props.testimonial as CollectionEntry<'reviews'>['data'];
 
 const { imgAlt, imgMain, title, rating, type, investment, reward, rewardType, btnURL, termsAndConditions, code, howToClaim } = testimonial;
 

@@ -3,8 +3,7 @@ import ListFilter from "./misc/ListFilter.astro";
 import OfferCard from "./cards/OfferCard.astro";
 import type { CollectionEntry } from 'astro:content';
 
-const offers = Astro.props.testimonials as CollectionEntry<'products'>['data'][];
-const { title } = Astro.props as { title: string };
+const offers = Astro.props.testimonials as CollectionEntry<'reviews'>['data'][];
 
 ---
 <section
@@ -12,11 +11,6 @@ const { title } = Astro.props as { title: string };
   id="testimonials"
 >
   <div class="mb-6 sm:mb-10 md:mb-16 flex flex-wrap gap-4">
-    <h2
-      class="text-balance text-2xl font-bold text-neutral-800 dark:text-neutral-200 sm:text-3xl lg:text-4xl"
-    >
-      {title}
-    </h2>
     <ListFilter/>
   </div>
 

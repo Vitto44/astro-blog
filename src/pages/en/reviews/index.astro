@@ -8,15 +8,15 @@ import type { CollectionEntry } from "astro:content";
 import { SITE } from "@data/constants";
 import ReviewSection from "@/components/sections/ReviewSection.astro";
 
-const products: CollectionEntry<"products">[] = await getCollection(
-  "products",
+const reviews: CollectionEntry<"reviews">[] = await getCollection(
+  "reviews",
   ({ id }) => {
-    return id.startsWith("cz/")
+    return id.startsWith("en/")
   }
 );
 
 
-const pageTitle: string = `Products | ${SITE.title}`;
+const pageTitle: string = `reviews | ${SITE.title}`;
 
 
 ---
@@ -26,8 +26,8 @@ const pageTitle: string = `Products | ${SITE.title}`;
   structuredData={{
     "@context": "https://schema.org",
     "@type": "WebPage",
-    "@id": "https://certainWager.com/products",
-    "url": "https://certainWager.com/products",
+    "@id": "https://certainWager.com/en/reviews",
+    "url": "https://certainWager.com/en/reviews",
     "name": "Hardware Tools | certainWager",
     "description": "Explore the durability and precision of certainWager tools, designed for both professionals and enthusiasts.",
     "isPartOf": {
@@ -45,7 +45,7 @@ const pageTitle: string = `Products | ${SITE.title}`;
     
     <section>
         <ReviewSection
-          product={products}
+          review={reviews}
         />
     </section>
    

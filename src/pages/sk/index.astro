@@ -16,8 +16,8 @@ const avatarSrcs: Array<string> = [
 
 //TODO 1: Fetch the offers collections in different languages
 
-const offers: CollectionEntry<"products">[] = await getCollection(
-  "products",
+const offers: CollectionEntry<"reviews">[] = await getCollection(
+  "reviews",
   ({ id }) => {
     return id.startsWith("sk/")
   }
@@ -28,10 +28,10 @@ const offers: CollectionEntry<"products">[] = await getCollection(
 <MainLayout>
 
   <HeroSection
-    title=`Shortcut To Free <span class="text-yellow-500 dark:text-yellow-400 text-5xl lg:text-8xl">Bets</span> And <span class="text-orange-500 dark:text-orange-300 text-5xl lg:text-8xl">Profit</span>`
-    subTitle="Top-quality hardware tools and expert construction services for every project need."
+    title=`Maximize Winnings with <span class="text-yellow-500 dark:text-yellow-400 text-5xl lg:text-8xl">Exclusive</span> And <span class="text-orange-500 dark:text-orange-300 text-5xl lg:text-8xl">Free</span> Bets`
+    subTitle="Discover the best free and exclusive deals. Maximize your winnings effortlessly!"
     primaryBtn="Start Exploring"
-    primaryBtnURL="/products"
+    primaryBtnURL="/reviews"
     secondaryBtn="Contact Sales Team"
     secondaryBtnURL="/contact"
     avatars={avatarSrcs}
@@ -43,7 +43,6 @@ const offers: CollectionEntry<"products">[] = await getCollection(
   />
   
   <OfferSection
-    title="Offers"
     testimonials={offers.map((offer) => offer.data)}
   />
 

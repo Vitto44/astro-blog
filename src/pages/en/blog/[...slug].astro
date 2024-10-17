@@ -35,8 +35,8 @@ const blogPosts: CollectionEntry<"blog">[] = await getCollection(
   }
 );
 
-const offer: CollectionEntry<"products">[] = await getCollection(
-  "products",
+const offer: CollectionEntry<"reviews">[] = await getCollection(
+  "reviews",
   ({ id }) => {
     return id.startsWith("en/")
   }
