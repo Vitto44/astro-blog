@@ -6,7 +6,12 @@ import EmailContactInput from "@components/ui/forms/input/EmailContactInput.astr
 import TextAreaInput from "@components/ui/forms/input/TextAreaInput.astro";
 import { TEXTS } from "@/data_files/constants";
 
-const texts = TEXTS.en;
+type LanguageKeys = keyof typeof TEXTS;
+
+const lang: LanguageKeys = (Astro.currentLocale as LanguageKeys) || 'en';
+
+const texts = TEXTS[lang];
+
 ---
 
 <!-- Contact Us -->
@@ -50,7 +55,7 @@ const texts = TEXTS.en;
           </div>
 
           <div class="mt-4 grid">
-            <AuthBtn title="Send Message" />
+            <AuthBtn title={texts.contactBtn} />
           </div>
 
           

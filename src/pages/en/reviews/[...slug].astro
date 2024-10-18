@@ -9,6 +9,7 @@ import { SITE } from "@data/constants";
 import FullStar from "@/components/ui/stars/FullStar.astro";
 import HalfStar from "@/components/ui/stars/HalfStar.astro";
 import { getType } from "@/utils/utils";
+import type { languages } from "@/utils/ui";
 
 // Global declaration for gsap animation library
 declare global {
@@ -61,7 +62,8 @@ const pageTitle: string = `${review.data.title} | ${SITE.title}`;
             </h1>
             
             <p class="lg:text-xl font-semibold text-neutral-600 dark:text-neutral-400">
-              {getType(review.data.type)}
+              {getType(review.data.type, (Astro.currentLocale as keyof typeof languages) ?? 'en')}
+              
             </p>
 
             <div class="flex space-x-1">

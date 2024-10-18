@@ -40,7 +40,6 @@ const reviewsCollection = defineCollection({
         }),
       ),
       longDescription: z.object({
-        title: z.string(),
         subTitle: z.string(),
         customerSupport: z.string().optional(),
         license: z.string().optional(),

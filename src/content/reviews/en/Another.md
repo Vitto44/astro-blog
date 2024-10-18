@@ -39,7 +39,6 @@ howToClaim:
   - title: "Step 4"
     content: "Click the 'Register' button to complete the process."
 longDescription:
-  title: "Specifications"
   subTitle: |
     The SF-TB fortuna Machine Screws offer unparalleled precision and reliability for industrial applications, ensuring seamless operation and longevity for your machinery and equipment.
   pros:

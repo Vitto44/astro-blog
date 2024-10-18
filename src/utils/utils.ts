@@ -1,26 +1,33 @@
+import { TEXTS } from "@/data_files/constants";
+type LanguageKeys = keyof typeof TEXTS;
+
 // Format the date to a string
 function formatDate(date: Date): string {
   const options: Intl.DateTimeFormatOptions = {
     year: "numeric",
-    month: "short",
+    month: "numeric",
     day: "numeric",
   };
 
-  return new Date(date).toLocaleDateString(undefined, options);
+  return new Date(date)
+    .toLocaleDateString("default", options)
+    .replace(/\//g, ".");
 }
 
-function getType(type: number, withEmoji = false): string {
+function getType(type: number, lang: LanguageKeys = "en"): string {
+  const texts = TEXTS[lang];
+
   switch (type) {
     case 0:
-      return `All ${withEmoji ? "🎲" : ""}`;
+      return `${texts.all} 🎲`;
     case 1:
-      return `Casino ${withEmoji ? "🎰" : ""}`;
+      return `${texts.casino} 🎰`;
     case 2:
-      return `Sport Betting ${withEmoji ? "🏈" : ""}`;
+      return `${texts.sportsBetting} 🏈`;
     case 3:
-      return `E-Sport ${withEmoji ? "🎮" : ""}`;
+      return `${texts.esport} 🎮`;
     case 4:
-      return `Crypto ${withEmoji ? "💰" : ""}`;
+      return `${texts.crypto} 💰`;
     default:
       return "Unknown";
   }

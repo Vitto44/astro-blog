@@ -54,7 +54,7 @@ const flagImages = await Promise.all(
           class={`text-neutral-800 dark:text-white border-2 dark:border-white border-neutral-800 hover:bg-neutral-200 dark:hover:bg-neutral-500 p-2 rounded-lg text-nowrap font-semibold ${i === 0 ? 'bg-yellow-500' : 'bg-transparent'}`}
           value={i}
         >
-          {getType(i, true)}
+          {getType(i, (Astro.currentLocale as keyof typeof languages) ?? 'en')}
         </button>
       </li>
     ))}
