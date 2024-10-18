@@ -3,13 +3,14 @@
 import MainLayout from "@/layouts/MainLayout.astro";
 import ProductTabBtn from "@components/ui/buttons/ProductTabBtn.astro";
 import PrimaryCTA from "@components/ui/buttons/PrimaryCTA.astro";
-import { Image } from "astro:assets";
+import { getImage, Image } from "astro:assets";
 import { getCollection, type CollectionEntry } from "astro:content";
 import { SITE, TEXTS } from "@data/constants";
 import FullStar from "@/components/ui/stars/FullStar.astro";
 import HalfStar from "@/components/ui/stars/HalfStar.astro";
-import { getType } from "@/utils/utils";
+import { getCountryCode, getType } from "@/utils/utils";
 import type { languages } from "@/utils/ui";
+import faviconSrc from "@images/icon.png";
 
 // Global declaration for gsap animation library
 declare global {
@@ -39,12 +40,65 @@ const texts = TEXTS[lang];
 
 const { review } = Astro.props;
 
-const pageTitle: string = `${review.data.title} | ${SITE.title}`;
+const logoImage = await getImage({
+  src: faviconSrc,
+  width: 60,
+  height: 60,
+  format: "png",
+});
+
+const pageTitle: string = `${review.data.title} | ${SITE(lang).title}`;
 
   const rating = review.data.rating;
 
  const actualRating = rating % 1 >= 0.7 ? Math.ceil(rating) : Math.floor(rating);
   const isHalfStar = rating % 1 > 0.2 && rating % 1 < 0.7;
+
+// Structured Data for Review of a Casino or Sports Betting Service
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "Service",  // Use Service to represent a casino or betting service
+  "name": review.data.title,  // The name of the casino or betting site
+  "description": review.data.description,  // A brief description of the service
+  "review": {
+    "@type": "Review",  // The review nested inside the Service
+    "author": {
+      "@type": "Person",
+      "name": "Viktor H"  // Author of the review
+    },
+    "datePublished": review.data.pubDate,  // The date when the review was published
+    "reviewBody": review.data.longDescription.subTitle, // The body of the review
+    "reviewRating": {
+      "@type": "Rating",
+      "ratingValue": review.data.rating,  // The rating for the service
+      "bestRating": "5",
+      "worstRating": "1"
+    }
+  },
+  "areaServed": {
+    "@type": "Place",
+    "name": review.data.longDescription.countries?.join(', ') || "Worldwide"  // Locations where the service is available
+  },
+  "offers": {
+    "@type": "Offer",
+    "priceCurrency": texts.betCurrency,  // e.g., GBP, EUR
+    "price": review.data.investment,  // Minimum bet amount or similar
+    "url": review.data.btnURL,  // Link to claim the offer
+    "availability": "https://schema.org/InStock",
+    "validFrom": review.data.pubDate
+  },
+  "provider": {
+    "@type": "Organization",
+    "name": SITE(lang).title,  // Your website as the reviewer
+    "logo": {
+      "@type": "ImageObject",
+      "url": `${Astro.site}${logoImage.src}`,  // Logo of your website
+      "width": 60,
+      "height": 60
+    }
+  },
+  "inLanguage": getCountryCode(lang),  // Language of the review
+};
 
 ---
 

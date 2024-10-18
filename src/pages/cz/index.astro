@@ -7,24 +7,27 @@ import OfferSection from "@/components/sections/OfferSection.astro";
 import type { CollectionEntry } from "astro:content";
 import { getCollection } from "astro:content";
 import { SITE, TEXTS } from "@data/constants";
+import { getCountryCode } from "@/utils/utils";
+
+const lang = Astro.currentLocale as keyof typeof TEXTS;
 
 const offers: CollectionEntry<"reviews">[] = await getCollection(
   "reviews",
   ({ id }) => {
-    return id.startsWith("cz/")
+    return id.startsWith(lang);
   }
 );
 
-const texts = TEXTS.cz;
+const texts = TEXTS[lang];
 ---
 
 <MainLayout
-  title={SITE.title}
+  title={SITE(lang).title}
   structuredData={{
     "@context": "https://schema.org",
     "@type": "WebPage",
-    "@id": "https://certainWager.com/cz/blog",
-    url: "https://certainWager.com/cz/blog",
+    "@id": `https://certainWager.com/${lang}/blog`,
+    url: `https://certainWager.com/${lang}/blog`,
     name: "Blog | CertainWager",
     description: texts.mainDescription,
     isPartOf: {
@@ -33,7 +36,7 @@ const texts = TEXTS.cz;
       name: "CertainWager",
       description: texts.heroSubtitle,
     },
-    inLanguage: "cz",
+    inLanguage: getCountryCode(lang),
   }}
 >
 

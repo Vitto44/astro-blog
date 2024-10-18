@@ -3,9 +3,12 @@
 import MainLayout from "@/layouts/MainLayout.astro";
 import ContactSection from "@components/sections/misc/ContactSection.astro";
 import { SITE, TEXTS } from "@data/constants";
-const pageTitle: string = `Contact | ${SITE.title}`;
 
-const texts = TEXTS.cz;
+const lang = Astro.currentLocale as keyof typeof TEXTS;
+
+const pageTitle: string = `Contact | ${SITE(lang).title}`;
+
+const texts = TEXTS[lang];
 ---
 
 <!--Utilizing MainLayout for the outer layout of the page, and defining meta for SEO purposes-->
@@ -14,8 +17,8 @@ const texts = TEXTS.cz;
   structuredData={{
     "@context": "https://schema.org",
     "@type": "WebPage",
-    "@id": "https://certainWager.com/cz/contact",
-    "url": "https://certainWager.com/cz/contact",
+    "@id": `https://certainWager.com/${lang}/contact`,
+    "url": `https://certainWager.com/${lang}/contact`,
     "name": "Contact Us | CertainWager",
     "description": texts.contactDescription,
     "isPartOf": {
@@ -25,7 +28,7 @@ const texts = TEXTS.cz;
       "description": texts.heroSubtitle,
         
     },
-    "inLanguage": "cz"
+    "inLanguage": lang
   }}
 >
   <ContactSection />

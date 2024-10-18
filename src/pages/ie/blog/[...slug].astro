@@ -1,63 +1,91 @@
 ---
-// Import necessary components and utilities
 import MainLayout from "@/layouts/MainLayout.astro";
 import CardRelated from "@components/ui/cards/CardRelated.astro";
 import SocialShare from "@components/ui/buttons/SocialShare.astro";
-import { Image } from "astro:assets";
-import { formatDate } from "@utils/utils";
+import { getImage, Image } from "astro:assets";
+import { formatDate, getCountryCode } from "@utils/utils";
 import { getCollection } from "astro:content";
 import type { CollectionEntry } from "astro:content";
 import { SITE, TEXTS } from "@data/constants";
 import SidebarEmailInput from "@/components/ui/forms/input/SidebarEmailInput.astro";
 import OfferCard from "@/components/sections/cards/OfferCard.astro";
+import faviconSrc from "@images/icon.png";
 
-// getStaticPaths is used to pre-render all routes based on the blog posts
+// Fetching blog post paths
 export async function getStaticPaths() {
   const blogPosts = await getCollection("blog", ({ id }) => {
-    return id.startsWith("ie/");
+    return id.startsWith(`ie/`);
   });
   return blogPosts.map((post) => ({
     params: { slug: post.slug },
     props: { post },
   }));
-
- 
 }
+const lang: LanguageKeys = (Astro.currentLocale as LanguageKeys) || 'en';
+
+const logoImage = await getImage({
+  src: faviconSrc,
+  width: 60,
+  height: 60,
+  format: "png",
+});
 
 type LanguageKeys = keyof typeof TEXTS;
 
-const lang: LanguageKeys = (Astro.currentLocale as LanguageKeys) || 'en';
-
 const texts = TEXTS[lang];
 
-// Get the current post's data
+// Fetching blog post data
 const { post } = Astro.props;
+const blogPosts: CollectionEntry<"blog">[] = await getCollection("blog", ({ id }) => {
+  return id.startsWith(`${lang}/`);
+});
 
-// Get all blog posts
-const blogPosts: CollectionEntry<"blog">[] = await getCollection(
-  "blog",
-  ({ id }) => {
-    return id.startsWith("ie/");
-  }
-);
+const offer: CollectionEntry<"reviews">[] = await getCollection("reviews", ({ id }) => {
+  return id.startsWith(`${lang}/`);
+});
 
-const offer: CollectionEntry<"reviews">[] = await getCollection(
-  "reviews",
-  ({ id }) => {
-    return id.startsWith("ie/")
-  }
-);
+const relatedPosts: CollectionEntry<"blog">[] = blogPosts.filter((blogEntry) => blogEntry.slug !== post.slug);
 
-// Filter out the current post to get related posts
-const relatedPosts: CollectionEntry<"blog">[] = blogPosts.filter(
-  (blogEntry) => blogEntry.slug !== post.slug
-);
+const pageTitle: string = `${post.data.title} | ${SITE(lang).title}`;
 
-const pageTitle: string = `${post.data.title} | ${SITE.title}`;
+// Structured Data for Blog Post
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": `${SITE(lang).url}/blog/${lang}/${post.slug}`
+  },
+  "headline": post.data.title,
+  "description": post.data.description,
+  "image": {
+    "@type": "ImageObject",
+    "url": `${SITE(lang).url}${post.data.cardImage}`,
+    "width": 1200,
+    "height": 630
+  },
+  "author": {
+    "@type": "Person",
+    "name": "Viktor H"
+  },
+  "datePublished": post.data.pubDate,
+  "dateModified": post.data.lastModified || post.data.pubDate,
+  "publisher": {
+    "@type": "Organization",
+    "name": SITE(lang).title,
+    "logo": {
+      "@type": "ImageObject",
+      "url": `${Astro.site}${logoImage.src}`,
+      "width": 60,
+      "height": 60
+    }
+  },
+  "inLanguage": getCountryCode(lang),
+};
 
 ---
 
-<MainLayout title={pageTitle}>
+<MainLayout title={pageTitle} structuredData={structuredData}>
   <section class="mx-auto max-w-screen-xl px-4 pb-12 pt-6 sm:px-6 lg:px-8 lg:pt-10">
     <div class="grid gap-8 md:grid-cols-3 relative">
       <div class="max-w-2xl md:col-span-2">

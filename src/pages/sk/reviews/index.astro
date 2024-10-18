@@ -7,17 +7,20 @@ import { getCollection } from "astro:content";
 import type { CollectionEntry } from "astro:content";
 import { SITE, TEXTS } from "@data/constants";
 import ReviewSection from "@/components/sections/ReviewSection.astro";
+import { getCountryCode } from "@/utils/utils";
+
+const lang = Astro.currentLocale as keyof typeof TEXTS; 
 
 const reviews: CollectionEntry<"reviews">[] = await getCollection(
   "reviews",
   ({ id }) => {
-    return id.startsWith("sk/")
+    return id.startsWith(lang)
   }
 );
 
-const texts = TEXTS.sk;
+const texts = TEXTS[lang];
 
-const pageTitle: string = `reviews | ${SITE.title}`;
+const pageTitle: string = `reviews | ${SITE(lang).title}`;
 
 
 ---
@@ -27,8 +30,8 @@ const pageTitle: string = `reviews | ${SITE.title}`;
   structuredData={{
     "@context": "https://schema.org",
     "@type": "WebPage",
-    "@id": "https://certainWager.com/sk/reviews",
-    "url": "https://certainWager.com/sk/reviews",
+    "@id": `https://certainWager.com/${lang}/reviews`,
+    "url": `https://certainWager.com/${lang}/reviews`,
     "name": texts.reviewLayoutName,
     "description": texts.reviewLayoutDescription,
     "isPartOf": {
@@ -37,7 +40,7 @@ const pageTitle: string = `reviews | ${SITE.title}`;
       "name": "certainWager",
       "description": texts.heroSubtitle,
     },
-    "inLanguage": "sk"
+    "inLanguage": getCountryCode(lang),
   }}
 >
   <section

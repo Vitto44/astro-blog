@@ -3,10 +3,10 @@
 import Meta from "@components/Meta.astro";
 import Navbar from "@components/sections/navbar&footer/Navbar.astro";
 import FooterSection from "@components/sections/navbar&footer/FooterSection.astro";
-import { SITE } from "@data/constants";
+import { SITE, TEXTS } from "@data/constants";
 
 // Setting expected props
-const { title = SITE.title, meta, structuredData, lang = "en" } = Astro.props;
+const { meta, structuredData } = Astro.props;
 
 // Interface to type-check the properties
 interface Props {
@@ -15,6 +15,11 @@ interface Props {
   structuredData?: object;
   lang?: string;
 }
+type LanguageKeys = keyof typeof TEXTS;
+
+const lang: LanguageKeys = (Astro.currentLocale as LanguageKeys) || 'en';
+
+const title = lang? SITE(lang).title : SITE("en").title;
 ---
 
 <!--

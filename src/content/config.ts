@@ -8,6 +8,8 @@ const reviewsCollection = defineCollection({
     z.object({
       title: z.string(),
       type: z.number(),
+      description: z.string(),
+      pubDate: z.string(),
       rating: z.number(),
       termsAndConditions: z.string(),
       investment: z.number(),
@@ -73,6 +75,7 @@ const blogCollection = defineCollection({
         }),
       ),
       pubDate: z.date(),
+      lastModified: z.date(),
       cardImage: image(),
       cardImageAlt: z.string(),
       readTime: z.number(),

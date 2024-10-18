@@ -5,11 +5,16 @@ import CardBlog from "@components/ui/cards/CardBlog.astro";
 import { getCollection } from "astro:content";
 import type { CollectionEntry } from "astro:content";
 import { SITE, TEXTS } from "@data/constants";
+import { getCountryCode } from "@/utils/utils";
 
-const texts = TEXTS.sk;
+type LanguageKeys = keyof typeof TEXTS;
+
+const lang: LanguageKeys = (Astro.currentLocale as LanguageKeys) || 'en';
+
+const texts = TEXTS[lang];
 
 const englishBlogEntries = await getCollection("blog", ({ id }) => {
-  return id.startsWith("sk/");
+  return id.startsWith(`${lang}/`);
 });
 
 const blogPosts: CollectionEntry<"blog">[] = englishBlogEntries.sort(
@@ -19,7 +24,9 @@ const blogPosts: CollectionEntry<"blog">[] = englishBlogEntries.sort(
 
 const otherPosts: CollectionEntry<"blog">[] = blogPosts;
 
-const pageTitle: string = `Blog | ${SITE.title}`;
+
+
+const pageTitle: string = `Blog | ${SITE(lang).title}`;
 ---
 
 <MainLayout
@@ -27,8 +34,8 @@ const pageTitle: string = `Blog | ${SITE.title}`;
   structuredData={{
     "@context": "https://schema.org",
     "@type": "WebPage",
-    "@id": "https://certainWager.com/sk/blog",
-    url: "https://certainWager.com/sk/blog",
+    "@id": `https://certainWager.com/${lang}/blog`,
+    url: `https://certainWager.com/${lang}/blog`,
     name: "Blog | CertainWager",
     description: texts.blogLayoutDescription,
     isPartOf: {
@@ -37,7 +44,7 @@ const pageTitle: string = `Blog | ${SITE.title}`;
       name: "CertainWager",
       description: texts.heroSubtitle,  
     },
-    inLanguage: "sk",
+    inLanguage: getCountryCode(lang),
   }}
 >
   <section

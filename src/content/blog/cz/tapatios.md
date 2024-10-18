@@ -2,6 +2,7 @@
 title: "Maximizing Efficiency with ScrewFast's Cutting-Edge Tools, eh? CZs"
 description: "Innovating Construction Efficiency with Precision Tools & Support"
 pubDate: 2024-02-06
+lastModified: 2024-03-06
 cardImage: "@/images/fortuna.jpg"
 cardImageAlt: "Top view mechanical tools arrangement"
 readTime: 4

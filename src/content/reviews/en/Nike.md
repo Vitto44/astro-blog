@@ -1,10 +1,12 @@
 ---
 title: "Nike"
 type: 3
+pubDate: "2021-09-01"
 rating: 3.8
 termsAndConditions: "By registering an account with us, you agree to our Terms and Conditions. Please make sure you read and understand them before proceeding."
 investment: 20
 reward: 20
+description: "Review of the sports betting brand Nike."
 rewardType: "Free Spins"
 code: "fortuna"
 redeemLink: "#"

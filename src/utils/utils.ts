@@ -33,4 +33,19 @@ function getType(type: number, lang: LanguageKeys = "en"): string {
   }
 }
 
-export { formatDate, getType };
+function getCountryCode(lang: LanguageKeys = "en"): string {
+  switch (lang) {
+    case "en":
+      return "en-GB";
+    case "ie":
+      return "en-IE";
+    case "sk":
+      return "sk-SK";
+    case "cz":
+      return "cs-CZ";
+    default:
+      return "en-GB";
+  }
+}
+
+export { formatDate, getType, getCountryCode };

@@ -1,14 +1,56 @@
 import ogImageSrc from "@images/social.png";
 
-export const SITE = {
-  title: "CertainWager",
-  tagline: "List of the best online betting sites and casinos",
-  description:
-    "CertainWager showcases the best online betting sites and casinos. Read reviews and compare offers. Learn how to maximize your profits with our expert insights and tips.",
-  description_short:
-    "CertainWager showcases the best online betting sites and casinos. Read reviews and compare offers.",
-  url: "https://certainwager.com",
-  author: "Viktor Hajdu",
+type Locale = "en" | "sk" | "cz" | "ie";
+
+export const SITE = (locale: Locale = "en") => {
+  const descriptions: Record<
+    Locale,
+    {
+      title: string;
+      tagline: string;
+      description: string;
+      description_short: string;
+    }
+  > = {
+    en: {
+      title: "CertainWager",
+      tagline: "List of the best online betting sites and casinos",
+      description:
+        "CertainWager showcases the best online betting sites and casinos. Read reviews and compare offers. Learn how to maximize your profits with our expert insights and tips.",
+      description_short:
+        "CertainWager showcases the best online betting sites and casinos. Read reviews and compare offers.",
+    },
+    sk: {
+      title: "CertainWager SK",
+      tagline: "Zoznam najlepších stávkových stránok a kasín",
+      description:
+        "CertainWager predstavuje najlepšie stávkové stránky a kasína. Čítajte recenzie a porovnajte ponuky. Naučte sa, ako maximalizovať svoje zisky s našimi odbornými radami.",
+      description_short:
+        "CertainWager predstavuje najlepšie stávkové stránky a kasína. Čítajte recenzie a porovnajte ponuky.",
+    },
+    cz: {
+      title: "CertainWager CZ",
+      tagline: "Seznam nejlepších online sázkových stránek a kasin",
+      description:
+        "CertainWager nabízí nejlepší sázkové stránky a kasina. Přečtěte si recenze a porovnejte nabídky. Naučte se, jak maximalizovat své zisky s našimi odbornými radami.",
+      description_short:
+        "CertainWager nabízí nejlepší sázkové stránky a kasina. Přečtěte si recenze a porovnejte nabídky.",
+    },
+    ie: {
+      title: "CertainWager IE",
+      tagline: "List of the best online betting sites and casinos",
+      description:
+        "CertainWager showcases the best online betting sites and casinos. Read reviews and compare offers. Learn how to maximize your profits with our expert insights and tips.",
+      description_short:
+        "CertainWager showcases the best online betting sites and casinos. Read reviews and compare offers.",
+    },
+  };
+
+  return {
+    ...descriptions[locale],
+    url: `https://certainwager.com/${locale}`,
+    author: "Viktor Hajdu",
+  };
 };
 
 export const TEXTS = {
@@ -65,12 +107,28 @@ export const TEXTS = {
     cons: "Cons",
   },
   ie: {
+    blogLayoutDescription:
+      "Dive into the latest news, insider tips, and winning strategies in the thrilling world of sports betting and casinos.",
+    reviewLayoutName: "Top Casinos & Sports Betting Reviews | CertainWager",
+    reviewLayoutDescription:
+      "Discover 100% real and honest reviews from experts on the best casinos and sports betting sites.",
+    mainDescription:
+      "Unlock the best free bets and exclusive deals in the world of sports betting and casinos.",
+    reviewTitle: "Top Betting Sites & Casinos: Unbiased Reviews",
+    reviewDescription:
+      "Find and compare the best online betting sites and casinos. Read honest reviews and seize top offers.",
+    blogTitle: "Your Insider's Guide to Maximizing Profits",
+    blogDescription:
+      "Master the art of winning with our expert insights, tips, and strategies.",
+    heroSubtitle:
+      "Discover the best free bets and exclusive offers. Maximize your winnings effortlessly with CertainWager!",
+    heroAlt: "Exciting visuals showcasing money and betting opportunities",
+    contactTitle: "Get in Touch with Us",
     emailSubscribe1: "Subscribe to our newsletter and be the first to get the ",
     emailSubscribe2: "Latest Offers!",
     subscribe: "Subscribe Now",
     contactDescription:
       "Have questions or need assistance? Reach out, and we'll respond as soon as possible.",
-    contactTitle: "Get in Touch with Us",
     suggestedOffer: "Suggested Offers",
     newestArticles: "Newest Articles",
     share: "Share",
@@ -82,7 +140,7 @@ export const TEXTS = {
     crypto: "Crypto",
     contactBtn: "Get in Touch",
     bet: "Bet",
-    betCurrency: "€",
+    betCurrency: "£",
     andGet: "and get",
     inBonuses: "in Bonuses",
     howToClaim: "How to Claim",
@@ -206,32 +264,40 @@ export const TEXTS = {
   },
 };
 
-export const SEO = {
-  title: SITE.title,
-  description: SITE.description,
-  structuredData: {
-    "@context": "https://schema.org",
-    "@type": "WebPage",
-    inLanguage: "en-GB",
-    "@id": SITE.url,
-    url: SITE.url,
-    name: SITE.title,
-    description: SITE.description,
-    isPartOf: {
-      "@type": "WebSite",
-      url: SITE.url,
-      name: SITE.title,
-      description: SITE.description,
+export const SEO = (locale: Locale = "en") => {
+  const siteData = SITE(locale);
+
+  return {
+    title: siteData.title,
+    description: siteData.description,
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      inLanguage:
+        locale === "en" ? "en-GB" : `${locale}-${locale.toUpperCase()}`,
+      "@id": siteData.url,
+      url: siteData.url,
+      name: siteData.title,
+      description: siteData.description,
+      isPartOf: {
+        "@type": "WebSite",
+        url: siteData.url,
+        name: siteData.title,
+        description: siteData.description,
+      },
     },
-  },
+  };
 };
 
-export const OG = {
-  locale: "en_US",
-  type: "website",
-  url: SITE.url,
-  title: `${SITE.title}: : Hardware Tools & Construction Services`,
-  description:
-    "Equip your projects with CertainWager's top-quality hardware tools and expert construction services. Trusted by industry leaders, CertainWager offers simplicity, affordability, and reliability. Experience the difference with user-centric design and cutting-edge tools. Start exploring now!",
-  image: ogImageSrc,
+export const OG = (locale: Locale = "en") => {
+  const siteData = SITE(locale);
+
+  return {
+    locale: locale === "en" ? "en_GB" : `${locale}_${locale.toUpperCase()}`,
+    type: "website",
+    url: siteData.url,
+    title: `${siteData.title}: ${siteData.tagline}`,
+    description: siteData.description,
+    image: ogImageSrc,
+  };
 };

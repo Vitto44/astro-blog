@@ -2,6 +2,8 @@
 title: "Nike"
 type: 2
 rating: 3.8
+description: "Nike is a leading sports brand that offers a wide range of athletic footwear, apparel, and accessories. With a focus on innovation and performance, Nike products are designed to help athletes of all levels reach their full potential."
+pubDate: "2021-09-01"
 termsAndConditions: "By registering an account with us, you agree to our Terms and Conditions. Please make sure you read and understand them before proceeding."
 investment: 20
 reward: 20

@@ -3,13 +3,14 @@
 import MainLayout from "@/layouts/MainLayout.astro";
 import ProductTabBtn from "@components/ui/buttons/ProductTabBtn.astro";
 import PrimaryCTA from "@components/ui/buttons/PrimaryCTA.astro";
-import { Image } from "astro:assets";
+import { getImage, Image } from "astro:assets";
 import { getCollection, type CollectionEntry } from "astro:content";
-import { SITE } from "@data/constants";
+import { SITE, TEXTS } from "@data/constants";
 import FullStar from "@/components/ui/stars/FullStar.astro";
 import HalfStar from "@/components/ui/stars/HalfStar.astro";
-import { getType } from "@/utils/utils";
+import { getCountryCode, getType } from "@/utils/utils";
 import type { languages } from "@/utils/ui";
+import faviconSrc from "@images/icon.png";
 
 // Global declaration for gsap animation library
 declare global {
@@ -31,14 +32,73 @@ export async function getStaticPaths() {
   }));
 }
 
+type LanguageKeys = keyof typeof TEXTS;
+
+const lang: LanguageKeys = (Astro.currentLocale as LanguageKeys) || 'en';
+
+const texts = TEXTS[lang];
+
 const { review } = Astro.props;
 
-const pageTitle: string = `${review.data.title} | ${SITE.title}`;
+const logoImage = await getImage({
+  src: faviconSrc,
+  width: 60,
+  height: 60,
+  format: "png",
+});
+
+const pageTitle: string = `${review.data.title} | ${SITE(lang).title}`;
 
   const rating = review.data.rating;
 
  const actualRating = rating % 1 >= 0.7 ? Math.ceil(rating) : Math.floor(rating);
   const isHalfStar = rating % 1 > 0.2 && rating % 1 < 0.7;
+
+// Structured Data for Review of a Casino or Sports Betting Service
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "Service",  // Use Service to represent a casino or betting service
+  "name": review.data.title,  // The name of the casino or betting site
+  "description": review.data.description,  // A brief description of the service
+  "review": {
+    "@type": "Review",  // The review nested inside the Service
+    "author": {
+      "@type": "Person",
+      "name": "Viktor H"  // Author of the review
+    },
+    "datePublished": review.data.pubDate,  // The date when the review was published
+    "reviewBody": review.data.longDescription.subTitle, // The body of the review
+    "reviewRating": {
+      "@type": "Rating",
+      "ratingValue": review.data.rating,  // The rating for the service
+      "bestRating": "5",
+      "worstRating": "1"
+    }
+  },
+  "areaServed": {
+    "@type": "Place",
+    "name": review.data.longDescription.countries?.join(', ') || "Worldwide"  // Locations where the service is available
+  },
+  "offers": {
+    "@type": "Offer",
+    "priceCurrency": texts.betCurrency,  // e.g., GBP, EUR
+    "price": review.data.investment,  // Minimum bet amount or similar
+    "url": review.data.btnURL,  // Link to claim the offer
+    "availability": "https://schema.org/InStock",
+    "validFrom": review.data.pubDate
+  },
+  "provider": {
+    "@type": "Organization",
+    "name": SITE(lang).title,  // Your website as the reviewer
+    "logo": {
+      "@type": "ImageObject",
+      "url": `${Astro.site}${logoImage.src}`,  // Logo of your website
+      "width": 60,
+      "height": 60
+    }
+  },
+  "inLanguage": getCountryCode(lang),  // Language of the review
+};
 
 ---
 
@@ -63,7 +123,6 @@ const pageTitle: string = `${review.data.title} | ${SITE.title}`;
             
             <p class="lg:text-xl font-semibold text-neutral-600 dark:text-neutral-400">
               {getType(review.data.type, (Astro.currentLocale as keyof typeof languages) ?? 'en')}
-              
             </p>
 
             <div class="flex space-x-1">
@@ -92,26 +151,23 @@ const pageTitle: string = `${review.data.title} | ${SITE.title}`;
          
     </div>
         
-        
     {
       review.data && (
 
         <div class="text-pretty text-2xl text-center w-full dark:text-neutral-800 text-neutral-100 bg-neutral-800 dark:bg-neutral-100 mx-auto px-8 rounded-lg font-bold">
-          <p class="py-1">Bet {review.data.investment}$ And Get</p>
+          <p class="py-1">{texts.bet} {review.data.investment}{texts.betCurrency} {texts.andGet}</p>
           <span class="text-pretty rounded-lg text-neutral-800 dark:text-neutral-100 text-5xl block bg-neutral-50 dark:bg-neutral-800 py-3 px-12">
-            {review.data.reward}$
+            {review.data.reward}{texts.betCurrency}
           </span>
-          <p class="py-1">In {review.data.rewardType}</p>
+          <p class="py-1">{texts.inBonuses}</p>
           <div class="py-4">
-            <PrimaryCTA title="Check Out" url={review.data.btnURL} style="w-full"/>
+            <PrimaryCTA title={texts.redeem} url={review.data.btnURL} style="w-full"/>
           </div>
         </div>
 
      
         )
       }
-
-
     </section>
 
     <div class="mx-auto md:px-4 pt-10 lg:pt-0 col-span-8 lg:col-span-6 w-full max-w-[85rem]">
@@ -141,14 +197,14 @@ const pageTitle: string = `${review.data.title} | ${SITE.title}`;
               <h2
                 class="text-balance text-3xl font-bold tracking-tight text-neutral-800 dark:text-neutral-200 md:leading-tight lg:text-4xl"
               >
-                {review.data.longDescription.title}
+                {texts.specifications}
               </h2>
              
               
               <div class="max-w-md space-y-6 my-8">
                  <div>
                       <h3 class="block text-xl font-bold text-neutral-800 dark:text-neutral-200 border-b-2 border-neutral-400 dark:border-neutral-700 w-fit pr-4">
-                        Games
+                        {texts.options}
                       </h3>
                        <ul class="mt-2 flex gap-2 flex-wrap  ml-2">
                           {review.data.longDescription.games?.map((game: string) => (
@@ -159,7 +215,7 @@ const pageTitle: string = `${review.data.title} | ${SITE.title}`;
                   </div>
                  <div>
                       <h3 class="block text-xl font-bold text-neutral-800 dark:text-neutral-200 border-b-2 border-neutral-400 dark:border-neutral-700 w-fit pr-4">
-                        Countries
+                        {texts.countries}
                       </h3>
                        <ul class="mt-2 flex gap-2 flex-wrap  ml-2">
                           {review.data.longDescription.countries?.map((country:string) => (
@@ -170,7 +226,7 @@ const pageTitle: string = `${review.data.title} | ${SITE.title}`;
                   </div>
                  <div>
                       <h3 class="block text-xl font-bold text-neutral-800 dark:text-neutral-200 border-b-2 border-neutral-400 dark:border-neutral-700 w-fit pr-4">
-                        Deposit Methods
+                        {texts.depositMethods}
                       </h3>
                        <ul class="mt-2 flex gap-2 flex-wrap  ml-2">
                           {review.data.longDescription.depositMethods?.map((method:string) => (
@@ -181,7 +237,7 @@ const pageTitle: string = `${review.data.title} | ${SITE.title}`;
                   </div>
                  <div>
                       <h3 class="block text-xl font-bold text-neutral-800 dark:text-neutral-200 border-b-2 border-neutral-400 dark:border-neutral-700 w-fit pr-4">
-                        Customer Support
+                        {texts.customerSupport}
                       </h3>
                       <p class="mt-2 text-neutral-600 dark:text-neutral-400 ml-2 text-lg">
                         {review.data.longDescription.customerSupport}
@@ -189,7 +245,7 @@ const pageTitle: string = `${review.data.title} | ${SITE.title}`;
                   </div>
                  <div>
                       <h3 class="block text-xl font-bold text-neutral-800 dark:text-neutral-200 border-b-2 border-neutral-400 dark:border-neutral-700 w-fit pr-4">
-                        License
+                        {texts.license}
                       </h3>
                       <p class="mt-2 text-neutral-600 dark:text-neutral-400 ml-2 text-lg">
                         {review.data.longDescription.license}
@@ -202,7 +258,7 @@ const pageTitle: string = `${review.data.title} | ${SITE.title}`;
             
             <div class="space-y-6">
                <h2 class="text-balance text-3xl font-bold tracking-tight text-neutral-800 dark:text-neutral-200 md:leading-tight lg:text-4xl">
-                  Review
+                  {texts.review}
                 </h2>
               
                 <p class="mt-1 text-neutral-600 dark:text-neutral-400">
@@ -213,7 +269,7 @@ const pageTitle: string = `${review.data.title} | ${SITE.title}`;
 
                         <div>
                           <h3 class="text-lg font-bold text-neutral-800 dark:text-neutral-200 sm:text-lg">
-                            Pros
+                            {texts.pros}
                           </h3>
                           <hr class={`h-px my-1 border-0 bg-green-500`}/>
                          <ul class="mt-1 font-semibold text-neutral-600 dark:text-neutral-400 ml-8 list-disc marker:text-green-500">
@@ -226,7 +282,7 @@ const pageTitle: string = `${review.data.title} | ${SITE.title}`;
 
                          <div>
                           <h3 class="text-lg font-bold text-neutral-800 dark:text-neutral-200 sm:text-lg ">
-                            Cons
+                            {texts.cons}
                           </h3>
                           <hr class={`h-px my-1 border-0 bg-red-500`}/>
                          <ul class="mt-1 font-semibold text-neutral-600 dark:text-neutral-400 ml-8 list-disc marker:text-red-500">
