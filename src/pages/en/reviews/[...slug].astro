@@ -102,7 +102,7 @@ const structuredData = {
 
 ---
 
-<MainLayout title={pageTitle}>
+<MainLayout title={pageTitle} structuredData={structuredData}>
   <div id="overlay" class="fixed inset-0 bg-neutral-200 dark:bg-neutral-800"/>
 
   <div
@@ -303,7 +303,7 @@ const structuredData = {
 
       <div id="tabs-with-card-2" class="hidden" role="tabpanel">
         <div class="mx-auto max-w-[85rem] px-6 pb-10 sm:px-6 lg:px-12 lg:pb-14 space-y-6">
-          {review.data.howToClaim?.map((claim: { title: string; content: string; image: string; imageAlt: string }) => (
+          {review.data.howToClaim?.map((claim) => (
 
               <div class="space-y-3">
                 <h2 class="text-balance text-xl font-bold tracking-tight text-neutral-800 dark:text-neutral-200 md:leading-tight lg:text-2xl border-b-2 p-2 w-fit border-gray-400 dark:border-gray-700">

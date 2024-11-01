@@ -4,10 +4,8 @@ import vercelStatic from "@astrojs/vercel/static";
 import sitemap from "@astrojs/sitemap";
 import compressor from "astro-compressor";
 
-// https://astro.build/config
 export default defineConfig({
-  // https://docs.astro.build/en/guides/images/#authorizing-remote-images
-  site: "https://certainWager.com",
+  site: "https://certainwager.com",
   image: {
     domains: ["images.unsplash.com"],
   },
@@ -30,11 +28,34 @@ export default defineConfig({
       i18n: {
         defaultLocale: "en",
         locales: {
-          en: "en",
+          en: "en-GB",
           sk: "sk",
-          cz: "cz",
-          ie: "ie",
+          cz: "cs",
+          ie: "en-GB",
         },
+      },
+      filter: (page) => {
+        // Exclude pages like 404
+        return !page.includes("404") && !page.includes("/private");
+      },
+      serialize: ({ url, route }) => {
+        const lastModified =
+          route?.lastModified || new Date().toISOString().split("T")[0];
+        const lang = route?.locale || "en";
+        const isDefaultLocale = lang === "en";
+        const formattedUrl = isDefaultLocale ? url : `/${lang}${url}`;
+
+        const alternateLinks = ["en", "sk", "cz", "ie"].map((locale) => ({
+          hreflang: locale,
+          lang: locale,
+          url,
+        }));
+
+        return {
+          url: formattedUrl,
+          lastmod: lastModified,
+          links: alternateLinks,
+        };
       },
     }),
     compressor({

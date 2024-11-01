@@ -36,7 +36,7 @@ const { id, open, howToClaim } = Astro.props;
     &times;
   </button>
 </dialog>
-  <script define:vars={{id}}>
+  <script define:vars={{id}} is:inline>
     const modal = document.getElementById(`modal-${id}`);
     if (modal) {
       modal.addEventListener('click', (e) => { if (e.target === e.currentTarget) modal.close() });

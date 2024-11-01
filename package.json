@@ -1,13 +1,13 @@
 {
-  "name": "",
+  "name": "certain-wager",
   "type": "module",
   "version": "0.0.1",
   "scripts": {
     "dev": "astro dev",
-    "start": "astro dev",
     "build": "astro check && astro build && node process-html.mjs",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "buildSite": "astro check && astro build && node process-html.mjs && tsx generate-sitemap.ts"
   },
   "dependencies": {
     "@astrojs/check": "^0.8.2",
@@ -36,6 +36,8 @@
     "prettier": "^3.3.3",
     "prettier-plugin-astro": "^0.14.0",
     "prettier-plugin-tailwindcss": "^0.6.5",
+    "ts-node": "^10.9.2",
+    "tsx": "^4.19.2",
     "typescript": "^5.5.4"
   }
 }

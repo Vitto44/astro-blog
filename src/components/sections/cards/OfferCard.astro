@@ -11,7 +11,7 @@ import type { CollectionEntry } from 'astro:content';
 
 const testimonial = Astro.props.testimonial as CollectionEntry<'reviews'>['data'];
 
-const { imgAlt, imgMain, title, rating, type, investment, reward, rewardType, btnURL, termsAndConditions, code, howToClaim } = testimonial;
+const { imgAlt, imgMain, title, rating, type, investment, reward, btnURL, termsAndConditions, code, howToClaim } = testimonial;
 
 const actualRating = rating % 1 >= 0.7 ? Math.ceil(rating) : Math.floor(rating);
 const isHalfStar = rating % 1 > 0.2 && rating % 1 < 0.7;

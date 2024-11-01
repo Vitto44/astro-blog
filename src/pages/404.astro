@@ -7,14 +7,11 @@ import { SITE } from "@data/constants";
 
 
 const translations = {
-    pageTitle: `Page Not Found | ${SITE.title}`,
+    pageTitle: `Page Not Found | ${SITE('en').title}`,
     subTitle: "Oops, seems like you're lost.",
     btnTitle: "Go Back",
 
 };
-
-// Determine language from the URL
-const urlPath = Astro.url.pathname;
 
 ---
 
