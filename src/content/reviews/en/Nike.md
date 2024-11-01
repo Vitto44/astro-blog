@@ -58,12 +58,10 @@ longDescription:
     - "Baccarat"
     - "Craps"
   countries:
-    - "United States"
-    - "Canada"
-    - "Australia"
-    - "United Kingdom"
-    - "New Zealand"
-    - "Germany"
+    - "US"
+    - "UK"
+    - "DE"
+    - "CZ"
   depositMethods:
     - "Visa"
     - "Mastercard"

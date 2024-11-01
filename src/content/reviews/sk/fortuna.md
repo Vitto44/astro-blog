@@ -1,5 +1,5 @@
 ---
-title: "Fortuna SK"
+title: "Fortuna"
 type: 1
 rating: 4.1
 termsAndConditions: "By registering an account with us, you agree to our Terms and Conditions. Please make sure you read and understand them before proceeding."
@@ -58,12 +58,11 @@ longDescription:
     - "Baccarat"
     - "Craps"
   countries:
-    - "United States"
-    - "Canada"
-    - "Australia"
-    - "United Kingdom"
-    - "New Zealand"
-    - "Germany"
+    - "US"
+    - "UK"
+    - "DE"
+    - "CZ"
+    - "SK"
   depositMethods:
     - "Visa"
     - "Mastercard"
@@ -73,5 +72,4 @@ longDescription:
     - "Paysafecard"
   customerSupport: "info@support.de"
   license: "Curacao"
-slug: fortunaSK
 ---

@@ -4,6 +4,8 @@ import vercelStatic from "@astrojs/vercel/static";
 import sitemap from "@astrojs/sitemap";
 import compressor from "astro-compressor";
 
+const languageCodes = ["en", "sk", "cz", "ie"];
+
 export default defineConfig({
   site: "https://certainwager.com",
   image: {
@@ -11,7 +13,7 @@ export default defineConfig({
   },
   i18n: {
     defaultLocale: "en",
-    locales: ["en", "sk", "cz", "ie"],
+    locales: languageCodes,
     fallback: {
       sk: "en",
       cz: "en",
@@ -35,24 +37,46 @@ export default defineConfig({
         },
       },
       filter: (page) => {
-        // Exclude pages like 404
-        return !page.includes("404") && !page.includes("/private");
-      },
-      serialize: ({ url, route }) => {
-        const lastModified =
-          route?.lastModified || new Date().toISOString().split("T")[0];
-        const lang = route?.locale || "en";
-        const isDefaultLocale = lang === "en";
-        const formattedUrl = isDefaultLocale ? url : `/${lang}${url}`;
+        if (page.includes("404")) {
+          return false;
+        }
 
-        const alternateLinks = ["en", "sk", "cz", "ie"].map((locale) => ({
+        const segments = page.split("/");
+
+        const languageSegments = segments.filter((segment) =>
+          languageCodes.includes(segment),
+        );
+
+        // If there are two language segments and they are different, exclude the page
+        if (
+          languageSegments.length > 1 &&
+          languageSegments[0] !== languageSegments[1]
+        ) {
+          return false;
+        }
+
+        return true;
+      },
+      serialize: ({ url }) => {
+        const lastModified = new Date().toISOString().split("T")[0];
+
+        const alternateLinks = languageCodes.map((locale) => ({
           hreflang: locale,
           lang: locale,
-          url,
+          url: url
+            .split("/")
+            .map((segment) => {
+              if (languageCodes.includes(segment)) {
+                return locale;
+              }
+
+              return segment;
+            })
+            .join("/"),
         }));
 
         return {
-          url: formattedUrl,
+          url,
           lastmod: lastModified,
           links: alternateLinks,
         };

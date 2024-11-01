@@ -219,7 +219,10 @@ const structuredData = {
                       </h3>
                        <ul class="mt-2 flex gap-2 flex-wrap  ml-2">
                           {review.data.longDescription.countries?.map((country:string) => (
-                            <li class="bg-neutral-300 dark:bg-neutral-600 text-black dark:text-white px-3 font-semibold py-1 rounded-md">{country}</li>
+                            <li class={`${Astro.currentLocale === country.toLowerCase()?'bg-orange-400' : 'bg-neutral-300 dark:bg-neutral-600'}  text-black dark:text-white flex px-3 font-semibold py-1 rounded-md`}>
+                              {country}
+                              
+                            </li>
                           ))}
 
                       </ul>
