@@ -1,34 +1,13 @@
 ---
-import { languages } from "@utils/ui";
-import { getImage } from 'astro:assets'; // Import the getImage utility
+import { languages, flagImages } from "@utils/ui";
+import { Image } from 'astro:assets'; // Import the getImage utility
+import enFlag from "@images/flagIcons/en.png";
 
 // Determine the selected language from the current URL
 const langData = Astro.url.pathname.split('/')[1] as keyof typeof languages;
 const selectedLanguage = !langData || langData.length > 2 ? 'en' : langData;
 
-// Dynamically load the flag image for the selected language
-const flagImage = await getImage({
-  src: `/src/images/flagIcons/${selectedLanguage}.png`,
-  width: 24,
-  height: 24,
-  alt: `${selectedLanguage} flag`
-});
 
-// Preload the flag images for each language
-const flagImages = await Promise.all(
-  Object.keys(languages).map(async (lang) => {
-    const flagImage = await getImage({
-      src: `/src/images/flagIcons/${lang}.png`,
-      width: 24,
-      height: 24,
-      alt: `${lang} flag`
-    });
-    return {
-      lang,
-      src: flagImage.src
-    };
-  })
-);
 ---
 
 <div class="hs-dropdown relative inline-flex">
@@ -38,7 +17,12 @@ const flagImages = await Promise.all(
     aria-label="Change language"
     class="hs-dropdown-toggle inline-flex items-center gap-x-2 rounded-lg px-1.5 py-1.5 text-sm font-medium text-neutral-600 outline-none ring-zinc-500 transition duration-300 hover:bg-neutral-200 hover:text-orange-400 dark:border-neutral-700 dark:text-neutral-400 dark:ring-zinc-200 dark:hover:bg-neutral-700 dark:hover:text-orange-300 dark:focus:outline-none"
   >
-    <img src={flagImage.src} width=24 height=24 alt={`${selectedLanguage} flag`} />
+    <!-- <img src={flagImage.src} width=24 height=24 alt={`${selectedLanguage} flag`} /> -->
+    <Image
+      src={flagImages.find(({ lang }) => lang === selectedLanguage)?.src as ImageMetadata || enFlag}
+      alt={`${selectedLanguage} flagggg`}
+      class="h-6 w-auto"
+    />
     <svg
       class="size-4 hs-dropdown-open:rotate-180"
       width="24"
@@ -62,7 +46,11 @@ const flagImages = await Promise.all(
           class={`text-neutral-800 dark:text-white p-2 cursor-pointer rounded-lg font-semibold hover:bg-yellow-400 mt-2 flex gap-2 justify-between ${selectedLanguage == lang ? 'bg-yellow-500' : 'bg-transparent'}`}
         >
           {languages[lang as keyof typeof languages]}
-          <img width={24} height={24} alt={`${lang} flag`} src={src} />
+          <Image
+            src={src}
+            alt={`${lang} flag`}
+            class="h-6 w-auto"
+          />
         </a>
     ))}
   </div>

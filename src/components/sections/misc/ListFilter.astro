@@ -1,7 +1,7 @@
 ---
-import { getImage } from 'astro:assets';
-import { languages } from '@utils/ui';
+import { languages, flagImages } from '@utils/ui';
 import { getType } from '@/utils/utils';
+import { Image } from 'astro:assets';
 
 // Determine the selected language from the current URL
 const langData = Astro.url.pathname.split('/')[1] as keyof typeof languages;
@@ -9,21 +9,7 @@ const selectedLanguage = !langData || langData.length > 2 ? 'en' : langData;
 
 const categoryOnly = Astro.props.categoryOnly;
 
-// Preload the flag images for each language
-const flagImages = await Promise.all(
-  Object.keys(languages).map(async (lang) => {
-    const flagImage = await getImage({
-      src: `/src/images/flagIcons/${lang}.png`,
-      width: 24,
-      height: 24,
-      alt: `${lang} flag`
-    });
-    return {
-      lang,
-      src: flagImage.src
-    };
-  })
-);
+
 ---
 
 <div class="flex flex-col md:flex-row gap-4 items-center justify-center">
@@ -37,7 +23,11 @@ const flagImages = await Promise.all(
           class={`text-neutral-800 dark:text-white dark:border-white border-neutral-800 hover:bg-neutral-200 dark:hover:bg-neutral-500 p-2 rounded-lg font-semibold border-2 flex gap-4 ${selectedLanguage == lang ? 'bg-orange-400' : 'bg-transparent'}`}
           >
           {languages[lang as keyof typeof languages]}
-          <img width={24} height={24} alt={`${lang} flag`} src={src} />
+          <Image
+            src={src}
+            alt={`${lang} flag`}
+            class="h-6 w-auto"
+          />
         </button>
       </li>
     ))}

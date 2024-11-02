@@ -1,26 +1,19 @@
 ---
-// Import the necessary dependencies.
 import AuthBtn from "@components/ui/buttons/AuthBtn.astro";
-import TextInput from "@components/ui/forms/input/TextInput.astro";
-import EmailContactInput from "@components/ui/forms/input/EmailContactInput.astro";
-import TextAreaInput from "@components/ui/forms/input/TextAreaInput.astro";
+// import TextInput from "@components/ui/forms/input/TextInput.astro";
+// import EmailContactInput from "@components/ui/forms/input/EmailContactInput.astro";
+// import TextAreaInput from "@components/ui/forms/input/TextAreaInput.astro";
 import { TEXTS } from "@/data_files/constants";
 
 type LanguageKeys = keyof typeof TEXTS;
-
 const lang: LanguageKeys = (Astro.currentLocale as LanguageKeys) || 'en';
-
 const texts = TEXTS[lang];
-
 ---
 
-<!-- Contact Us -->
 <section class="mx-auto max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14">
   <div class="mx-auto max-w-2xl lg:max-w-5xl">
     <div class="text-center">
-      <h1
-        class="text-balance text-2xl font-bold tracking-tight text-neutral-800 dark:text-neutral-200 md:text-4xl md:leading-tight"
-      >
+      <h1 class="text-balance text-2xl font-bold tracking-tight text-neutral-800 dark:text-neutral-200 md:text-4xl md:leading-tight">
         {texts.contactTitle}
       </h1>
       <p class="mt-1 text-pretty text-neutral-600 dark:text-neutral-400">
@@ -28,40 +21,24 @@ const texts = TEXTS[lang];
       </p>
     </div>
 
-      <div class="flex flex-col rounded-xl p-4 sm:p-6 lg:p-8">
-        <!-- Each field utilizes a different input component for the specific type of input (text, email, phone, and textarea)-->
-        <form>
-          <div class="grid gap-4">
-            <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
-              <TextInput
-                id="hs-firstname-contacts"
-                label="First Name"
-                name="hs-firstname-contacts"
-                required
-              />
-              <TextInput
-                id="hs-lastname-contacts"
-                label="Last Name"
-                name="hs-firstname-contacts"
-              />
-            </div>
-            <EmailContactInput required id="hs-email-contacts" label="Email" />
-            <TextAreaInput
-              id="hs-about-contacts"
-              label="Message"
-              name="hs-about-contacts"
-              required
-            />
+    <div class="flex flex-col rounded-xl p-4 sm:p-6 lg:p-8">
+      <!-- Contact Form with FormSubmit integration -->
+      <!-- <form action="https://formsubmit.co/el/gejebi" method="POST">
+        <div class="grid gap-4">
+          <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
+            <TextInput id="hs-firstname-contacts" label="First Name" name="first_name" required />
+            <TextInput id="hs-lastname-contacts" label="Last Name" name="last_name" />
           </div>
-
-          <div class="mt-4 grid">
-            <AuthBtn title={texts.contactBtn} />
-          </div>
-
+          <EmailContactInput required id="hs-email-contacts" label="Email" />
+          <TextAreaInput id="hs-about-contacts" label="Message" name="message" required />
           
-        </form>
-      </div>
+          <input type="text" name="_honey" style="display:none" tabindex="-1" />
+        </div> -->
 
-    
+        <div class="mt-4 grid">
+          <AuthBtn title={texts.contactBtn} />
+        </div>
+      </form>
+    </div>
   </div>
 </section>
