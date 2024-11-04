@@ -173,7 +173,7 @@ export const TEXTS = {
     blogDescription:
       "Naučte sa umenie výhry s našimi odbornými poznatkami, tipmi a stratégiami.",
     heroSubtitle:
-      "Objavte najlepšie bezplatné stávky a exkluzívne ponuky. Maximalizujte svoje výhry jednoducho s CertainWager!",
+      "Objavte bonusové ponuky ponúkané plne licencovanými stávkovými stránkami a kasínami s ",
     heroAlt: "Technológie prezentujúce peniaze a stávkovanie",
     emailSubscribe1: "Prihláste sa k odberu noviniek a získajte ",
     emailSubscribe2: "Najnovšie Ponuky!",

@@ -3,11 +3,9 @@ title: "Fortuna"
 type: 1
 rating: 4.1
 termsAndConditions: "By registering an account with us, you agree to our Terms and Conditions. Please make sure you read and understand them before proceeding."
-investment: 20
-reward: 100
+reward: "100$ a 20 spinov zadarmo"
 pubDate: "2021-09-01"
 rewardType: "Free Spins"
-code: "fortuna"
 description: "Review of the Fortuna brand."
 redeemLink: "#"
 imgMain: "@/images/fortuna.jpg"

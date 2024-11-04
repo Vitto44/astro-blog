@@ -82,17 +82,16 @@ const structuredData = {
   "offers": {
     "@type": "Offer",
     "priceCurrency": texts.betCurrency,  // e.g., GBP, EUR
-    "price": review.data.investment,  // Minimum bet amount or similar
     "url": review.data.btnURL,  // Link to claim the offer
     "availability": "https://schema.org/InStock",
     "validFrom": review.data.pubDate
   },
   "provider": {
     "@type": "Organization",
-    "name": SITE(lang).title,  // Your website as the reviewer
+    "name": SITE(lang).title,
     "logo": {
       "@type": "ImageObject",
-      "url": `${Astro.site}${logoImage.src}`,  // Logo of your website
+      "url": `${Astro.site}${logoImage.src}`,
       "width": 60,
       "height": 60
     }
@@ -154,16 +153,18 @@ const structuredData = {
     {
       review.data && (
 
-        <div class="text-pretty text-2xl text-center w-full dark:text-neutral-800 text-neutral-100 bg-neutral-800 dark:bg-neutral-100 mx-auto px-8 rounded-lg font-bold">
-          <p class="py-1">{texts.bet} {review.data.investment}{texts.betCurrency} {texts.andGet}</p>
-          <span class="text-pretty rounded-lg text-neutral-800 dark:text-neutral-100 text-5xl block bg-neutral-50 dark:bg-neutral-800 py-3 px-12">
-            {review.data.reward}{texts.betCurrency}
-          </span>
-          <p class="py-1">{texts.inBonuses}</p>
-          <div class="py-4">
-            <PrimaryCTA title={texts.redeem} url={review.data.btnURL} style="w-full"/>
-          </div>
+         <div class="text-pretty text-center dark:text-neutral-800 text-neutral-100 bg-neutral-800 dark:bg-neutral-100 w-fit mx-auto px-4 rounded-lg font-bold">
+        <p class="py-1 text-lg">Bonus:</p>
+        <span class="text-pretty rounded-lg text-neutral-800 dark:text-neutral-100 text-xl block bg-neutral-50 dark:bg-neutral-800 p-3">
+          {review.data.reward}
+        </span>
+        <div class="flex flex-col gap-2 md:flex-row md:gap-6 py-3 justify-between">
+            
+         
+
+          <PrimaryCTA title={texts.redeem} url={review.data.btnURL} style="w-full"/>
         </div>
+      </div>
 
      
         )

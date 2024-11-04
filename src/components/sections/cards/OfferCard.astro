@@ -11,7 +11,7 @@ import type { CollectionEntry } from 'astro:content';
 
 const testimonial = Astro.props.testimonial as CollectionEntry<'reviews'>['data'];
 
-const { imgAlt, imgMain, title, rating, type, investment, reward, btnURL, termsAndConditions, code, howToClaim } = testimonial;
+const { imgAlt, imgMain, title, rating, type, reward, btnURL, termsAndConditions, howToClaim } = testimonial;
 
 const actualRating = rating % 1 >= 0.7 ? Math.ceil(rating) : Math.floor(rating);
 const isHalfStar = rating % 1 > 0.2 && rating % 1 < 0.7;
@@ -24,13 +24,13 @@ const texts = TEXTS[lang];
 ---
 
 
-<div class="max-w-92 w-full col-span-1 mx-auto rounded-xl dark:ring-neutral-700 text-neutral-800 dark:text-neutral-200 shadow-own h-full">
+<div class="max-w-96 w-full col-span-1 mx-auto rounded-xl dark:ring-neutral-700 text-neutral-800 dark:text-neutral-200 shadow-own h-full">
   <div class="flex flex-col rounded-xl bg-neutral-50 dark:bg-neutral-700 h-full">
-    <div class="bg-neutral-200 p-4 dark:bg-neutral-900/30 md:px-7 rounded-t-xl">
+    <div class="bg-neutral-200 px-2 py-2 dark:bg-neutral-900/30 md:px-7 rounded-t-xl">
       <div class="flex items-center">
         {imgMain && (
           <Image
-            class="size-8 rounded-full h-[6rem] w-[6rem]"
+            class="size-8 rounded-full h-[5rem] w-[5rem]"
             src={imgMain}
             alt={imgAlt}
             format="png"
@@ -57,14 +57,13 @@ const texts = TEXTS[lang];
       </div>
     </div>
 
-    <div class="text-center px-4 py-4 font-bold text-2xl bg-neutral-50 dark:bg-neutral-800">
-      <div class="text-pretty dark:text-neutral-800 text-neutral-100 bg-neutral-800 dark:bg-neutral-100 w-fit mx-auto px-8 rounded-lg font-bold">
-        <p class="py-1">{texts.bet} {investment}{texts.betCurrency} {texts.andGet}</p>
-        <span class="text-pretty rounded-lg text-neutral-800 dark:text-neutral-100 text-5xl block bg-neutral-50 dark:bg-neutral-800 py-3 px-12">
-          {reward}{texts.betCurrency}
+    <div class="text-center p-2 font-bold  bg-neutral-50 dark:bg-neutral-800">
+      <div class="text-pretty dark:text-neutral-800 text-neutral-100 bg-neutral-800 dark:bg-neutral-100 w-fit mx-auto px-4 rounded-lg font-bold">
+        <p class="py-1 text-lg">Bonus:</p>
+        <span class="text-pretty rounded-lg text-neutral-800 dark:text-neutral-100 text-xl block bg-neutral-50 dark:bg-neutral-800 p-3">
+          {reward}
         </span>
-        <p class="py-1">{texts.inBonuses}</p>
-        <div class="flex flex-col gap-2 md:flex-row md:gap-6 py-4 justify-between">
+        <div class="flex flex-col gap-2 md:flex-row md:gap-6 py-3 justify-between">
             
           <button
               class="bg-neutral-100 dark:bg-neutral-800 text-neutral-800 dark:text-neutral-100 py-2 px-4 rounded-lg text-sm"
@@ -78,14 +77,9 @@ const texts = TEXTS[lang];
       </div>
     </div>
     
-    {code ? 
-      <p class="text-center h-8 bg-neutral-50 dark:bg-neutral-800 pb-2">{texts.orUseCode}: <b>{code}</b></p>
-      :
-      <div class="h-8 bg-neutral-50 dark:bg-neutral-800" />
-    }
 
   <div class="rounded-b-xl bg-neutral-200 dark:bg-neutral-900/30 h-full">
-    <div class="group flex relative gap-1 m-2 cursor-pointer">
+    <div class="group flex relative gap-1 mx-2 mt-1 -mb-3 cursor-pointer">
       <svg class="w-5 h-5 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 11h2v5m-2 0h4m-2.592-8.5h.01M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
       </svg>
