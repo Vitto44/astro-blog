@@ -13,6 +13,7 @@ import FAQ from "@/components/sections/misc/FAQ.astro";
 import faqs from "@data/faqs.json";
 import FeaturesGeneral from "@components/sections/landing/FeaturesGeneral.astro";
 import features from "@data/features.json";
+import BigLandingCards from "@/components/sections/landing/BigLandingCards.astro";
 
 const lang = Astro.currentLocale as keyof typeof TEXTS;
 
@@ -64,10 +65,10 @@ const texts = TEXTS[lang];
   />
 
   <FeaturesGeneral
-    title="Meeting Industry Demands"
-    alt="ScrewFast products in floating boxes"
     features={features}
   />
+
+  <BigLandingCards/>
 
   <FAQ title="Frequently asked questions" faqs={faqs} />
 

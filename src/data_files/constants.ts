@@ -105,6 +105,8 @@ export const TEXTS = {
     specifications: "Specifications",
     pros: "Pros",
     cons: "Cons",
+    whyUs: "Why Us",
+    considerBefore: "Consider Before You Start Betting or Playing",
   },
   ie: {
     blogLayoutDescription:
@@ -157,6 +159,8 @@ export const TEXTS = {
     specifications: "Specifications",
     pros: "Pros",
     cons: "Cons",
+    whyUs: "Why Us",
+    considerBefore: "Consider Before You Start Betting or Playing",
   },
   sk: {
     blogLayoutDescription:
@@ -173,7 +177,7 @@ export const TEXTS = {
     blogDescription:
       "Naučte sa umenie výhry s našimi odbornými poznatkami, tipmi a stratégiami.",
     heroSubtitle:
-      "Najatraktívnejšie bonusové ponuky od overených stávkových stránok a kasín. Ponúkame prehľadné recenzie, praktické návody na získanie bonusov a aktuálne informácie o trendoch v stávkovaní. Využite naše tipy a zvýšte svoje šance na výhru!",
+      "Najatraktívnejšie bonusové ponuky od overených stávkových stránok a kasín. Ponúkame prehľadné recenzie, praktické návody na získanie bonusov a aktuálne informácie o trendoch v stávkovaní. Získajte váš bonus ešte dnes!",
     heroAlt: "Technológie prezentujúce peniaze a stávkovanie",
     emailSubscribe1: "Prihláste sa k odberu noviniek a získajte ",
     emailSubscribe2: "Najnovšie Ponuky!",
@@ -209,6 +213,9 @@ export const TEXTS = {
     specifications: "Špecifikácie",
     pros: "Výhody",
     cons: "Nevýhody",
+    whyUs: "Prečo Práve My",
+    considerBefore:
+      "Pár Vecí, Ktoré Treba Zvážiť Predtým, Než začnete stávkovať alebo hrať",
   },
   cz: {
     blogLayoutDescription:
@@ -261,7 +268,171 @@ export const TEXTS = {
     specifications: "Specifikace",
     pros: "Výhody",
     cons: "Nevýhody",
+    whyUs: "Proč Právě My",
+    considerBefore:
+      "Pár Věcí, Které Je Potřeba Zvážit Předtím, Než začnete sázet nebo hrát",
   },
+};
+
+export const WHYUS = {
+  sk: [
+    {
+      title: "Nezávislý tím",
+      content:
+        "Naše hodnotenia sú nezávislé a založené na skutočných skúsenostiach a skúsenostiach hráčov.",
+      svg: "groups",
+    },
+    {
+      title: "Garancia férovosti",
+      content:
+        "Zaručujeme férové hodnotenie a transparentnosť všetkých nami recenzovaných stávkových kancelárií a kasínami.",
+      svg: "verified",
+    },
+    {
+      title: "Recenzie založené na čom záleží",
+      content:
+        "Naše recenzie sú založené na dôležitých kritériách, ktoré sú pre všetkých hráčov dôležité.",
+      svg: "books",
+    },
+  ],
+  en: [
+    {
+      title: "Independent Team",
+      content:
+        "Our reviews are independent and based on real player experiences and feedback.",
+      svg: "groups",
+    },
+    {
+      title: "Fairness Guarantee",
+      content:
+        "We guarantee fair reviews and transparency of all betting sites and casinos we review.",
+      svg: "verified",
+    },
+    {
+      title: "Relevant Reviews",
+      content:
+        "Our reviews are based on important criteria that matter to all players.",
+      svg: "books",
+    },
+  ],
+  ie: [
+    {
+      title: "Independent Team",
+      content:
+        "Our reviews are independent and based on real player experiences and feedback.",
+      svg: "groups",
+    },
+    {
+      title: "Fairness Guarantee",
+      content:
+        "We guarantee fair reviews and transparency of all betting sites and casinos we review.",
+      svg: "verified",
+    },
+    {
+      title: "Relevant Reviews",
+      content:
+        "Our reviews are based on important criteria that matter to all players.",
+      svg: "books",
+    },
+  ],
+  cz: [
+    {
+      title: "Independent Team",
+      content:
+        "Our reviews are independent and based on real player experiences and feedback.",
+      svg: "groups",
+    },
+    {
+      title: "Fairness Guarantee",
+      content:
+        "We guarantee fair reviews and transparency of all betting sites and casinos we review.",
+      svg: "verified",
+    },
+    {
+      title: "Relevant Reviews",
+      content:
+        "Our reviews are based on important criteria that matter to all players.",
+      svg: "books",
+    },
+  ],
+};
+
+export const CONSIDERBEFORE = {
+  sk: [
+    {
+      title: "Pri registrácii uveďte vaše vlastné a pravdivé osobné údaje",
+      content: `Okrem výberu kasína je dôležité aj to, aby ste pri tvorbe účtu použili vaše vlastné osobné údaje a uistili sa, že všetky informácie zadávané pri registrácii sú správne a pravdivé. Kasína vždy kontrolujú identitu hráčov (najneskôr) pri ich prvej žiadosti o výber, takže ak zadáte nesprávne údaje, nebudete si môcť vybrať peniaze.
+        Drvivá väčšina kasín spúšťa tzv. KYC procedúru (anglicky Know Your Customer, poznaj svojho zákazníka), keď hráč požiada o svoj prvý výber. Táto procedúra zahŕňa kontrolu občianskeho preukazu, pasu, alebo ďalších dokladov, takže naozaj je nutné použiť vaše vlastné osobné údaje. Neexistuje žiadny rozumný spôsob, ako to obísť.`,
+    },
+    {
+      title: "Pri vklade používajte iba platobné metódy vedené vo vašom mene",
+      content: `Platobné metódy (bankové účty, platobné karty, internetové peňaženky), ktoré používate na vkladanie peňazí na váš herný účet, by mali byť vaše vlastné a vedené vo vašom mene. Použitie karty, bankového účtu alebo peňaženky niekoho iného môže viesť až k trvalému uzatvoreniu vášho účtu v kasíne a môže byť použité ako dôvod na nevyplatenie výhry.`,
+    },
+    {
+      title:
+        "Hrajte rozumne a vedzte, kedy je dobré prestať hrať a požiadať o výber",
+      content: `Hrajte rozumne a vedzte, kedy je dobré prestať hrať a požiadať o výber, ak sa vám podarí vyhrať
+Je dôležité, aby ste rozumeli tomu, že hazard nie je spôsobom, ako zarobiť peniaze. Krátkodobo sa vám môže pošťastiť a môžete vyhrať, no neočakávajte, že budete hraním hier v kasíne systematicky vyhrávať peniaze. Ak sa vám podarí trafiť šťastnú výhru, vyberte si ju, pretože, ak budete pokračovať v hraní, skôr či neskôr prídete o vaše peniaze. Taktiež pamätajte, že závislosť na hazarde je závažný problém, takže hrajte bezpečne a vyhľadajte pomoc, ak sa vám veci začnú vymykať z pod kontroly.
+
+Kasína majú vždy výhodu, no vy môžete hrať rozumne a tým ju minimalizovať. Niektoré hry sú z matematického hľadiska lepšie ako iné, no vždy by ste mali pamätať na to, že hráte v nevýhode. Môžete ju znížiť, no nikdy sa jej úplne nezbavíte. Viac na túto tému sa môžete dozvedieť v našom článku princípe fungovania hazardných hier.
+
+Z perspektívy bezpečného a zodpovedného hrania je dôležité, aby ste si pamätali, že závislosť na hazarde dokáže človeku úplne zničiť život, takže by ste mali k hazardu pristupovať veľmi opatrne. Prečítajte si náš článok s tipmi ako hrať bezpečne a preskúmajte našu sekciu o problémovom hráčstve, v ktorej nájdete viac informácií o závislosti na hazarde, spôsoboch jej diagnostikovania a liečenia.`,
+    },
+  ],
+  en: [
+    {
+      title: "Provide Your Own Personal Information",
+      content: `When creating an account, make sure to use your own personal information and ensure that all information provided during registration is correct and truthful. Casinos always verify the identity of players (at the latest) when they request their first withdrawal, so if you provide incorrect information, you will not be able to withdraw your money.
+        The vast majority of casinos launch the so-called KYC procedure (Know Your Customer) when a player requests their first withdrawal. This procedure includes checking an ID card, passport, or other documents, so it is really necessary to use your own personal information. There is no reasonable way to bypass this.`,
+    },
+    {
+      title: "Use Payment Methods Registered in Your Name",
+      content: `The payment methods (bank accounts, payment cards, e-wallets) you use to deposit money into your gaming account should be your own and registered in your name. Using someone else's card, bank account, or wallet can lead to the permanent closure of your account at the casino and can be used as a reason for not paying out winnings.`,
+    },
+    {
+      title:
+        "Play Wisely and Know When to Stop Playing and Request a Withdrawal",
+      content: `Play wisely and know when to stop playing and request a withdrawal if you manage to win
+      It is important to understand that gambling is not a way to make money. You may be lucky in the short term and win, but do not expect to systematically make money by playing casino games. If you manage to hit a lucky win, withdraw it, because if you continue playing, sooner or later you will lose your money. Also, remember that gambling addiction is a serious problem, so play safely and seek help if things start to get out of control.
+      `,
+    },
+  ],
+  ie: [
+    {
+      title: "Provide Your Own Personal Information",
+      content: `When creating an account, make sure to use your own personal information and ensure that all information provided during registration is correct and truthful. Casinos always verify the identity of players (at the latest) when they request their first withdrawal, so if you provide incorrect information, you will not be able to withdraw your money.
+        The vast majority of casinos launch the so-called KYC procedure (Know Your Customer) when a player requests their first withdrawal. This procedure includes checking an ID card, passport, or other documents, so it is really necessary to use your own personal information. There is no reasonable way to bypass this.`,
+    },
+    {
+      title: "Use Payment Methods Registered in Your Name",
+      content: `The payment methods (bank accounts, payment cards, e-wallets) you use to deposit money into your gaming account should be your own and registered in your name. Using someone else's card, bank account, or wallet can lead to the permanent closure of your account at the casino and can be used as a reason for not paying out winnings.`,
+    },
+    {
+      title:
+        "Play Wisely and Know When to Stop Playing and Request a Withdrawal",
+      content: `Play wisely and know when to stop playing and request a withdrawal if you manage to win
+      It is important to understand that gambling is not a way to make money. You may be lucky in the short term and win, but do not expect to systematically make money by playing casino games. If you manage to hit a lucky win, withdraw it, because if you continue playing, sooner or later you will lose your money. Also, remember that gambling addiction is a serious problem, so play safely and seek help if things start to get out of control.
+      `,
+    },
+  ],
+  cz: [
+    {
+      title: "Provide Your Own Personal Information",
+      content: `When creating an account, make sure to use your own personal information and ensure that all information provided during registration is correct and truthful. Casinos always verify the identity of players (at the latest) when they request their first withdrawal, so if you provide incorrect information, you will not be able to withdraw your money.
+        The vast majority of casinos launch the so-called KYC procedure (Know Your Customer) when a player requests their first withdrawal. This procedure includes checking an ID card, passport, or other documents, so it is really necessary to use your own personal information. There is no reasonable way to bypass this.`,
+    },
+    {
+      title: "Use Payment Methods Registered in Your Name",
+      content: `The payment methods (bank accounts, payment cards, e-wallets) you use to deposit money into your gaming account should be your own and registered in your name. Using someone else's card, bank account, or wallet can lead to the permanent closure of your account at the casino and can be used as a reason for not paying out winnings.`,
+    },
+    {
+      title:
+        "Play Wisely and Know When to Stop Playing and Request a Withdrawal",
+      content: `Play wisely and know when to stop playing and request a withdrawal if you manage to win
+      It is important to understand that gambling is not a way to make money. You may be lucky in the short term and win, but do not expect to systematically make money by playing casino games. If you manage to hit a lucky win, withdraw it, because if you continue playing, sooner or later you will lose your money. Also, remember that gambling addiction is a serious problem, so play safely and seek help if things start to get out of control.
+      `,
+    },
+  ],
 };
 
 export const LANDINGSECTIONS = {
@@ -322,23 +493,28 @@ Znamenalo by to, že zdaneniu výhier budú okrem stávkových kancelárií podl
       imageAlt: "Exclusive benefits",
     },
     {
-      title: "Vklady a výbery v stávkových kanceláriách",
+      title: "Hrajte zodpovedne",
       content: `
-    Dostať finančné prostriedky na hráčsky účet je často veľmi jednoduchá úloha, pretože prostredníctvom platobných kariet ide o chvíľkovú záležitosť. Existuje však skupina ľudí, ktorá svojou kreditnou kartou (resp. debetnou platobnou kartou) nechce platiť na internete. Aké má klient v takomto prípade možnosti?
+   Hazardné hry môžu byť zábava, ale môžu sa tiež v živote daného človeka zmeniť na obrovský problém. Patologické hráčstvo nielenže môže viesť k finančným stratám, ale môže spôsobiť celý rad ďalších problémov, vrátane symptómov súvisiacich s duševným a fyzickým zdravím, rodinných a vzťahových problémov a komplikácií v práci.
 
-Stávkové kancelárie na Slovensku sú skôr (aspoň zatiaľ) zástancom klasických platobných metód, pretože ani populárna elektronická peňaženka Skrill nie je dostupná u všetkých operátorov. Pre čo najrýchlejší spôsob (porovnateľný s rýchlosťou platby cez platobnú kartu) sa najviac využíva okamžitý bankový prevod (tzv. ePlatby).
+Nikdy nepovažujte hranie za spôsob, ako zarobiť. Pozrite si našu sekciu o patologickom hráčstve, aby ste si o tejto téme prečítali viac a ak by ste kedykoľvek mali pocit, že vaše hracie návyky sa vám vymykajú spod kontroly, neváhajte vyhľadať profesionálnu pomoc.
 `,
       imageSrc: "/src/images/transaction.png",
       imageAlt: "Exclusive benefits",
     },
     {
-      title: "Aké sú poplatky pri vkladoch a výberoch a podmienky pre výplatu?",
+      title:
+        "Ako objaviť dôveryhodné kasína a stávkové kancelárie s atraktívnymi bonusmi",
       content: `
-    Poplatky sa vo väčšine prípadov neplatia (mala by ich znášať stávková kancelária), ale v prípade platobných kariet alebo Paysafecard môžu byť vklady spoplatnené.
+    Nie je tajomstvom, že keď si hráči v online kasínach vyberajú nové online kasíno, často hľadajú zaujímavé bonusové ponuky. Vybrané bonusy uvidíte priamo v tomto zozname kasín, alebo si môžete kompletnú ponuku bonusov daného kasína pozrieť v jeho podrobnej recenzii.
 
-Výplaty sú vo väčšine prípadov bez poplatkov, ale tu treba skôr sledovať minimálne čiastky, ktoré jednotlivé metódy vyžadujú. V porovnávacej tabuľke si môžete pozrieť poplatky v jednotlivých stávkových kanceláriách. 
+Ak hľadáte bonusy zadarmo, ktoré nevyžadujú vloženie skutočných peňazí, vyberte si z nášho zoznamu kasíno bonusov bez vkladu.
 
-Aby ste mohli vybrať peniaze zo stávkovej kancelárie, musíte mať overený hráčsky účet. Je nutné si dávať pozor najmä na fakt, že nie všetky platobné metódy, ktoré ste použili pre vklad sa dajú použiť aj pri výbere.
+Avšak, ako vždy odporúčame, nevyberajte si kasína iba na základe ponúkaných bonusov. Zvážte aj iné kvality, najmä celkovú reputáciu a iné faktory, na ktoré sa v našich hodnoteniach zameriavame.
+
+Niektoré veľmi zle hodnotené kasína môžu mať tie najlepšie bonusy, ale to nič neznamená, ak vám napokon nepovolia vybrať si na konci výhru, čo sa môže veľmi ľahko stať, ak budete hrať v nečestnom kasíne. Ak si vyberiete dobré kasíno, môžete takýmto problémom predísť.
+
+Držte sa dôveryhodných online kasín, ktoré sa k hráčom správajú férovo a čestne, a budete na tom celkovo podstatne lepšie. Naše hodnotenia kasín sú dobrým indikátorom týchto kvalít. Keď si prečítate úplnú recenziu kasína, než sa tam zaregistrujete, overíte si kvalitu každého kasína a vyhnete sa neskorším problémom.
 `,
       imageSrc: "/src/images/tuition.png",
       imageAlt: "Exclusive benefits",

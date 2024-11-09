@@ -1,8 +1,6 @@
 ---
 // Import the necessary AccordionItem component and JSON data
 import AccordionItem from "@components/ui/blocks/AccordionItem.astro";
-import { Image } from "astro:assets";
-import mailImage from "@images/questionmark.png";
 
 // Define props from Astro
 const { title, faqs } = Astro.props;
@@ -31,7 +29,7 @@ const makeId = (base: any, index: any) => `${base}${index + 1}`;
   class="mx-auto max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 2xl:max-w-full"
 >
   <h2
-    class="text-2xl mb-10 text-center font-bold text-neutral-800 dark:text-neutral-200 md:text-4xl"
+    class="text-2xl my-10 text-center font-bold text-neutral-800 dark:text-neutral-200 md:text-4xl"
   >
     {title}
   </h2>
@@ -39,7 +37,7 @@ const makeId = (base: any, index: any) => `${base}${index + 1}`;
     <!-- FAQ accordion items -->
   <div class="md:col-span-3">
     <div
-      class="hs-accordion-group divide-y divide-neutral-200 dark:divide-neutral-700"
+      class="hs-accordion-group divide-y divide-neutral-400 dark:divide-neutral-700"
     >
       {
         faqs.faqs.map((question, i) => {
@@ -66,8 +64,6 @@ const makeId = (base: any, index: any) => `${base}${index + 1}`;
     </div>
   </div>
 </section>
-<!--Import the necessary Accordion plugin-->
-<!--https://preline.co/plugins/html/accordion.html-->
 <script>
   import "@preline/accordion/index.js";
 </script>

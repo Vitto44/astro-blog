@@ -1,5 +1,10 @@
 ---
 import Icon from "@components/ui/icons/Icon.astro";
+import { TEXTS, WHYUS } from "@/data_files/constants";
+
+type LanguageKeys = keyof typeof TEXTS;
+const lang: LanguageKeys = (Astro.currentLocale as LanguageKeys) || 'en';
+const texts = TEXTS[lang];
 
 interface Feature {
   heading: string;
@@ -8,12 +13,11 @@ interface Feature {
 }
 
 interface Props {
-  title?: string;
   features?: Feature[];
-  alt?: string;
 }
-// Define props from Astro
-const { title, alt, features } = Astro.props;
+
+const f = WHYUS[lang as keyof typeof WHYUS];
+
 ---
 
 <section
@@ -26,15 +30,15 @@ const { title, alt, features } = Astro.props;
       <h2
         class="text-balance text-2xl mb-12 text-center font-bold text-neutral-800 dark:text-neutral-200 md:text-3xl"
       >
-        {title}
+        {texts.whyUs}
       </h2>
      
 
     <!-- Block to display the IconBlock components -->
       <div class="grid gap-8 sm:grid-cols-3">
         <!-- Injecting IconBlock components with different properties -->
-        { features &&
-          features.map((feature) => (
+        { f &&
+          f.map((feature) => (
 
             <div class="text-center dark:bg-neutral-200 bg-neutral-800 py-4 px-6 rounded-xl">
               <div class="flex justify-center mb-2">
@@ -42,7 +46,7 @@ const { title, alt, features } = Astro.props;
               </div>
               <div class="grow">
                 <h3 class="text-balance text-lg font-bold dark:text-neutral-800 text-neutral-200">
-                  {feature.heading}
+                  {feature.title}
                 </h3>
                 <!-- Content text of the section -->
                 <p class="mt-1 text-pretty dark:text-neutral-700 text-neutral-300">{feature.content}</p>

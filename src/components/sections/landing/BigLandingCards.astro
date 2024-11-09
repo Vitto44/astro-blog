@@ -1,0 +1,53 @@
+---
+import BigCard from "@/components/ui/cards/BigCard.astro";
+import { TEXTS, CONSIDERBEFORE } from "@/data_files/constants";
+
+type LanguageKeys = keyof typeof TEXTS;
+const lang: LanguageKeys = (Astro.currentLocale as LanguageKeys) || 'en';
+const texts = TEXTS[lang];
+
+interface Feature {
+  heading: string;
+  content: string;
+  svg: string;
+}
+
+interface Props {
+  title?: string;
+  features?: Feature[];
+  alt?: string;
+}
+
+
+const f = CONSIDERBEFORE[lang as keyof typeof CONSIDERBEFORE];
+
+// Define props from Astro
+const { title, features } = Astro.props;
+---
+
+<section
+  class="mx-auto 2xl:max-w-full "
+>
+
+  <!-- Displaying the main content consisting of title, subtitle, and several `IconBlock` components -->
+  <div class="mt-5">
+      <!-- Rendering title -->
+      <h2
+        class="text-balance text-2xl mb-12 text-center font-bold text-neutral-800 dark:text-neutral-200 md:text-3xl"
+      >
+        {texts.considerBefore}
+      </h2>
+     
+
+    <!-- Block to display the IconBlock components -->
+      <div class="grid gap-6">
+        <!-- Injecting IconBlock components with different properties -->
+        { f &&
+          f.map((feature) => (
+
+           <BigCard title={feature.title} text={feature.content}/>
+          ))
+        }
+      </div>
+    </div>
+</section>
