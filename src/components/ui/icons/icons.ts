@@ -6,8 +6,8 @@ export const Icons = {
       },
     ],
     class: "mt-1 h-8 w-8 flex-shrink-0 fill-orange-400 dark:fill-orange-300",
-    width: 48,
-    height: 48,
+    width: 96,
+    height: 96,
     viewBox: "0 -960 960 960",
   },
   books: {

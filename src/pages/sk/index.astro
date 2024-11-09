@@ -8,6 +8,11 @@ import type { CollectionEntry } from "astro:content";
 import { getCollection } from "astro:content";
 import { SITE, TEXTS } from "@data/constants";
 import { getCountryCode } from "@/utils/utils";
+import LandingText from "@/components/sections/landing/LandingText.astro";
+import FAQ from "@/components/sections/misc/FAQ.astro";
+import faqs from "@data/faqs.json";
+import FeaturesGeneral from "@components/sections/landing/FeaturesGeneral.astro";
+import features from "@data/features.json";
 
 const lang = Astro.currentLocale as keyof typeof TEXTS;
 
@@ -42,10 +47,11 @@ const texts = TEXTS[lang];
 
   <HeroSection
     title=`Prehľadný Zoznam 
-    <span class="text-yellow-500 dark:text-yellow-400 text-3xl lg:text-6xl">Bonusov</span> 
-    <span class="text-orange-500 dark:text-orange-300 text-5xl lg:text-5xl"> Stávkových Kancelárií</span>
+    <span class="text-yellow-500 dark:text-yellow-400 text-5xl lg:text-6xl">Bonusov</span> 
+    <br/>
+    <span class="text-orange-500 dark:text-orange-300 text-3xl lg:text-5xl"> Stávkových Kancelárií</span>
     A
-    <span class="text-orange-500 dark:text-orange-300  text-5xl lg:text-5xl"> Kasín</span>
+    <span class="text-orange-500 dark:text-orange-300  text-3xl lg:text-5xl"> Kasín</span>
     na Slovensku 
 `
     subTitle={texts.heroSubtitle}
@@ -56,6 +62,16 @@ const texts = TEXTS[lang];
   <OfferSection
     testimonials={offers.map((offer) => offer.data)}
   />
+
+  <FeaturesGeneral
+    title="Meeting Industry Demands"
+    alt="ScrewFast products in floating boxes"
+    features={features}
+  />
+
+  <FAQ title="Frequently asked questions" faqs={faqs} />
+
+  <LandingText />
 
   
    

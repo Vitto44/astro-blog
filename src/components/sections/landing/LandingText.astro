@@ -1,0 +1,42 @@
+---
+// Import the necessary dependencies
+import { Image } from "astro:assets";
+import { LANDINGSECTIONS } from "@data/constants";
+import type { TEXTS } from "@data/constants";
+
+type LanguageKeys = keyof typeof TEXTS;
+
+const lang: LanguageKeys = (Astro.currentLocale as LanguageKeys) || 'en';
+
+const sections = LANDINGSECTIONS[lang as keyof typeof LANDINGSECTIONS];
+
+---
+
+<section class="mx-auto max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8">
+  {sections.map((section, index) => (
+    <div
+      id={section.title}
+      class={`flex flex-col md:flex-row  gap-8 mb-16 ${index % 2 === 0 ? "md:flex-row-reverse" : ""} ${index === sections.length - 1 ? "mb-0 md:block text-center" : ""}`}
+    >
+      <!-- Text Section -->
+      <div class={`md:w-1/2 flex flex-col justify-center ${index === sections.length - 1 ? "md:block md:w-full md:mx-auto" : ""}`}>
+        <h2 class="text-2xl font-bold text-neutral-800 dark:text-neutral-200">
+          {section.title}
+        </h2>
+        <div class="mt-4 text-lg text-neutral-700 dark:text-neutral-400" set:html={section.content}></div>
+      </div>
+      <!-- Image Section -->
+      {section.imageSrc && (
+        <div class="md:w-1/2 flex justify-center">
+          <Image
+            src={section.imageSrc}
+            alt={section.imageAlt || ""}
+            class="max-h-[250px] w-auto"
+            width={400}
+            height={300}
+          />
+        </div>
+      )}
+    </div>
+  ))}
+</section>

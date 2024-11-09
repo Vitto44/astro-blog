@@ -7,14 +7,14 @@ const offers = Astro.props.testimonials as CollectionEntry<'reviews'>['data'][];
 
 ---
 <section
-  class="max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 2xl:max-w-full rounded-lg"
+  class="max-w-[85rem] pb-6 2xl:max-w-full rounded-lg border-2 border-neutral-800 dark:border-neutral-100"
   id="testimonials"
 >
-  <div class="mb-6 sm:mb-10 md:mb-16 flex flex-wrap gap-4">
+  <div class="mb-6 sm:mb-10 flex flex-wrap gap-4">
     <ListFilter/>
   </div>
 
-   <div class="grid gap-12 lg:grid-cols-2 xl:grid-cols-3" id="offers">
+   <div class="grid gap-12 lg:grid-cols-2 xl:grid-cols-3 px-4 sm:px-6 lg:px-8" id="offers">
     {offers.map((offer) => (
       <div data-offer data-category={offer.type} class="offer-card">
         <OfferCard testimonial={offer} />
