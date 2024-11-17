@@ -1,6 +1,7 @@
 ---
 title: "Fortuna"
 type: 1
+chosen: true
 rating: 4.1
 termsAndConditions: "By registering an account with us, you agree to our Terms and Conditions. Please make sure you read and understand them before proceeding."
 reward: "100$ a 20 spinov zadarmo"

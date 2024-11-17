@@ -6,16 +6,6 @@ type LanguageKeys = keyof typeof TEXTS;
 const lang: LanguageKeys = (Astro.currentLocale as LanguageKeys) || 'en';
 const texts = TEXTS[lang];
 
-interface Feature {
-  heading: string;
-  content: string;
-  svg: string;
-}
-
-interface Props {
-  features?: Feature[];
-}
-
 const f = WHYUS[lang as keyof typeof WHYUS];
 
 ---

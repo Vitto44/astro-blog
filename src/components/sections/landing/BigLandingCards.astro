@@ -6,23 +6,9 @@ type LanguageKeys = keyof typeof TEXTS;
 const lang: LanguageKeys = (Astro.currentLocale as LanguageKeys) || 'en';
 const texts = TEXTS[lang];
 
-interface Feature {
-  heading: string;
-  content: string;
-  svg: string;
-}
-
-interface Props {
-  title?: string;
-  features?: Feature[];
-  alt?: string;
-}
-
 
 const f = CONSIDERBEFORE[lang as keyof typeof CONSIDERBEFORE];
 
-// Define props from Astro
-const { title, features } = Astro.props;
 ---
 
 <section
@@ -40,7 +26,7 @@ const { title, features } = Astro.props;
      
 
     <!-- Block to display the IconBlock components -->
-      <div class="grid gap-6">
+      <div class="grid gap-8">
         <!-- Injecting IconBlock components with different properties -->
         { f &&
           f.map((feature) => (

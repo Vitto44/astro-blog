@@ -1,0 +1,136 @@
+---
+// Import SecondaryCTA component for use in this module
+import FullStar from "@/components/ui/stars/FullStar.astro";
+import SecondaryCTA from "@components/ui/buttons/PrimaryCTA.astro";
+import Icon from "@components/ui/icons/Icon.astro";
+
+// Define props from Astro
+const { chosenBet, chosenCasino, texts } = Astro.props;
+
+// Define TypeScript type for products.
+type Product = {
+  name: string;
+  description: string;
+  price: string;
+  cents: string;
+  billingFrequency: string;
+  features: Array<string>;
+  purchaseBtnTitle: string;
+  purchaseLink: string;
+};
+
+interface ConclusionCardsProps {
+  chosenBet: {
+    title: string;
+    subTitle: string;
+    starterKit: Product;
+    professionalToolbox: Product;
+  };
+}
+
+---
+
+<section
+  class="mx-auto max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 2xl:max-w-full"
+>
+  <div class="mx-auto mb-10 max-w-2xl text-center lg:mb-14">
+    <h2
+      class="text-balance text-2xl font-bold tracking-tight text-neutral-800 dark:text-neutral-200 md:text-4xl md:leading-tight"
+    >
+      {texts.ourChoises}
+    </h2>
+    <p class="mt-1 text-lg text-neutral-600 dark:text-neutral-400">
+      {texts.ourChoisesSubtitle}
+    </p>
+  </div>
+  <!-- Contains two main product blocks -->
+  <div class="grid grid-cols-1 md:grid-cols-2 items-center justify-center gap-4">
+   
+    <!-- Professional Toolbox product details -->
+    <div
+      class="w-full rounded-xl bg-gradient-to-tr from-[#FF512F] to-[#F09819] p-6 shadow-xl sm:p-8"
+    >
+          <div class="flex justify-between mb-3">
+
+              <h3 class="text-2xl font-bold text-neutral-100 sm:text-3xl">
+                {chosenBet.data.title}
+              </h3>
+              
+              <span
+              class="flex gap-1 mt-1 md:mt-2 rounded-full bg-orange-200 bg-opacity-50 px-2 py-1"
+              > 
+              {
+                Array(5)
+                .fill(0)
+                .map((_, i) => <FullStar key={i} />)
+              }</span>
+            </div>
+
+      <!-- Features list - automatically created by mapping over `features` array -->
+      <ul class="mb-6 space-y-2 text-orange-100">
+        {
+          chosenBet.data.longDescription.pros.map((feature: string) => (
+            <li class="flex items-center gap-1.5">
+              <Icon name="checkCircle" />
+
+              <span>{feature}</span>
+            </li>
+          ))
+        }
+      </ul>
+
+      <p class="text-3xl text-center mb-8 font-bold text-neutral-100"
+          >{chosenBet.data.reward}</p>
+      <!-- CTA for purchasing the product -->
+      <a
+        href={chosenBet.data.redeemLink}
+        class="block rounded-lg bg-orange-200 bg-opacity-50 px-8 py-3 text-center text-sm font-bold text-neutral-100 outline-none ring-orange-300 transition duration-100 hover:bg-orange-300 hover:bg-opacity-50 focus-visible:ring active:bg-orange-400 md:text-base"
+        >{texts.redeem}</a
+      >
+    </div>
+
+
+    <div
+      class="w-full rounded-xl bg-gradient-to-tr from-orange-500 to-yellow-500 p-6 shadow-xl sm:p-8"
+    >
+          <div class="flex justify-between mb-3">
+
+              <h3 class="text-2xl font-bold text-neutral-100 sm:text-3xl">
+                {chosenBet.data.title}
+              </h3>
+              
+              <span
+              class="flex gap-1 mt-1 md:mt-2 rounded-full bg-orange-200 bg-opacity-50 px-2 py-1"
+              > 
+              {
+                Array(5)
+                .fill(0)
+                .map((_, i) => <FullStar key={i} />)
+              }</span>
+          </div>
+
+      <!-- Features list - automatically created by mapping over `features` array -->
+      <ul class="mb-6 space-y-2 text-orange-100">
+        {
+          chosenBet.data.longDescription.pros.map((feature: string) => (
+            <li class="flex items-center gap-1.5">
+              <Icon name="checkCircle" />
+
+              <span>{feature}</span>
+            </li>
+          ))
+        }
+      </ul>
+
+      <p class="text-3xl text-center mb-8 font-bold text-neutral-100"
+          >{chosenBet.data.reward}</p>
+      <!-- CTA for purchasing the product -->
+      <a
+        href={chosenBet.data.redeemLink}
+        class="block rounded-lg bg-orange-200 bg-opacity-50 px-8 py-3 text-center text-sm font-bold text-neutral-100 outline-none ring-orange-300 transition duration-100 hover:bg-orange-300 hover:bg-opacity-50 focus-visible:ring active:bg-orange-400 md:text-base"
+        >{texts.redeem}</a
+      >
+    </div>
+  </div>
+ 
+</section>

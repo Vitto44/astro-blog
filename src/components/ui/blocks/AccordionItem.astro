@@ -42,8 +42,6 @@ function getAccordionClass(first: boolean = false) {
     id={collapseId}
   >
     <!-- The content paragraph -->
-    <p class="text-pretty text-neutral-600 dark:text-neutral-400">
-      {answer}
-    </p>
+    <p class="text-pretty text-neutral-600 dark:text-neutral-400" set:html={answer} />
   </div>
 </div>

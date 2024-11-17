@@ -24,10 +24,10 @@ const texts = TEXTS[lang];
 ---
 
 
-<div class="max-w-96 w-full col-span-1 mx-auto rounded-xl dark:ring-neutral-700 text-neutral-800 dark:text-neutral-200 shadow-own h-full">
-  <div class="flex flex-col rounded-xl bg-neutral-50 dark:bg-neutral-700 h-full">
-    <div class="bg-neutral-200 px-2 py-2 dark:bg-neutral-900/30 md:px-7 rounded-t-xl">
-      <div class="flex items-center">
+<div class="max-w-96 w-full col-span-1 mx-auto rounded-xl text-neutral-900 dark:text-neutral-100 shadow-own h-full ring dark:ring-neutral-100 ring-neutral-900">
+  <div class="flex flex-col rounded-xl bg-gradient-to-tr from-yellow-500 to-orange-500  h-full">
+    <div class=" px-2 py-2 md:px-7 rounded-t-xl">
+      <div class="flex items-top">
         {imgMain && (
           <Image
             class="size-8 rounded-full h-[5rem] w-[5rem]"
@@ -41,23 +41,20 @@ const texts = TEXTS[lang];
         <div class="ms-3 grow">
           <p class="font-bold text-xl">{title}</p>
 
-          <p class="text-sm font-semibold text-neutral-500 dark:text-neutral-200 ">
+          <p class="text-sm font-semibold">
             {getType(type, (Astro.currentLocale as keyof typeof languages) ?? 'en')}
           </p>
-
-          <div class="flex flex-col items-start mt-2">
-            <div class="flex space-x-1">
-              <div class="flex space-x-1">
-                {actualRating > 0 && Array(actualRating).fill(0).map((_, i) => <FullStar key={i} />)}
-                {isHalfStar && <HalfStar />}
-              </div>
-            </div>
-          </div>
         </div>
+
+        <span class="flex gap-1 mt-1 md:mt-2 rounded-full bg-orange-200/50 px-2 py-1 h-fit">       
+            {actualRating > 0 && Array(actualRating).fill(0).map((_, i) => <FullStar key={i} />)}
+            {isHalfStar && <HalfStar />}
+        </span>
+
       </div>
     </div>
 
-    <div class="text-center p-2 font-bold  bg-neutral-50 dark:bg-neutral-800">
+    <div class="text-center p-2 font-bold">
       <div class="text-pretty dark:text-neutral-800 text-neutral-100 bg-neutral-800 dark:bg-neutral-100 w-fit mx-auto px-4 rounded-lg font-bold">
         <p class="py-1 text-lg">Bonus:</p>
         <span class="text-pretty rounded-lg text-neutral-800 dark:text-neutral-100 text-xl block bg-neutral-50 dark:bg-neutral-800 p-3">
@@ -78,7 +75,7 @@ const texts = TEXTS[lang];
     </div>
     
 
-  <div class="rounded-b-xl bg-neutral-200 dark:bg-neutral-900/30 h-full">
+  <div class="rounded-b-xl h-full">
     <div class="group flex relative gap-1 mx-2 mt-1 -mb-3 cursor-pointer">
       <svg class="w-5 h-5 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 11h2v5m-2 0h4m-2.592-8.5h.01M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />

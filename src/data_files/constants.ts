@@ -216,6 +216,12 @@ export const TEXTS = {
     whyUs: "Prečo Práve My",
     considerBefore:
       "Pár Vecí, Ktoré Treba Zvážiť Predtým, Než začnete stávkovať alebo hrať",
+    faq: "Často kladené otázky",
+    ourChoises: "Naše Voľby",
+    ourChoisesSubtitle:
+      "Najlepšie stávková kancelária a kasíno na Slovensku podľa našich expertov.",
+    bestBettingSite: "Najlepšia Stávková Kancelária",
+    bestCasino: "Najlepšie Kasíno",
   },
   cz: {
     blogLayoutDescription:
@@ -370,6 +376,21 @@ export const CONSIDERBEFORE = {
     },
     {
       title:
+        "Ako objaviť dôveryhodné kasína a stávkové kancelárie s atraktívnymi bonusmi",
+      content: `
+      Nie je tajomstvom, že keď si hráči v online kasínach vyberajú nové online kasíno, často hľadajú zaujímavé bonusové ponuky. Vybrané bonusy uvidíte priamo v tomto zozname kasín, alebo si môžete kompletnú ponuku bonusov daného kasína pozrieť v jeho podrobnej recenzii.
+
+        Ak hľadáte bonusy zadarmo, ktoré nevyžadujú vloženie skutočných peňazí, vyberte si z nášho zoznamu kasíno bonusov bez vkladu.
+
+        Avšak, ako vždy odporúčame, nevyberajte si kasína iba na základe ponúkaných bonusov. Zvážte aj iné kvality, najmä celkovú reputáciu a iné faktory, na ktoré sa v našich hodnoteniach zameriavame.
+
+        Niektoré veľmi zle hodnotené kasína môžu mať tie najlepšie bonusy, ale to nič neznamená, ak vám napokon nepovolia vybrať si na konci výhru, čo sa môže veľmi ľahko stať, ak budete hrať v nečestnom kasíne. Ak si vyberiete dobré kasíno, môžete takýmto problémom predísť.
+
+        Držte sa dôveryhodných online kasín, ktoré sa k hráčom správajú férovo a čestne, a budete na tom celkovo podstatne lepšie. Naše hodnotenia kasín sú dobrým indikátorom týchto kvalít. Keď si prečítate úplnú recenziu kasína, než sa tam zaregistrujete, overíte si kvalitu každého kasína a vyhnete sa neskorším problémom.
+        `,
+    },
+    {
+      title:
         "Hrajte rozumne a vedzte, kedy je dobré prestať hrať a požiadať o výber",
       content: `Hrajte rozumne a vedzte, kedy je dobré prestať hrať a požiadať o výber, ak sa vám podarí vyhrať
 Je dôležité, aby ste rozumeli tomu, že hazard nie je spôsobom, ako zarobiť peniaze. Krátkodobo sa vám môže pošťastiť a môžete vyhrať, no neočakávajte, že budete hraním hier v kasíne systematicky vyhrávať peniaze. Ak sa vám podarí trafiť šťastnú výhru, vyberte si ju, pretože, ak budete pokračovať v hraní, skôr či neskôr prídete o vaše peniaze. Taktiež pamätajte, že závislosť na hazarde je závažný problém, takže hrajte bezpečne a vyhľadajte pomoc, ak sa vám veci začnú vymykať z pod kontroly.
@@ -445,7 +466,7 @@ export const LANDINGSECTIONS = {
 Pri bonusoch je potrebné si všímať napr. požiadavky na pretočenie, minimálnu výšku kurzu, pripísanie bonusu (po vklade/po častiach/po pretočení) alebo aj bonusový kód (niekedy ho je potrebné zadať priamo pri registrácii).
 V každej recenzii je bonus do detailu rozobratý a okrem toho je vytvorená aj veľmi dobrá tabuľka s porovnaním bonusov stávkových kancelárií. Na uvedenej podstránke si môžete preštudovať všetky druhy bonusov, ktoré online stávkové kancelárie ponúkajú.
 `,
-      imageSrc: "/src/images/reward.png",
+      imageSrc: "/src/images/gift.png",
       imageAlt: "Exclusive benefits",
     },
     {
@@ -493,33 +514,6 @@ Znamenalo by to, že zdaneniu výhier budú okrem stávkových kancelárií podl
       imageAlt: "Exclusive benefits",
     },
     {
-      title: "Hrajte zodpovedne",
-      content: `
-   Hazardné hry môžu byť zábava, ale môžu sa tiež v živote daného človeka zmeniť na obrovský problém. Patologické hráčstvo nielenže môže viesť k finančným stratám, ale môže spôsobiť celý rad ďalších problémov, vrátane symptómov súvisiacich s duševným a fyzickým zdravím, rodinných a vzťahových problémov a komplikácií v práci.
-
-Nikdy nepovažujte hranie za spôsob, ako zarobiť. Pozrite si našu sekciu o patologickom hráčstve, aby ste si o tejto téme prečítali viac a ak by ste kedykoľvek mali pocit, že vaše hracie návyky sa vám vymykajú spod kontroly, neváhajte vyhľadať profesionálnu pomoc.
-`,
-      imageSrc: "/src/images/transaction.png",
-      imageAlt: "Exclusive benefits",
-    },
-    {
-      title:
-        "Ako objaviť dôveryhodné kasína a stávkové kancelárie s atraktívnymi bonusmi",
-      content: `
-    Nie je tajomstvom, že keď si hráči v online kasínach vyberajú nové online kasíno, často hľadajú zaujímavé bonusové ponuky. Vybrané bonusy uvidíte priamo v tomto zozname kasín, alebo si môžete kompletnú ponuku bonusov daného kasína pozrieť v jeho podrobnej recenzii.
-
-Ak hľadáte bonusy zadarmo, ktoré nevyžadujú vloženie skutočných peňazí, vyberte si z nášho zoznamu kasíno bonusov bez vkladu.
-
-Avšak, ako vždy odporúčame, nevyberajte si kasína iba na základe ponúkaných bonusov. Zvážte aj iné kvality, najmä celkovú reputáciu a iné faktory, na ktoré sa v našich hodnoteniach zameriavame.
-
-Niektoré veľmi zle hodnotené kasína môžu mať tie najlepšie bonusy, ale to nič neznamená, ak vám napokon nepovolia vybrať si na konci výhru, čo sa môže veľmi ľahko stať, ak budete hrať v nečestnom kasíne. Ak si vyberiete dobré kasíno, môžete takýmto problémom predísť.
-
-Držte sa dôveryhodných online kasín, ktoré sa k hráčom správajú férovo a čestne, a budete na tom celkovo podstatne lepšie. Naše hodnotenia kasín sú dobrým indikátorom týchto kvalít. Keď si prečítate úplnú recenziu kasína, než sa tam zaregistrujete, overíte si kvalitu každého kasína a vyhnete sa neskorším problémom.
-`,
-      imageSrc: "/src/images/tuition.png",
-      imageAlt: "Exclusive benefits",
-    },
-    {
       title: "Mobilné aplikácie stávkových kancelárií",
       content: `
    Dnes už takmer každá online stávková kancelária na Slovensku poskytuje mobilnú aplikáciu na stiahnutie. Mobilné aplikácie sú dostupné pre Android a operačný systém iOS (Apple).
@@ -529,110 +523,52 @@ V AppStore nájdete aplikácie na stiahnutie pre produkty iPhone a iPad. Bohuži
       imageSrc: "/src/images/app-development.png",
       imageAlt: "Exclusive benefits",
     },
+  ],
+};
+
+export const FAQS = {
+  sk: [
     {
-      title: "Najčastejšie otázky a odpovede",
-      content: ` 
-  <ol class="space-y-8 text-neutral-700 dark:text-neutral-400 mt-8 md:mx-28">
-    <!-- Question 5 -->
-  <li>
-    <h3 class="text-lg font-semibold text-neutral-800 dark:text-neutral-300 underline">
-      Ponúka slovenská stávková kancelária bonus bez nutnosti vkladu?
-    </h3>
-    <p class="text-start mt-2">
-      Tento druh bonusu pre online stávky je skôr výnimočný, ale pre spoločnosti poskytujúce kurzové stávky nemusí byť stávka zadarmo bez vkladu úplne nereálna (najčastejšie bol bonus bez vkladu poskytovaný od Tipsportu).
-    </p>
-  </li>
-  <!-- Question 1 -->
-  <li>
-    <h3 class="text-lg font-semibold text-neutral-800 dark:text-neutral-300 underline">
-      Dajú sa na území Slovenska využívať zahraničné stávkové kancelárie?
-    </h3>
-    <p class="text-start mt-2">
-      Teoreticky je možné hrať v stávkových kanceláriách bez slovenskej licencie, ak prijímajú hráčov zo SR.
-      Slovenské úrady (URHH) bojujú s nelegálnym hazardom (napr. blokovaním web stránok a bankových účtov), preto
-      tipovanie u nelegálnych bookmakerov nemôžeme odporučiť.
-    </p>
-  </li>
- 
-  <!-- Question 3 -->
-  <li>
-    <h3 class="text-lg font-semibold text-neutral-800 dark:text-neutral-300 underline">
-      Zdaňujú sa výhry z online stávkových kancelárií?
-    </h3>
-    <p class="text-start mt-2">
-      Momentálne sa výhry v stávkových kanceláriách nezdaňujú. V ČR sa už platia dane aj z výhier a preto je veľmi
-      pravdepodobné, že sa v budúcnosti dočkáme aj zdaňovania výhier v stávkových kanceláriách. Dobrou správou je,
-      že v ČR sa platí daň až pri výhre nad 1 milión korún.
-    </p>
-  </li>
-  <!-- Question 4 -->
-  <li>
-    <h3 class="text-lg font-semibold text-neutral-800 dark:text-neutral-300 underline">
-      Ktoré doklady totožnosti vyžadujú stávkové kancelárie na Slovensku?
-    </h3>
-    <p class="text-start mt-2">
-      Pre dokončenie overenia budete potrebovať dva doklady. Prvým je občiansky preukaz alebo pas a druhým je
-      zvyčajne nevyužitý doklad z prvého výberu, kartička poistenca alebo vodičský preukaz. Pre cudzincov je
-      potrebné povolenie k pobytu v SR.
-    </p>
-    <p class="text-start mt-2">
-      Pri registrácii do stávkovej kancelárie budete potrebovať hlavne e-mail a telefónne číslo (treba rátať s tým,
-      že pri registrácii budete musieť zadať aj iné podrobnejšie osobné údaje ako je číslo občianskeho preukazu
-      resp. rodné číslo).
-      V prípade, že nemáte bankový účet na vlastné meno, tak vám ho odporúčame vytvoriť si ho (môžete vykonať aj po registrácii). Nie je dovolené posielať peniaze z cudzieho bankového účtu na váš hráčsky účet.
-    </p>
-  </li>
-  <!-- Question 6 -->
-  <li>
-    <h3 class="text-lg font-semibold text-neutral-800 dark:text-neutral-300 underline">
-      Prečo sa mobilné aplikácie na stiahnutie pre hazard nenachádzajú v obchode Google Play?
-    </h3>
-    <p class="text-start mt-2">
-      Google vo svojom obchode neakceptuje aplikácie spoločností z oblasti hazardných hier. Vďaka politike Google si musíte aplikáciu (Apk) stiahnuť priamo na webstránke stávkovej kancelárie alebo nájsť iný spôsob.
-    </p>
-    <p class="text-start mt-2">
-      Apple svoje aplikácie ponúka priamo vo svojom obchode Apple Store (App pre iPhone a iPad).
-    </p>
-  </li>
- 
-  <!-- Question 8 -->
-  <li>
-    <h3 class="text-lg font-semibold text-neutral-800 dark:text-neutral-300 underline">
-      Je možné do stávkových kancelárií alebo kasín v SR vkladať peniaze prostredníctvom kryptomien ako je Bitcoin?
-    </h3>
-    <p class="text-start mt-2">
-      An0 pre kasino nie pre stavkove kancel8rie. Priamo to nie je možné, pretože žiadna stávková kancelária na Slovensku zatiaľ nevedie účty v kryptomene. Teoreticky je možné využitie elektronickej peňaženky Skrill, kde práve Skrill prevedie vašu kryptomenu na EURá a tieto peniaze potom môžete použiť na stávkovanie.
-    </p>
-  </li>
-  <!-- Question 9 -->
-  <li>
-    <h3 class="text-lg font-semibold text-neutral-800 dark:text-neutral-300 underline">
-      Ktorá stávková kancelária je na slovenskom trhu najlepšia?
-    </h3>
-    <p class="text-start mt-2">
-      Podľa nášho názoru ide jednoznačne o stávkovú kanceláriu Tipsport. Konkurovať jej môže Fortuna, ale v Tipsporte máte najväčšiu komunitu tipérov a so stávkovými funkciami napredujú najrýchlejšie.
-    </p>
-    <p class="text-start mt-2">
-      Ide aj o najlepšiu voľbu z pohľadu prijímania stávok ako aj súťaží pre tipujúcich, do ktorých sa zapojíte aj úplne zadarmo.
-    </p>
-  </li>
-  <!-- Question 10 -->
-  <li>
-    <h3 class="text-lg font-semibold text-neutral-800 dark:text-neutral-300 underline">
-      Dá sa odstrániť oznámenie o výhrach a prehrách, ktoré zobrazujú stávkové kancelárie v SR?
-    </h3>
-    <p class="text-start mt-2">
-      Bohužiaľ informácie o vašich podaných stávkach za uplynulé obdobie nie je možné odstrániť, pretože to vyžaduje zákon. Tento informačný panel je otravný, pretože sa zobrazuje 5 sekúnd po každom prihlásení.
-    </p>
-    <p class="text-start mt-2">
-      Určite by sme všetci prijali, keby sa táto informácia zobrazila jedenkrát za deň a nie pri každom prihlásení do web stránky resp. mobilnej aplikácie.
-    </p>
-  </li>
-</ol>
-`,
+      question:
+        "Ponúka slovenská stávková kancelária bonus bez nutnosti vkladu?",
+      answer: `Tento druh bonusu pre online stávky je skôr výnimočný, ale pre spoločnosti poskytujúce kurzové stávky nemusí byť stávka zadarmo bez vkladu úplne nereálna (najčastejšie bol bonus bez vkladu poskytovaný od Tipsportu).`,
+    },
+    {
+      question: "Zdaňujú sa výhry z online stávkových kancelárií?",
+      answer:
+        "Momentálne sa výhry v stávkových kanceláriách nezdaňujú. V ČR sa už platia dane aj z výhier a preto je veľmi pravdepodobné, že sa v budúcnosti dočkáme aj zdaňovania výhier v stávkových kanceláriách. Dobrou správou je, že v ČR sa platí daň až pri výhre nad 1 milión korún.",
+    },
+    {
+      question:
+        "Ktoré doklady totožnosti vyžadujú stávkové kancelárie na Slovensku?",
+      answer:
+        "Pre dokončenie overenia budete potrebovať dva doklady. Prvým je občiansky preukaz alebo pas a druhým je zvyčajne nevyužitý doklad z prvého výberu, kartička poistenca alebo vodičský preukaz. Pre cudzincov je potrebné povolenie k pobytu v SR. Pri registrácii do stávkovej kancelárie budete potrebovať hlavne e-mail a telefónne číslo (treba rátať s tým, že pri registrácii budete musieť zadať aj iné podrobnejšie osobné údaje ako je číslo občianskeho preukazu resp. rodné číslo). V prípade, že nemáte bankový účet na vlastné meno, tak vám ho odporúčame vytvoriť si ho (môžete vykonať aj po registrácii). Nie je dovolené posielať peniaze z cudzieho bankového účtu na váš hráčsky účet.",
+    },
+    {
+      question:
+        "Prečo sa mobilné aplikácie na stiahnutie pre hazard nenachádzajú v obchode Google Play?",
+      answer:
+        "Google vo svojom obchode neakceptuje aplikácie spoločností z oblasti hazardných hier. Vďaka politike Google si musíte aplikáciu (Apk) stiahnuť priamo na webstránke stávkovej kancelárie alebo nájsť iný spôsob. Apple svoje aplikácie ponúka priamo vo svojom obchode Apple Store (App pre iPhone a iPad).",
+    },
+    {
+      question:
+        "Je možné do stávkových kancelárií alebo kasín v SR vkladať peniaze prostredníctvom kryptomien ako je Bitcoin?",
+      answer:
+        "An0 pre kasino nie pre stavkove kancel8rie. Priamo to nie je možné, pretože žiadna stávková kancelária na Slovensku zatiaľ nevedie účty v kryptomene. Teoreticky je možné využitie elektronickej peňaženky Skrill, kde práve Skrill prevedie vašu kryptomenu na EURá a tieto peniaze potom môžete použiť na stávkovanie.",
+    },
+    {
+      question: "Ktorá stávková kancelária je na slovenskom trhu najlepšia?",
+      answer:
+        "Podľa nášho názoru ide jednoznačne o stávkovú kanceláriu Tipsport. Konkurovať jej môže Fortuna, ale v Tipsporte máte najväčšiu komunitu tipérov a so stávkovými funkciami napredujú najrýchlejšie. Ide aj o najlepšiu voľbu z pohľadu prijímania stávok ako aj súťaží pre tipujúcich, do ktorých sa zapojíte aj úplne zadarmo.",
+    },
+    {
+      question: "Ktoré kasíno je na slovenskom trhu najlepšie?",
+      answer:
+        "Podľa nášho názoru ide jednoznačne o stávkovú kanceláriu Tipsport. Konkurovať jej môže Fortuna, ale v Tipsporte máte najväčšiu komunitu tipérov a so stávkovými funkciami napredujú najrýchlejšie. Ide aj o najlepšiu voľbu z pohľadu prijímania stávok ako aj súťaží pre tipujúcich, do ktorých sa zapojíte aj úplne zadarmo.",
     },
   ],
 };
+
 export const SEO = (locale: Locale = "en") => {
   const siteData = SITE(locale);
 

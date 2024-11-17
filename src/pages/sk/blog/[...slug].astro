@@ -40,9 +40,13 @@ const blogPosts: CollectionEntry<"blog">[] = await getCollection("blog", ({ id }
   return id.startsWith(`${lang}/`);
 });
 
-const offer: CollectionEntry<"reviews">[] = await getCollection("reviews", ({ id }) => {
+const offers: CollectionEntry<"reviews">[] = await getCollection("reviews", ({ id }) => {
   return id.startsWith(`${lang}/`);
 });
+
+const chosenBet = offers.find((offer) => ("chosen" in offer.data && offer.data.chosen === true && offer.data.type === 1));
+const chosenCasino = offers.find((offer) => ("chosen" in offer.data && offer.data.chosen === true && offer.data.type === 2));
+
 
 const relatedPosts: CollectionEntry<"blog">[] = blogPosts.filter((blogEntry) => blogEntry.slug !== post.slug);
 
@@ -196,11 +200,11 @@ const structuredData = {
       <div class="sticky" id="progress-mobile">
         <div class="overflow-hidden rounded-lg bg-neutral-100 dark:bg-neutral-900 md:max-w-96 p-4 space-y-6 shadow-xl">
 
-          {offer.length > 0 && offer[0].data && (
+          {(chosenBet || chosenCasino) && (
             <h3 class="py-1 px-3 w-fit rounded-lg font-semibold text-pretty text-lg text-neutral-200 bg-neutral-700 dark:bg-neutral-200 dark:text-neutral-900">{texts.suggestedOffer}:</h3>
             
             <OfferCard
-              testimonial={offer[0].data}
+              testimonial={chosenBet?.data|| chosenCasino?.data}
             />
 
           )}

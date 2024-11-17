@@ -6,14 +6,13 @@ import heroImage from "@images/hero-image.png";
 import OfferSection from "@/components/sections/OfferSection.astro";
 import type { CollectionEntry } from "astro:content";
 import { getCollection } from "astro:content";
-import { SITE, TEXTS } from "@data/constants";
+import { SITE, TEXTS, FAQS } from "@data/constants";
 import { getCountryCode } from "@/utils/utils";
 import LandingText from "@/components/sections/landing/LandingText.astro";
 import FAQ from "@/components/sections/misc/FAQ.astro";
-import faqs from "@data/faqs.json";
 import FeaturesGeneral from "@components/sections/landing/FeaturesGeneral.astro";
-import features from "@data/features.json";
 import BigLandingCards from "@/components/sections/landing/BigLandingCards.astro";
+import ConclusionCards from "@/components/sections/landing/ConclusionCards.astro";
 
 const lang = Astro.currentLocale as keyof typeof TEXTS;
 
@@ -24,7 +23,11 @@ const offers: CollectionEntry<"reviews">[] = await getCollection(
   }
 );
 
+const chosenBet = offers.find((offer) => ("chosen" in offer.data && offer.data.chosen === true && offer.data.type === 1));
+const chosenCasino = offers.find((offer) => ("chosen" in offer.data && offer.data.chosen === true && offer.data.type === 2));
+
 const texts = TEXTS[lang];
+const faqs = FAQS[lang];
 ---
 
 <MainLayout
@@ -64,16 +67,16 @@ const texts = TEXTS[lang];
     testimonials={offers.map((offer) => offer.data)}
   />
 
-  <FeaturesGeneral
-    features={features}
-  />
+  <FeaturesGeneral/>
 
   <BigLandingCards/>
 
-  <FAQ title="Frequently asked questions" faqs={faqs} />
+  <FAQ title={texts.faq} faqs={faqs} />
 
+  <hr class="my-12 -skew-y-3" />
+  
+  <ConclusionCards texts={texts} chosenBet={chosenBet} chosenCasino={chosenCasino}/>
+  
   <LandingText />
 
-  
-   
 </MainLayout>
