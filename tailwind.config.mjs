@@ -1,5 +1,5 @@
 /** @type {import('tailwindcss').Config} */
-import colors from "tailwindcss/colors";
+import colors, { rose } from "tailwindcss/colors";
 
 export default {
   content: [
@@ -33,6 +33,14 @@ export default {
       red: colors.red, // Used for bookmark icon
       zinc: colors.zinc, // Used mainly for box-shadow
       green: colors.green, // Used for success alert
+      blue: colors.blue,
+      lime: colors.lime,
+      emerald: colors.emerald,
+      fuchsia: colors.fuchsia,
+      rose: colors.rose,
+      teal: colors.teal,
+      amber: colors.amber,
+      indigo: colors.indigo,
     },
     extend: {
       boxShadow: {

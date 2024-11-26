@@ -15,9 +15,9 @@ const offers = Astro.props.testimonials as CollectionEntry<'reviews'>['data'][];
   </div>
 
    <div class="grid gap-12 lg:grid-cols-2 xl:grid-cols-3 px-4 sm:px-6 lg:px-8" id="offers">
-    {offers.map((offer) => (
+    {offers.map((offer,i) => (
       <div data-offer data-category={offer.type} class="offer-card">
-        <OfferCard testimonial={offer} />
+        <OfferCard testimonial={offer} i={i} />
       </div>
     ))}
   </div>

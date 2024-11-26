@@ -48,4 +48,21 @@ function getCountryCode(lang: LanguageKeys = "en"): string {
   }
 }
 
-export { formatDate, getType, getCountryCode };
+function getBgColorCombo(type: number): string {
+  switch (type % 5) {
+    case 0:
+      return "bg-gradient-to-tr from-orange-500 to-yellow-500";
+    case 1:
+      return "bg-gradient-to-tr from-teal-600 to-blue-700";
+    case 2:
+      return "bg-gradient-to-tr from-fuchsia-500 to-rose-500";
+    case 3:
+      return "bg-gradient-to-tr from-lime-500 to-emerald-700";
+    case 4:
+      return "bg-gradient-to-tr from-red-500 to-indigo-800";
+    default:
+      return "bg-gradient-to-tr from-orange-500 to-yellow-500";
+  }
+}
+
+export { formatDate, getType, getCountryCode, getBgColorCombo };
