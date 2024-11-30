@@ -3,7 +3,7 @@ import ListFilter from "./misc/ListFilter.astro";
 import OfferCard from "./cards/OfferCard.astro";
 import type { CollectionEntry } from 'astro:content';
 
-const offers = Astro.props.testimonials as CollectionEntry<'reviews'>['data'][];
+const offers = Astro.props.testimonials as CollectionEntry<'reviews'>[];
 
 ---
 <section
@@ -16,14 +16,14 @@ const offers = Astro.props.testimonials as CollectionEntry<'reviews'>['data'][];
 
    <div class="grid gap-12 lg:grid-cols-2 xl:grid-cols-3 px-4 sm:px-6 lg:px-8" id="offers">
     {offers.map((offer,i) => (
-      <div data-offer data-category={offer.type} class="offer-card">
+      <div data-offer data-category={offer.data.type} class="offer-card">
         <OfferCard testimonial={offer} i={i} />
       </div>
     ))}
   </div>
-  <p data-no-offers class="text-center text-xl mt-8 text-neutral-500 dark:text-neutral-400 hidden">
-    No offers found.
-  </p>
+    <p data-no-offers class="text-center text-xl mt-8 text-neutral-500 dark:text-neutral-400 hidden">
+      No offers found.
+    </p>
   </section>
 
 <script>

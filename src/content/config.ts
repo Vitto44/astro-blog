@@ -19,6 +19,8 @@ const reviewsCollection = defineCollection({
       imgMain: image(),
       imgAlt: z.string(),
       btnURL: z.string(),
+      bgColor: z.string(),
+      isAccentColor: z.boolean(),
       howToClaim: z
         .array(
           z.object({

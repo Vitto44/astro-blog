@@ -2,7 +2,11 @@
 // Import the necessary dependencies
 import BrandLogo from "@components/BrandLogo.astro";
 import EmailMainInput from "@/components/ui/forms/input/EmailMainInput.astro";
+import { TEXTS } from "@/data_files/constants";
 
+type LanguageKeys = keyof typeof TEXTS;
+const lang: LanguageKeys = (Astro.currentLocale as LanguageKeys) || 'en';
+const texts = TEXTS[lang];
 ---
 
 <footer class="w-full bg-neutral-300 dark:bg-neutral-900">
@@ -12,6 +16,9 @@ import EmailMainInput from "@/components/ui/forms/input/EmailMainInput.astro";
     <div class="flex flex-col items-center gap-4">
       <EmailMainInput />
       <BrandLogo class="h-auto w-32" />
+      <p class="text-neutral-600 dark:text-neutral-400 text-center">
+        {texts.footerDisclaimer}
+      </p>
     </div>
 
     <div

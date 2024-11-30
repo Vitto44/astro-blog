@@ -5,16 +5,18 @@ import FullStar from '@/components/ui/stars/FullStar.astro';
 import HalfStar from '@/components/ui/stars/HalfStar.astro';
 import { TEXTS } from '@/data_files/constants';
 import type { languages } from '@/utils/ui';
-import { getType, getBgColorCombo } from '@/utils/utils';
+import { getType } from '@/utils/utils';
 import { Image } from 'astro:assets';
 import type { CollectionEntry } from 'astro:content';
 
-const testimonial = Astro.props.testimonial as CollectionEntry<'reviews'>['data'];
+const testimonial = Astro.props.testimonial as CollectionEntry<'reviews'>;
 const i = Astro.props.i as number;
 
-const colorCombo = getBgColorCombo(i);
+const testimonialData = Astro.props.testimonial.data;
+const {slug} = testimonial;
 
-const { imgAlt, imgMain, title, rating, type, reward, btnURL, termsAndConditions, howToClaim } = testimonial;
+
+const { imgAlt, imgMain, title, rating, type, reward, btnURL, termsAndConditions, howToClaim, bgColor, isAccentColor } = testimonialData;
 
 const actualRating = rating % 1 >= 0.7 ? Math.ceil(rating) : Math.floor(rating);
 const isHalfStar = rating % 1 > 0.2 && rating % 1 < 0.7;
@@ -24,11 +26,15 @@ type LanguageKeys = keyof typeof TEXTS;
 const lang: LanguageKeys = (Astro.currentLocale as LanguageKeys) || 'en';
 
 const texts = TEXTS[lang];
+
+const blogLocale = Astro.currentLocale? Astro.currentLocale : 'en';
+
 ---
 
 
-<div class="max-w-96 w-full col-span-1 mx-auto text-white h-full">
-  <div class={`flex flex-col rounded-xl h-full p-4 gap-4 ${colorCombo}`}>
+<div class={`max-w-96 w-full col-span-1 mx-auto h-full ${isAccentColor ? 'text-white' : 'text-neutral-900'}`}>
+  
+  <div class={`flex flex-col rounded-xl h-full p-4 pb-0 gap-4 ${bgColor}`}>
     <div>
       <div class="flex items-top">
         {imgMain && (
@@ -49,7 +55,7 @@ const texts = TEXTS[lang];
           </p>
         </div>
 
-        <span class="flex gap-1 mt-1 md:mt-2 rounded-full bg-orange-200/50 px-2 py-1 h-fit">       
+        <span class="flex gap-1 mt-1 md:mt-2 rounded-full bg-gray-100/50 px-2 py-1 h-fit">       
             {actualRating > 0 && Array(actualRating).fill(0).map((_, i) => <FullStar key={i} />)}
             {isHalfStar && <HalfStar />}
         </span>
@@ -57,22 +63,31 @@ const texts = TEXTS[lang];
       </div>
     </div>
 
-    <div class="text-center p-2 font-bold">
-      <div class="text-pretty   shadow-own shadow-white w-fit mx-auto px-4 rounded-lg font-bold">
+    <div class="text-center py-2 font-bold">
+      <div class={`text-pretty shadow-own mx-1 px-4 rounded-lg font-bold text-lg ${isAccentColor ? 'shadow-white' : 'shadow-neutral-900'}`}>
         <p class="py-1 text-lg">Bonus:</p>
-        <span class="text-pretty rounded-lg text-neutral-800 text-xl block bg-neutral-50 p-3">
+        <span class={`text-pretty rounded-lg text-xl block p-3 ${isAccentColor ? 'bg-white text-neutral-900' : 'bg-neutral-900 text-white'}`}>
           {reward}
         </span>
         <div class="flex flex-col gap-2 py-3 justify-between">
             
+        <div class="grid grid-cols-2 gap-2">
           <button
-              class="bg-neutral-900 py-2 px-4 rounded-lg text-xs hover:bg-neutral-800 transition duration-300"
+              class={`py-2 px-4 rounded-lg text-xs ring-2 ring-inset transition duration-300 ${isAccentColor ? 'bg-neutral-900 text-white ring-white hover:!bg-neutral-800' : 'bg-white text-neutral-900  ring-neutral-900 hover:!bg-neutral-200'}`}
               onclick={`document.getElementById('modal-${title}').showModal()`}
               >
               {texts.howToClaim}
-          </button>      
+          </button>   
 
-          <PrimaryCTA title={texts.redeem} url={btnURL} style="!bg-neutral-900 hover:!bg-neutral-800" />
+          <a
+            class={`py-2 px-4 rounded-lg text-xs ring-2 ring-inset transition duration-300 ${isAccentColor ? 'bg-neutral-900 text-white ring-white hover:!bg-neutral-800' : 'bg-white text-neutral-900  ring-neutral-900 hover:!bg-neutral-200'}`}
+            href={`/${blogLocale}/reviews/${slug}`}
+          >
+            {texts.readReview}
+          </a>      
+        </div>
+
+          <PrimaryCTA title={texts.redeem} url={btnURL} style={`shadow-own my-2 ${isAccentColor? '!bg-neutral-900 !text-white hover:!bg-neutral-800' : '!bg-white !text-neutral-900 hover:!bg-neutral-200'} `} />
         </div>
       </div>
     </div>
@@ -80,14 +95,14 @@ const texts = TEXTS[lang];
 
   <div class="rounded-b-xl h-fit w-fit">
     <div class="group flex relative gap-1 cursor-pointer">
-      <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
-        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 11h2v5m-2 0h4m-2.592-8.5h.01M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
-      </svg>
-      <p class="text-sm">{texts.advertisementDisclosure}</p>
-      <span class="group-hover:block hidden text-sm rounded-md top-5 absolute py-2 px-4 bg-neutral-700 w-80">{termsAndConditions}</span>
+        <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+          <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 11h2v5m-2 0h4m-2.592-8.5h.01M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+        </svg>
+        <p class="text-sm">{texts.advertisementDisclosure}</p>
+       <span class="group-hover:block hidden text-sm rounded-md top-5 absolute py-2 px-4 bg-neutral-700 w-80">{termsAndConditions}</span>
+      </div>
     </div>
   </div>
-</div>
 
   <HowToClaimModal id={title} howToClaim={howToClaim}/>
 </div>

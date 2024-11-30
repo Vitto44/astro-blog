@@ -2,10 +2,10 @@
 
 - 1 casino
 - 2 bets
-- 3 esport
-- 4 crypto
 
 # SK
+
+check https://sk.casino.guru/
 
 ## Casino
 
@@ -35,4 +35,38 @@
 - SYNOT TIP
 - Tipos
 
-## Crypto
+# CZ
+
+## Casino
+
+check https://www.casinoarena.cz/rubriky/nejlepsi-casina/
+
+- Fortuna Casino
+- Chance
+- SYNOT TIP
+- Betano
+- Apollo Games
+- Tipsport
+- Kingsbet
+- MerkurXtip
+- BetX
+- Grandwin
+- Sazka Hry
+- Forbes
+- LuckyBet
+- Betor
+- Maxa
+
+## Bets
+
+check https://www.betarena.cz/rubriky/sportovni-clanky/legalni-online-kurzove-sazeni-v-cesku_961.html
+
+- Tipsport
+- Fortuna
+- Betano
+- Chance
+- SYNOT TIP
+- BetX
+- MerkurXtip
+- SazkaBet
+- Tipsport

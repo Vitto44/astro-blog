@@ -107,6 +107,7 @@ export const TEXTS = {
     cons: "Cons",
     whyUs: "Why Us",
     considerBefore: "Consider Before You Start Betting or Playing",
+    readReview: "Read Review",
   },
   ie: {
     blogLayoutDescription:
@@ -161,6 +162,7 @@ export const TEXTS = {
     cons: "Cons",
     whyUs: "Why Us",
     considerBefore: "Consider Before You Start Betting or Playing",
+    readReview: "Read Review",
   },
   sk: {
     blogLayoutDescription:
@@ -222,6 +224,9 @@ export const TEXTS = {
       "Najlepšie stávková kancelária a kasíno na Slovensku podľa našich expertov.",
     bestBettingSite: "Najlepšia Stávková Kancelária",
     bestCasino: "Najlepšie Kasíno",
+    readReview: "Prečítať Recenziu",
+    footerDisclaimer:
+      "Tento web je určený pre osoby staršie ako 18 rokov. CertainWager je nezávislý zdroj informácií o online kasínach a stávkových kanceláriach, ktorý nie je kontrolovaný žiadnym prevádzkovateľom hazardných hier, ani žiadnou inou inštitúciou. Všetky naše recenzie vytvárame čestne, podľa najlepších vedomostí a úsudkov členov nášho nezávislého tímu, slúžia však len na informačné účely a za žiadnych okolností nemajú slúžiť ako právne rady. Pred hraním a stávkovaním vo vybranej spoločnosti by ste sa mali vždy uistiť, že spĺňate všetky regulačné požiadavky.",
   },
   cz: {
     blogLayoutDescription:
@@ -277,6 +282,7 @@ export const TEXTS = {
     whyUs: "Proč Právě My",
     considerBefore:
       "Pár Věcí, Které Je Potřeba Zvážit Předtím, Než začnete sázet nebo hrát",
+    readReview: "Přečíst Recenzi",
   },
 };
 
@@ -511,6 +517,13 @@ V každej recenzii je bonus do detailu rozobratý a okrem toho je vytvorená aj 
 Znamenalo by to, že zdaneniu výhier budú okrem stávkových kancelárií podliehať aj lotérie, kasíno alebo poker herne. Viac informácií o platení daní v ČR z hazardných hier nájdete v článku daň z výhry.
 `,
       imageSrc: "/src/images/tax.png",
+      imageAlt: "Exclusive benefits",
+    },
+    {
+      title: "Hrajte zodpovedne",
+      content: `
+     Hazardné hry môžu byť zábava, ale môžu sa tiež v živote daného človeka zmeniť na obrovský problém. Patologické hráčstvo nielenže môže viesť k finančným stratám, ale môže spôsobiť celý rad ďalších problémov, vrátane symptómov súvisiacich s duševným a fyzickým zdravím, rodinných a vzťahových problémov a komplikácií v práci. Nikdy nepovažujte hranie za spôsob, ako zarobiť.`,
+      imageSrc: "/src/images/breakingChain.png",
       imageAlt: "Exclusive benefits",
     },
     {

@@ -1,8 +1,10 @@
 ---
-title: "Fortuna"
+title: "Niké"
 type: 1
 chosen: true
-rating: 4.1
+bgColor: "bg-blue-800"
+isAccentColor: true
+rating: 4.4
 termsAndConditions: "By registering an account with us, you agree to our Terms and Conditions. Please make sure you read and understand them before proceeding."
 reward: "100$ a 20 spinov zadarmo"
 pubDate: "2021-09-01"
