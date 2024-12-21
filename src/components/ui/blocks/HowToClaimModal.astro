@@ -1,7 +1,7 @@
 ---
 import { Image } from "astro:assets";
 
-const { id, open, howToClaim } = Astro.props;
+const { id, open, howToClaim, textColor } = Astro.props;
 ---
 
 <button onclick={`document.getElementById('${id}').showModal()`}>{open}</button>

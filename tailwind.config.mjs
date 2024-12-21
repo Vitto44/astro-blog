@@ -41,6 +41,7 @@ export default {
       teal: colors.teal,
       amber: colors.amber,
       indigo: colors.indigo,
+      stone: colors.stone,
     },
     extend: {
       boxShadow: {

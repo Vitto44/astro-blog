@@ -32,14 +32,14 @@ const blogLocale = Astro.currentLocale? Astro.currentLocale : 'en';
 ---
 
 
-<div class={`max-w-96 w-full col-span-1 mx-auto h-full ${isAccentColor ? 'text-white' : 'text-neutral-900'}`}>
+<div class={` w-full col-span-1 mx-auto h-full ${isAccentColor ? 'text-white' : 'text-neutral-900'}`}>
   
-  <div class={`flex flex-col rounded-xl h-full p-4 pb-0 gap-4 ${bgColor}`}>
+  <div class={`flex flex-col rounded-xl h-full pb-0 gap-3 ring ring-white dark:ring-neutral-900 bg-neutral-200 dark:bg-neutral-800 shadow-own shadow-white dark:shadow-neutral-900`}>
     <div>
-      <div class="flex items-top">
+      <div class={`flex items-top p-3 rounded-t-xl ${bgColor}`}>
         {imgMain && (
           <Image
-            class="size-8 rounded-full h-[5rem] w-[5rem]"
+            class={`size-8 rounded-full h-[5rem] w-[5rem] ring ${isAccentColor ? 'ring-neutral-100' : 'ring-neutral-900'}`}
             src={imgMain}
             alt={imgAlt}
             format="png"
@@ -63,43 +63,43 @@ const blogLocale = Astro.currentLocale? Astro.currentLocale : 'en';
       </div>
     </div>
 
-    <div class="text-center py-2 font-bold">
-      <div class={`text-pretty shadow-own mx-1 px-4 rounded-lg font-bold text-lg ${isAccentColor ? 'shadow-white' : 'shadow-neutral-900'}`}>
+    <div class="text-center py-2 font-bold p-4 text-white">
+      <div class={`text-pretty shadow-own mx-1 px-4 rounded-lg font-bold text-lg shadow-white dark:shadow-neutral-900 text-neutral-900 dark:text-neutral-100`}>
         <p class="py-1 text-lg">Bonus:</p>
-        <span class={`text-pretty rounded-lg text-xl block p-3 ${isAccentColor ? 'bg-white text-neutral-900' : 'bg-neutral-900 text-white'}`}>
+        <span class={`text-pretty rounded-lg text-xl block p-3 bg-neutral-800 dark:bg-white dark:text-neutral-900 text-neutral-100 `}>
           {reward}
         </span>
         <div class="flex flex-col gap-2 py-3 justify-between">
             
         <div class="grid grid-cols-2 gap-2">
           <button
-              class={`py-2 px-4 rounded-lg text-xs ring-2 ring-inset transition duration-300 ${isAccentColor ? 'bg-neutral-900 text-white ring-white hover:!bg-neutral-800' : 'bg-white text-neutral-900  ring-neutral-900 hover:!bg-neutral-200'}`}
+              class={`py-2 px-4 rounded-lg text-xs ring-2 ring-inset transition duration-300 bg-white text-neutral-900  ring-neutral-900 hover:!bg-neutral-200 dark:bg-neutral-900 dark:text-neutral-100  dark:ring-neutral-200 dark:hover:!bg-neutral-800`}
               onclick={`document.getElementById('modal-${title}').showModal()`}
               >
               {texts.howToClaim}
           </button>   
 
           <a
-            class={`py-2 px-4 rounded-lg text-xs ring-2 ring-inset transition duration-300 ${isAccentColor ? 'bg-neutral-900 text-white ring-white hover:!bg-neutral-800' : 'bg-white text-neutral-900  ring-neutral-900 hover:!bg-neutral-200'}`}
+            class={`py-2 px-4 rounded-lg text-xs ring-2 ring-inset transition duration-300 bg-white text-neutral-900  ring-neutral-900 hover:!bg-neutral-200 dark:bg-neutral-900 dark:text-neutral-100  dark:ring-neutral-200 dark:hover:!bg-neutral-800`}
             href={`/${blogLocale}/reviews/${slug}`}
           >
             {texts.readReview}
           </a>      
         </div>
 
-          <PrimaryCTA title={texts.redeem} url={btnURL} style={`shadow-own my-2 ${isAccentColor? '!bg-neutral-900 !text-white hover:!bg-neutral-800' : '!bg-white !text-neutral-900 hover:!bg-neutral-200'} `} />
+          <PrimaryCTA title={texts.redeem} url={btnURL} style={`shadow-own shadow-neutral-900 my-2`} />
         </div>
       </div>
     </div>
     
 
-  <div class="rounded-b-xl h-fit w-fit">
+  <div class="rounded-b-xl px-4 h-fit w-fit text-neutral-700 dark:text-neutral-300">
     <div class="group flex relative gap-1 cursor-pointer">
         <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
           <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 11h2v5m-2 0h4m-2.592-8.5h.01M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
         </svg>
-        <p class="text-sm">{texts.advertisementDisclosure}</p>
-       <span class="group-hover:block hidden text-sm rounded-md top-5 absolute py-2 px-4 bg-neutral-700 w-80">{termsAndConditions}</span>
+        <p class="  text-sm mb-1">{texts.advertisementDisclosure}</p>
+       <span class="group-hover:block hidden text-sm rounded-md top-5 absolute py-2 px-4 bg-neutral-700 w-80 text-neutral-300">{termsAndConditions}</span>
       </div>
     </div>
   </div>

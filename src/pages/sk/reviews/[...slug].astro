@@ -140,7 +140,7 @@ const structuredData = {
       </div>
       <Image
         src={review.data.imgMain}
-        class="w-[100px] lg:min-w-[220px] lg:mx-auto rounded-full lg:order-first"
+        class="w-24 lg:min-w-48 h-24 lg:min-h-48 lg:mx-auto rounded-full lg:order-first"
         alt={review.data.imgAlt}
         format={"png"}
         loading={"eager"}
@@ -153,11 +153,11 @@ const structuredData = {
     {
       review.data && (
 
-         <div class="text-pretty text-center dark:text-neutral-800 text-neutral-100 bg-neutral-800 dark:bg-neutral-100 w-fit mx-auto px-4 rounded-lg font-bold">
-        <p class="py-1 text-lg">Bonus:</p>
-        <span class="text-pretty rounded-lg text-neutral-800 dark:text-neutral-100 text-xl block bg-neutral-50 dark:bg-neutral-800 p-3">
-          {review.data.reward}
-        </span>
+        <div class="text-pretty text-center dark:text-neutral-800 text-neutral-100 bg-neutral-800 dark:bg-neutral-100 w-full mx-auto px-4 rounded-lg font-bold">
+          <p class="py-1 text-lg">Bonus:</p>
+          <span class="text-pretty rounded-lg text-neutral-800 dark:text-neutral-100 text-xl block bg-neutral-50 dark:bg-neutral-800 p-3">
+            {review.data.reward}
+          </span>
         <div class="flex flex-col gap-2 md:flex-row md:gap-6 py-3 justify-between">
             
          
@@ -260,7 +260,37 @@ const structuredData = {
             </div>
             
             
+            
             <div class="space-y-6">
+              <div class="space-y-6 lg:space-y-10">
+
+                <div>
+                    <h3 class="text-lg font-bold text-neutral-800 dark:text-neutral-200 sm:text-lg">
+                      {texts.pros}
+                    </h3>
+                    <hr class={`h-px my-1 border-0 bg-green-500`}/>
+                    <ul class="mt-1 font-semibold text-neutral-600 dark:text-neutral-400 ml-8 list-disc marker:text-green-500">
+                      {review.data.longDescription.pros?.map((item: string) => (
+                        
+                          <li>{item}</li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  <div>
+                    <h3 class="text-lg font-bold text-neutral-800 dark:text-neutral-200 sm:text-lg ">
+                      {texts.cons}
+                    </h3>
+                    <hr class={`h-px my-1 border-0 bg-red-500`}/>
+                    <ul class="mt-1 font-semibold text-neutral-600 dark:text-neutral-400 ml-8 list-disc marker:text-red-500">
+                      {review.data.longDescription.cons?.map((item:string) => (
+                          
+                          <li>{item}</li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+
                <h2 class="text-balance text-3xl font-bold tracking-tight text-neutral-800 dark:text-neutral-200 md:leading-tight lg:text-4xl">
                   {texts.review}
                 </h2>
@@ -269,35 +299,7 @@ const structuredData = {
                   {review.data.longDescription.subTitle}
                 </p>
 
-                <div class="space-y-6 lg:space-y-10 mt-4">
-
-                        <div>
-                          <h3 class="text-lg font-bold text-neutral-800 dark:text-neutral-200 sm:text-lg">
-                            {texts.pros}
-                          </h3>
-                          <hr class={`h-px my-1 border-0 bg-green-500`}/>
-                         <ul class="mt-1 font-semibold text-neutral-600 dark:text-neutral-400 ml-8 list-disc marker:text-green-500">
-                            {review.data.longDescription.pros?.map((item: string) => (
-                             
-                                <li>{item}</li>
-                            ))}
-                          </ul>
-                        </div>
-
-                         <div>
-                          <h3 class="text-lg font-bold text-neutral-800 dark:text-neutral-200 sm:text-lg ">
-                            {texts.cons}
-                          </h3>
-                          <hr class={`h-px my-1 border-0 bg-red-500`}/>
-                         <ul class="mt-1 font-semibold text-neutral-600 dark:text-neutral-400 ml-8 list-disc marker:text-red-500">
-                            {review.data.longDescription.cons?.map((item:string) => (
-                               
-                                <li>{item}</li>
-                            ))}
-                          </ul>
-                        </div>
-
-                </div>
+                
                    
             </div>
            

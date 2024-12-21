@@ -23,8 +23,9 @@ const offers: CollectionEntry<"reviews">[] = await getCollection(
   }
 );
 
-const chosenBet = offers.find((offer) => ("chosen" in offer.data && offer.data.chosen === true && offer.data.type === 1));
-const chosenCasino = offers.find((offer) => ("chosen" in offer.data && offer.data.chosen === true && offer.data.type === 2));
+const chosenBet = offers.find((offer) => ("chosen" in offer.data && offer.data.chosen === true && offer.data.type === 2));
+const chosenCasino = offers.find((offer) => ("chosen" in offer.data && offer.data.chosen === true && offer.data.type === 1));
+
 
 const texts = TEXTS[lang];
 const faqs = FAQS[lang];

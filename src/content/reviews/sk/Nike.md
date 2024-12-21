@@ -1,8 +1,8 @@
 ---
 title: "Niké"
-type: 1
-chosen: true
-bgColor: "bg-blue-800"
+type: 2
+chosen: false
+bgColor: "bg-amber-600"
 isAccentColor: true
 rating: 4.4
 termsAndConditions: "By registering an account with us, you agree to our Terms and Conditions. Please make sure you read and understand them before proceeding."
@@ -11,7 +11,7 @@ pubDate: "2021-09-01"
 rewardType: "Free Spins"
 description: "Review of the Fortuna brand."
 redeemLink: "#"
-imgMain: "@/images/fortuna.jpg"
+imgMain: "@/images/nikeLogo.png"
 imgAlt: "Mockup boxes of machine screws set"
 btnURL: "#"
 main:

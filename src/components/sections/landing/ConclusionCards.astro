@@ -96,7 +96,7 @@ interface ConclusionCardsProps {
           <div class="flex justify-between mb-3">
 
               <h3 class="text-2xl font-bold text-neutral-100 sm:text-3xl">
-                {chosenBet.data.title}
+                {chosenCasino.data.title}
               </h3>
               
               <span
@@ -112,7 +112,7 @@ interface ConclusionCardsProps {
       <!-- Features list - automatically created by mapping over `features` array -->
       <ul class="mb-6 space-y-2 text-orange-100">
         {
-          chosenBet.data.longDescription.pros.map((feature: string) => (
+          chosenCasino.data.longDescription.pros.map((feature: string) => (
             <li class="flex items-center gap-1.5">
               <Icon name="checkCircle" />
 
@@ -123,10 +123,10 @@ interface ConclusionCardsProps {
       </ul>
 
       <p class="text-3xl text-center mb-8 font-bold text-neutral-100"
-          >{chosenBet.data.reward}</p>
+          >{chosenCasino.data.reward}</p>
       <!-- CTA for purchasing the product -->
       <a
-        href={chosenBet.data.redeemLink}
+        href={chosenCasino.data.redeemLink}
         class="block rounded-lg bg-orange-200 bg-opacity-50 px-8 py-3 text-center text-sm font-bold text-neutral-100 outline-none ring-orange-300 transition duration-100 hover:bg-neutral-200 hover:bg-opacity-50 focus-visible:ring active:bg-neutral-400 md:text-base"
         >{texts.redeem}</a
       >

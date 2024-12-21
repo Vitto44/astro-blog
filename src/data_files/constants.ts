@@ -372,92 +372,59 @@ export const WHYUS = {
 export const CONSIDERBEFORE = {
   sk: [
     {
-      title: "Pri registrácii uveďte vaše vlastné a pravdivé osobné údaje",
-      content: `Okrem výberu kasína je dôležité aj to, aby ste pri tvorbe účtu použili vaše vlastné osobné údaje a uistili sa, že všetky informácie zadávané pri registrácii sú správne a pravdivé. Kasína vždy kontrolujú identitu hráčov (najneskôr) pri ich prvej žiadosti o výber, takže ak zadáte nesprávne údaje, nebudete si môcť vybrať peniaze.
-        Drvivá väčšina kasín spúšťa tzv. KYC procedúru (anglicky Know Your Customer, poznaj svojho zákazníka), keď hráč požiada o svoj prvý výber. Táto procedúra zahŕňa kontrolu občianskeho preukazu, pasu, alebo ďalších dokladov, takže naozaj je nutné použiť vaše vlastné osobné údaje. Neexistuje žiadny rozumný spôsob, ako to obísť.`,
+      title: "Pri registrácii uveďte svoje pravdivé osobné údaje",
+      content: `Pri registrácii v kasíne alebo stávkovej spoločnosti vždy použite svoje skutočné osobné údaje a overte, že všetky poskytnuté informácie sú správne a pravdivé. Kasína a stávkové spoločnosti zvyčajne overujú totožnosť hráčov pri prvej žiadosti o výber. Väčšina kasín a stávkových spoločností vyžaduje povinnú KYC procedúru (poznaj svojho zákazníka), ktorá zahŕňa kontrolu dokladov, ako sú občiansky preukaz alebo pas. Použitie presných osobných údajov je kľúčové, pretože tento proces nemožno obísť, a ak zadáte nesprávne údaje, pravdepodobne nebudete môcť vybrať svoje výhry.`,
     },
     {
-      title: "Pri vklade používajte iba platobné metódy vedené vo vašom mene",
-      content: `Platobné metódy (bankové účty, platobné karty, internetové peňaženky), ktoré používate na vkladanie peňazí na váš herný účet, by mali byť vaše vlastné a vedené vo vašom mene. Použitie karty, bankového účtu alebo peňaženky niekoho iného môže viesť až k trvalému uzatvoreniu vášho účtu v kasíne a môže byť použité ako dôvod na nevyplatenie výhry.`,
-    },
-    {
-      title:
-        "Ako objaviť dôveryhodné kasína a stávkové kancelárie s atraktívnymi bonusmi",
-      content: `
-      Nie je tajomstvom, že keď si hráči v online kasínach vyberajú nové online kasíno, často hľadajú zaujímavé bonusové ponuky. Vybrané bonusy uvidíte priamo v tomto zozname kasín, alebo si môžete kompletnú ponuku bonusov daného kasína pozrieť v jeho podrobnej recenzii.
-
-        Ak hľadáte bonusy zadarmo, ktoré nevyžadujú vloženie skutočných peňazí, vyberte si z nášho zoznamu kasíno bonusov bez vkladu.
-
-        Avšak, ako vždy odporúčame, nevyberajte si kasína iba na základe ponúkaných bonusov. Zvážte aj iné kvality, najmä celkovú reputáciu a iné faktory, na ktoré sa v našich hodnoteniach zameriavame.
-
-        Niektoré veľmi zle hodnotené kasína môžu mať tie najlepšie bonusy, ale to nič neznamená, ak vám napokon nepovolia vybrať si na konci výhru, čo sa môže veľmi ľahko stať, ak budete hrať v nečestnom kasíne. Ak si vyberiete dobré kasíno, môžete takýmto problémom predísť.
-
-        Držte sa dôveryhodných online kasín, ktoré sa k hráčom správajú férovo a čestne, a budete na tom celkovo podstatne lepšie. Naše hodnotenia kasín sú dobrým indikátorom týchto kvalít. Keď si prečítate úplnú recenziu kasína, než sa tam zaregistrujete, overíte si kvalitu každého kasína a vyhnete sa neskorším problémom.
-        `,
+      title: "Používajte platobné metódy registrované na vaše meno",
+      content: `Uistite sa, že platobné metódy, ako sú bankové účty, kreditné karty alebo elektronické peňaženky, sú registrované na vaše meno. Použitie platobnej metódy inej osoby pri vkladoch do kasín alebo stávkových spoločností môže viesť k zablokovaniu účtu a strate výhier.`,
     },
     {
       title:
-        "Hrajte rozumne a vedzte, kedy je dobré prestať hrať a požiadať o výber",
-      content: `Hrajte rozumne a vedzte, kedy je dobré prestať hrať a požiadať o výber, ak sa vám podarí vyhrať
-Je dôležité, aby ste rozumeli tomu, že hazard nie je spôsobom, ako zarobiť peniaze. Krátkodobo sa vám môže pošťastiť a môžete vyhrať, no neočakávajte, že budete hraním hier v kasíne systematicky vyhrávať peniaze. Ak sa vám podarí trafiť šťastnú výhru, vyberte si ju, pretože, ak budete pokračovať v hraní, skôr či neskôr prídete o vaše peniaze. Taktiež pamätajte, že závislosť na hazarde je závažný problém, takže hrajte bezpečne a vyhľadajte pomoc, ak sa vám veci začnú vymykať z pod kontroly.
-
-Kasína majú vždy výhodu, no vy môžete hrať rozumne a tým ju minimalizovať. Niektoré hry sú z matematického hľadiska lepšie ako iné, no vždy by ste mali pamätať na to, že hráte v nevýhode. Môžete ju znížiť, no nikdy sa jej úplne nezbavíte. Viac na túto tému sa môžete dozvedieť v našom článku princípe fungovania hazardných hier.
-
-Z perspektívy bezpečného a zodpovedného hrania je dôležité, aby ste si pamätali, že závislosť na hazarde dokáže človeku úplne zničiť život, takže by ste mali k hazardu pristupovať veľmi opatrne. Prečítajte si náš článok s tipmi ako hrať bezpečne a preskúmajte našu sekciu o problémovom hráčstve, v ktorej nájdete viac informácií o závislosti na hazarde, spôsoboch jej diagnostikovania a liečenia.`,
-    },
-  ],
-  en: [
-    {
-      title: "Provide Your Own Personal Information",
-      content: `When creating an account, make sure to use your own personal information and ensure that all information provided during registration is correct and truthful. Casinos always verify the identity of players (at the latest) when they request their first withdrawal, so if you provide incorrect information, you will not be able to withdraw your money.
-        The vast majority of casinos launch the so-called KYC procedure (Know Your Customer) when a player requests their first withdrawal. This procedure includes checking an ID card, passport, or other documents, so it is really necessary to use your own personal information. There is no reasonable way to bypass this.`,
+        "Ako nájsť spoľahlivé kasína a stávkové spoločnosti s atraktívnymi bonusmi",
+      content: `Hráči často hľadajú bonusy pri výbere kasín alebo stávkových spoločností. Naše recenzie a zoznamy ponúkajú podrobnosti o dostupných bonusoch, vrátane bonusov bez nutnosti vkladu. Bonusy by však nemali byť vaším jediným kritériom výberu. Zvážte reputáciu platformy a spôsob, akým sa správa k hráčom. Vysoké bonusy od nespoľahlivých kasín alebo stávkových spoločností sú zbytočné, ak si nemôžete vybrať svoje výhry. Naše recenzie vám pomôžu nájsť dôveryhodné platformy a vyhnúť sa bežným problémom.`,
     },
     {
-      title: "Use Payment Methods Registered in Your Name",
-      content: `The payment methods (bank accounts, payment cards, e-wallets) you use to deposit money into your gaming account should be your own and registered in your name. Using someone else's card, bank account, or wallet can lead to the permanent closure of your account at the casino and can be used as a reason for not paying out winnings.`,
-    },
-    {
-      title:
-        "Play Wisely and Know When to Stop Playing and Request a Withdrawal",
-      content: `Play wisely and know when to stop playing and request a withdrawal if you manage to win
-      It is important to understand that gambling is not a way to make money. You may be lucky in the short term and win, but do not expect to systematically make money by playing casino games. If you manage to hit a lucky win, withdraw it, because if you continue playing, sooner or later you will lose your money. Also, remember that gambling addiction is a serious problem, so play safely and seek help if things start to get out of control.
-      `,
-    },
-  ],
-  ie: [
-    {
-      title: "Provide Your Own Personal Information",
-      content: `When creating an account, make sure to use your own personal information and ensure that all information provided during registration is correct and truthful. Casinos always verify the identity of players (at the latest) when they request their first withdrawal, so if you provide incorrect information, you will not be able to withdraw your money.
-        The vast majority of casinos launch the so-called KYC procedure (Know Your Customer) when a player requests their first withdrawal. This procedure includes checking an ID card, passport, or other documents, so it is really necessary to use your own personal information. There is no reasonable way to bypass this.`,
-    },
-    {
-      title: "Use Payment Methods Registered in Your Name",
-      content: `The payment methods (bank accounts, payment cards, e-wallets) you use to deposit money into your gaming account should be your own and registered in your name. Using someone else's card, bank account, or wallet can lead to the permanent closure of your account at the casino and can be used as a reason for not paying out winnings.`,
-    },
-    {
-      title:
-        "Play Wisely and Know When to Stop Playing and Request a Withdrawal",
-      content: `Play wisely and know when to stop playing and request a withdrawal if you manage to win
-      It is important to understand that gambling is not a way to make money. You may be lucky in the short term and win, but do not expect to systematically make money by playing casino games. If you manage to hit a lucky win, withdraw it, because if you continue playing, sooner or later you will lose your money. Also, remember that gambling addiction is a serious problem, so play safely and seek help if things start to get out of control.
-      `,
+      title: "Hrajte a tipujte zodpovedne a vedzte, kedy skončiť",
+      content: `Hazardné hry môžu byť zábavné, ale veľmi rýchlo sa môžu stať závislosťou. Hazardné hry a stávkovanie nie sú garantovaným spôsobom, ako zarobiť peniaze. Ak vyhráte, vyberte svoje výhry a prestaňte hrať alebo stávkovať. Pokračovanie v hraní alebo stávkovaní pravdepodobne povedie k stratám. Majte na pamäti riziká závislosti a v prípade potreby vyhľadajte pomoc. Prečítajte si naše rady na bezpečné hranie a stávkovanie a naučte sa, ako minimalizovať straty pri zodpovednom prístupe.`,
     },
   ],
   cz: [
     {
-      title: "Provide Your Own Personal Information",
-      content: `When creating an account, make sure to use your own personal information and ensure that all information provided during registration is correct and truthful. Casinos always verify the identity of players (at the latest) when they request their first withdrawal, so if you provide incorrect information, you will not be able to withdraw your money.
-        The vast majority of casinos launch the so-called KYC procedure (Know Your Customer) when a player requests their first withdrawal. This procedure includes checking an ID card, passport, or other documents, so it is really necessary to use your own personal information. There is no reasonable way to bypass this.`,
+      title: "Zadejte své pravdivé osobní údaje",
+      content: `Při registraci do kasina nebo sázkové kanceláře vždy použijte své skutečné osobní údaje a ověřte, že všechny poskytnuté informace odpovídají skutečnosti. Kasina a sázkové kanceláře obvykle ověřují totožnost hráčů při první žádosti o výběr. Většina kasin a sázkových kanceláří vyžaduje povinný proces KYC (Poznej svého zákazníka), který zahrnuje kontrolu dokladů, jako je občanský průkaz nebo pas. Použití správných osobních údajů je zásadní, protože tento proces nelze obejít, a pokud uvedete nesprávné údaje, pravděpodobně nebudete moci vybrat své výhry.`,
     },
     {
-      title: "Use Payment Methods Registered in Your Name",
-      content: `The payment methods (bank accounts, payment cards, e-wallets) you use to deposit money into your gaming account should be your own and registered in your name. Using someone else's card, bank account, or wallet can lead to the permanent closure of your account at the casino and can be used as a reason for not paying out winnings.`,
+      title: "Používejte platební metody registrované na vaše jméno",
+      content: `Ujistěte se, že platební metody, jako jsou bankovní účty, kreditní karty nebo elektronické peněženky, jsou registrovány na vaše jméno. Použití platební metody jiné osoby pro vklady do kasin nebo sázkových kanceláří může vést k uzavření účtu a ztrátě výher.`,
     },
     {
       title:
-        "Play Wisely and Know When to Stop Playing and Request a Withdrawal",
-      content: `Play wisely and know when to stop playing and request a withdrawal if you manage to win
-      It is important to understand that gambling is not a way to make money. You may be lucky in the short term and win, but do not expect to systematically make money by playing casino games. If you manage to hit a lucky win, withdraw it, because if you continue playing, sooner or later you will lose your money. Also, remember that gambling addiction is a serious problem, so play safely and seek help if things start to get out of control.
-      `,
+        "Jak najít spolehlivá kasina a sázkové kanceláře s atraktivními bonusy",
+      content: `Hráči často hledají bonusy při výběru kasin nebo sázkových kanceláří. Naše recenze a seznamy nabízejí podrobnosti o dostupných bonusech, včetně bonusů bez vkladu. Bonusy by však neměly být vaším jediným kritériem výběru. Zvažte pověst platformy a způsob, jakým se chová k hráčům. Vysoké bonusy od nespolehlivých kasin nebo sázkových kanceláří jsou k ničemu, pokud si nemůžete vybrat své výhry. Naše recenze vám pomohou najít důvěryhodné platformy a vyhnout se běžným problémům.`,
+    },
+    {
+      title: "Hrajte a sázejte zodpovědně a vězte, kdy přestat",
+      content: `Hazardní hry mohou být zábavné, ale velmi rychle se mohou stát závislostí. Hazardní hry a sázení nejsou v žádném případě zaručeným způsobem, jak vydělat peníze. Pokud vyhrajete, vyberte své výhry a přestaňte hrát nebo sázet. Pokračování ve hře nebo sázení pravděpodobně povede ke ztrátám. Buďte si vědomi rizik závislosti a v případě potřeby vyhledejte pomoc. Přečtěte si naše rady na bezpečné hraní a sázení a naučte se, jak minimalizovat ztráty při zodpovědném přístupu.`,
+    },
+  ],
+  en: [
+    {
+      title: "Provide Accurate and Truthful Personal Information",
+      content: `When registering at a casino or betting company, always use your real personal information and verify that all provided details match and are real. Casinos and betting companies typically verify player identity during the first withdrawal request. Most casinos and betting companies initiate a mandatory KYC (Know Your Customer) process that involves checking documents like an ID or passport. Using accurate personal information is critical as this process cannot be bypassed and you will not likely be able to withdraw your winnings.`,
+    },
+    {
+      title: "Use Payment Methods Registered in Your Name",
+      content: `Ensure that the payment methods you use, such as bank accounts, credit cards, or e-wallets, are registered in your name. Using someone else’s payment method for deposits into casinos or betting companies can lead to account closure and forfeiture of winnings.`,
+    },
+    {
+      title:
+        "How to Find Reliable Casinos and Betting Companies with Attractive Bonuses",
+      content: `Players often look for bonuses when choosing casinos or betting companies. Our reviews and lists provide details on available bonuses, including no-deposit bonuses. However, bonuses should not be your only selection criterion. Consider the platform’s reputation and treatment of players. High bonuses from untrustworthy casinos or betting companies are worthless if you can't withdraw your winnings. Use our reviews to find reliable platforms and avoid common pitfalls.`,
+    },
+    {
+      title: "Play and Bet Responsibly and Know When to Withdraw",
+      content: `Gambling can be fun but it can also become addiction very quickly. Gambling and betting are not in any way guaranteed way to earn money. If you win, withdraw your funds and stop playing or betting. Continuing to gamble or place bets will likely result in losses. Be mindful of the risks of addiction and seek help if needed. Read our guides for tips on safe gambling and betting and learn about minimizing losses while acting responsibly.`,
     },
   ],
 };
@@ -469,8 +436,8 @@ export const LANDINGSECTIONS = {
       content: `
     V prvom rade ide o vstupné bonusy, ktoré sa získavajú za registráciu. Pred vytvorením účtu je dôležité si dôkladne prečítať podmienky resp. požiadavky uvítacích bonusov (okrem bonusu za vklad je rozšírená aj stávka bez rizika).
 
-Pri bonusoch je potrebné si všímať napr. požiadavky na pretočenie, minimálnu výšku kurzu, pripísanie bonusu (po vklade/po častiach/po pretočení) alebo aj bonusový kód (niekedy ho je potrebné zadať priamo pri registrácii).
-V každej recenzii je bonus do detailu rozobratý a okrem toho je vytvorená aj veľmi dobrá tabuľka s porovnaním bonusov stávkových kancelárií. Na uvedenej podstránke si môžete preštudovať všetky druhy bonusov, ktoré online stávkové kancelárie ponúkajú.
+    Pri bonusoch je potrebné si všímať napr. požiadavky na pretočenie, minimálnu výšku kurzu, pripísanie bonusu (po vklade/po častiach/po pretočení) alebo aj bonusový kód (niekedy ho je potrebné zadať priamo pri registrácii).
+    V každej recenzii je bonus do detailu rozobratý a okrem toho je vytvorená aj veľmi dobrá tabuľka s porovnaním bonusov stávkových kancelárií. Na uvedenej podstránke si môžete preštudovať všetky druhy bonusov, ktoré online stávkové kancelárie ponúkajú.
 `,
       imageSrc: "/src/images/gift.png",
       imageAlt: "Exclusive benefits",
@@ -543,41 +510,118 @@ export const FAQS = {
   sk: [
     {
       question:
-        "Ponúka slovenská stávková kancelária bonus bez nutnosti vkladu?",
-      answer: `Tento druh bonusu pre online stávky je skôr výnimočný, ale pre spoločnosti poskytujúce kurzové stávky nemusí byť stávka zadarmo bez vkladu úplne nereálna (najčastejšie bol bonus bez vkladu poskytovaný od Tipsportu).`,
+        "Ponúkajú Slovenské stávkové kanceláre a kasína bonus bez vkladu?",
+      answer: `Tento druh bonusu pre online stávky je ojedinelý no pomerne častý v sfére kasín, Jedná sa ale hlavne o menší bonus s cieľom dostať zákazníka na stránku aby si mohol vyskúšať hry. Výhodou je, že nemusíte vkladať žiadne peniaze a môžete si vyskúšať hry zadarmo. Výhru z bonusu bez nutnosti vkladu je potrebné pretočiť podľa podmienok stávkovej kancelárie alebo kasína.`,
     },
     {
-      question: "Zdaňujú sa výhry z online stávkových kancelárií?",
+      question: "Zdaňujú sa výhry z online stávkových kancelárií alebo kasína?",
       answer:
-        "Momentálne sa výhry v stávkových kanceláriách nezdaňujú. V ČR sa už platia dane aj z výhier a preto je veľmi pravdepodobné, že sa v budúcnosti dočkáme aj zdaňovania výhier v stávkových kanceláriách. Dobrou správou je, že v ČR sa platí daň až pri výhre nad 1 milión korún.",
+        "Momentálne sa výhry v stávkových kanceláriách a kasínach na Slovensku nezdaňujú. No napríklad v Českej republike sa však už platia dane aj z výhier a nedá sa vylúčiť že sa tohto nedočkáme aj na Slovensku. Dobrou správou je, že aj pri takejto legislatíve daň až pri výhre sa bude platiť až nad istú sumu, napríklad v Čechách je to nad 1 milión korún (40,000 EUR).",
     },
     {
       question:
-        "Ktoré doklady totožnosti vyžadujú stávkové kancelárie na Slovensku?",
+        "Ktoré doklady totožnosti vyžadujú stávkové kancelárie a kasína na Slovensku?",
       answer:
-        "Pre dokončenie overenia budete potrebovať dva doklady. Prvým je občiansky preukaz alebo pas a druhým je zvyčajne nevyužitý doklad z prvého výberu, kartička poistenca alebo vodičský preukaz. Pre cudzincov je potrebné povolenie k pobytu v SR. Pri registrácii do stávkovej kancelárie budete potrebovať hlavne e-mail a telefónne číslo (treba rátať s tým, že pri registrácii budete musieť zadať aj iné podrobnejšie osobné údaje ako je číslo občianskeho preukazu resp. rodné číslo). V prípade, že nemáte bankový účet na vlastné meno, tak vám ho odporúčame vytvoriť si ho (môžete vykonať aj po registrácii). Nie je dovolené posielať peniaze z cudzieho bankového účtu na váš hráčsky účet.",
+        "Prvotným je občiansky preukaz alebo pas a druhým je zvyčajne kartička poistenca alebo vodičský preukaz. Pre cudzincov je potrebné povolenie k pobytu na Slovensku. Pri registrácii do stávkovej kancelárie alebo kasína budete potrebovať hlavne e-mail a telefónne číslo. Takisto budete potrebovať váš vlastný bankový účet, resp. účet vo vašom mene. Nie je dovolené posielať peniaze z cudzieho bankového účtu na váš hráčsky účet.",
     },
     {
       question:
         "Prečo sa mobilné aplikácie na stiahnutie pre hazard nenachádzajú v obchode Google Play?",
       answer:
-        "Google vo svojom obchode neakceptuje aplikácie spoločností z oblasti hazardných hier. Vďaka politike Google si musíte aplikáciu (Apk) stiahnuť priamo na webstránke stávkovej kancelárie alebo nájsť iný spôsob. Apple svoje aplikácie ponúka priamo vo svojom obchode Apple Store (App pre iPhone a iPad).",
+        "Google vo svojom obchode neakceptuje aplikácie spoločností z oblasti hazardných hier. Je možné si aplikáciu (Apk) stiahnuť priamo na stránke spolčnosti alebo väčšina stávkových kancelárií a kasín má responzívne webové rozhranie ktoré umožňuje stránku pohodlne používať aj cez mobilné zariadnenia nie len na počítači. Toto obmedzenie platí len pre Android, Apple svoje aplikácie ponúka priamo v Apple Store.",
     },
     {
       question:
-        "Je možné do stávkových kancelárií alebo kasín v SR vkladať peniaze prostredníctvom kryptomien ako je Bitcoin?",
+        "Je možné do stávkových kancelárií alebo kasín na Slovensku vkladať peniaze prostredníctvom kryptomien ako je Bitcoin?",
       answer:
-        "An0 pre kasino nie pre stavkove kancel8rie. Priamo to nie je možné, pretože žiadna stávková kancelária na Slovensku zatiaľ nevedie účty v kryptomene. Teoreticky je možné využitie elektronickej peňaženky Skrill, kde práve Skrill prevedie vašu kryptomenu na EURá a tieto peniaze potom môžete použiť na stávkovanie.",
+        "Existuje viacero kasín na Slovensku aj celosvetovo ktoré túto možnosť ponúkajú. Sú tu metódy ako Skrill, kde vaše kryptomeny budú prevedené na eurá.",
     },
     {
-      question: "Ktorá stávková kancelária je na slovenskom trhu najlepšia?",
+      question: "Ktorá stávková kancelária je na Slovensku najlepšia?",
       answer:
-        "Podľa nášho názoru ide jednoznačne o stávkovú kanceláriu Tipsport. Konkurovať jej môže Fortuna, ale v Tipsporte máte najväčšiu komunitu tipérov a so stávkovými funkciami napredujú najrýchlejšie. Ide aj o najlepšiu voľbu z pohľadu prijímania stávok ako aj súťaží pre tipujúcich, do ktorých sa zapojíte aj úplne zadarmo.",
+        "Podľa nášho názoru najlepšia stávková kancelária je Tipsport. Radíme ho na Slovensku za jednotku v kategórii kasíno aj stávková kancelária a to vďaka dobrým dôvodom. Okrem veľmi atraktívneho vstupného bonusu a najväčšej komunity tipérov sa Tipsport môže pýšiť vysokým indexom bezpečnosti a prehľadným rozhraním aplikácie, ktoré ponúka širokú škálu športov.",
     },
     {
-      question: "Ktoré kasíno je na slovenskom trhu najlepšie?",
+      question: "Ktoré kasíno je na Slovensku najlepšie?",
       answer:
-        "Podľa nášho názoru ide jednoznačne o stávkovú kanceláriu Tipsport. Konkurovať jej môže Fortuna, ale v Tipsporte máte najväčšiu komunitu tipérov a so stávkovými funkciami napredujú najrýchlejšie. Ide aj o najlepšiu voľbu z pohľadu prijímania stávok ako aj súťaží pre tipujúcich, do ktorých sa zapojíte aj úplne zadarmo.",
+        "Podľa nášho názoru najlepšie kasíno je Tipsport. Radíme ho na Slovensku za jednotku v kategórii kasíno aj stávková kancelária a to vďaka dobrým dôvodom. Okrem veľmi atraktívneho vstupného bonusu a zdravej komunity hráčov sa Tipsport môže pýšiť vysokým indexom bezpečnosti a prehľadným rozhraním aplikácie, ktoré ponúka širokú škálu hier.",
+    },
+  ],
+  en: [
+    {
+      question:
+        "Do Slovak betting companies and casinos offer no-deposit bonuses?",
+      answer: `This type of bonus for online betting is rare but quite common in the casino sector. It is usually a smaller bonus aimed at attracting customers to try the games on the platform. The advantage is that you don’t need to deposit any money and can try games for free. Winnings from no-deposit bonuses must be wagered according to the terms of the betting company or casino.`,
+    },
+    {
+      question: "Are winnings from online betting companies or casinos taxed?",
+      answer:
+        "Currently, winnings in Slovak betting companies and casinos are not taxed. However, in the Czech Republic, taxes are already applied to winnings, and it's possible that Slovakia may follow suit. The good news is that even with such legislation, taxes would likely apply only to winnings above a certain threshold, such as the 1 million CZK (40,000 EUR) threshold in the Czech Republic.",
+    },
+    {
+      question:
+        "What identification documents are required by Slovak betting companies and casinos?",
+      answer:
+        "Typically, an ID card or passport is required, along with a second document like a health insurance card or driver's license. For foreigners, a residence permit in Slovakia is necessary. To register with a betting company or casino, you'll also need an email address and a phone number. Additionally, you'll need a personal bank account in your name; transferring money from another person’s account to your player account is not allowed.",
+    },
+    {
+      question: "Why aren’t gambling apps available on Google Play?",
+      answer:
+        "Google does not allow gambling apps in its store. However, you can download apps (APK files) directly from the company’s website. Most betting companies and casinos also offer responsive websites that work well on mobile devices as well as on desktops. This restriction applies only to Android devices, as Apple allows gambling apps in its App Store.",
+    },
+    {
+      question:
+        "Can I deposit money into Slovak betting companies or casinos using cryptocurrencies like Bitcoin?",
+      answer:
+        "Several casinos in Slovakia and worldwide offer this option. Methods like Skrill can be used to convert your cryptocurrency into euros.",
+    },
+    {
+      question: "Which betting company is the best in Slovakia?",
+      answer:
+        "In our opinion, the best betting company in Slovakia is Tipsport. It ranks as the number one betting company and casino in the country for good reasons. Besides offering an attractive welcome bonus and having the largest community of bettors, Tipsport boasts a high security index and a user-friendly app interface that covers a wide range of sports.",
+    },
+    {
+      question: "Which casino is the best in Slovakia?",
+      answer:
+        "In our opinion, the best casino in Slovakia is Tipsport. It ranks as the number one casino and betting company in the country for good reasons. In addition to an attractive welcome bonus and a thriving player community, Tipsport offers a high security index and a user-friendly app interface with a wide range of games.",
+    },
+  ],
+  cz: [
+    {
+      question: "Nabízejí české sázkové kanceláře a kasina bonus bez vkladu?",
+      answer: `Tento typ bonusu je v oblasti online sázek vzácný, ale poměrně běžný v sektoru kasin. Jedná se obvykle o menší bonus, jehož cílem je přilákat zákazníky k vyzkoušení her na platformě. Výhodou je, že nemusíte vkládat žádné peníze a můžete si hry vyzkoušet zdarma. Výhry z bonusu bez vkladu je nutné prosázet podle podmínek sázkové kanceláře nebo kasina.`,
+    },
+    {
+      question: "Zdaňují se výhry z online sázkových kanceláří nebo kasin?",
+      answer:
+        "Momentálně se výhry v českých sázkových kancelářích a kasinech daní. Na Slovensku však zatím výhry dani nepodléhají. Je možné, že se tato legislativa v budoucnu změní. I při takové legislativě se daň obvykle vztahuje na výhry nad určitou částku, například v Česku nad 1 milion korun (40 000 EUR).",
+    },
+    {
+      question:
+        "Jaké doklady totožnosti požadují české sázkové kanceláře a kasina?",
+      answer:
+        "Obvykle je vyžadován občanský průkaz nebo pas a druhý doklad, například kartička zdravotní pojišťovny nebo řidičský průkaz. Pro cizince je nutné povolení k pobytu v České republice. Při registraci budete také potřebovat emailovou adresu, telefonní číslo a bankovní účet vedený na vaše jméno.",
+    },
+    {
+      question: "Proč nejsou hazardní aplikace dostupné na Google Play?",
+      answer:
+        "Google ve svém obchodě nepovoluje hazardní aplikace. Tyto aplikace si však můžete stáhnout přímo z webu dané společnosti. Většina sázkových kanceláří a kasin má responzivní webové rozhraní, které je přizpůsobené mobilním zařízením. Toto omezení platí pouze pro Android, protože Apple nabízí tyto aplikace přímo v App Store.",
+    },
+    {
+      question:
+        "Lze v českých sázkových kancelářích nebo kasinech vkládat kryptoměny jako Bitcoin?",
+      answer:
+        "Několik kasin v Česku i po celém světě tuto možnost nabízí. Pomocí metod jako Skrill lze kryptoměny převést na koruny.",
+    },
+    {
+      question: "Která sázková kancelář je v Česku nejlepší?",
+      answer:
+        "Podle našeho názoru je nejlepší sázkovou kanceláří Tipsport. Řadíme ji na první místo mezi sázkovými kancelářemi i kasiny díky atraktivnímu vstupnímu bonusu, největší komunitě sázkařů a vysokému bezpečnostnímu standardu. Aplikace Tipsportu je přehledná a nabízí široký výběr sportů.",
+    },
+    {
+      question: "Které kasino je v Česku nejlepší?",
+      answer:
+        "Podle našeho názoru je nejlepší kasinovou platformou Tipsport. Díky atraktivním bonusům, silné hráčské komunitě a vysokému indexu bezpečnosti se jedná o špičku na trhu. Jejich aplikace je přehledná a nabízí široký výběr her.",
     },
   ],
 };

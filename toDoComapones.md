@@ -9,7 +9,6 @@ check https://sk.casino.guru/
 
 ## Casino
 
-- Eurogold Game Casino
 - DOXXbet Casino
 - Slovmatic Casino
 - Fortuna Casino
@@ -25,15 +24,6 @@ check https://sk.casino.guru/
 - Go4Games Casino
 - MONACObet Casino
 - Cardwin Casino
-
-## Bets
-
-- Tipsport
-- Fortuna
-- Niké
-- DOXXbet
-- SYNOT TIP
-- Tipos
 
 # CZ
 
