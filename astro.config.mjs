@@ -4,7 +4,7 @@ import vercelStatic from "@astrojs/vercel/static";
 import sitemap from "@astrojs/sitemap";
 import compressor from "astro-compressor";
 
-const languageCodes = ["en", "sk", "cz", "ie"];
+const languageCodes = ["en", "sk", "cz"];
 
 export default defineConfig({
   site: "https://certainwager.com",
@@ -17,7 +17,6 @@ export default defineConfig({
     fallback: {
       sk: "en",
       cz: "en",
-      ie: "en",
     },
     routing: {
       prefixDefaultLocale: false,
@@ -33,7 +32,6 @@ export default defineConfig({
           en: "en-GB",
           sk: "sk",
           cz: "cs",
-          ie: "en-GB",
         },
       },
       filter: (page) => {

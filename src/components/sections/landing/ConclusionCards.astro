@@ -1,33 +1,10 @@
 ---
 // Import SecondaryCTA component for use in this module
 import FullStar from "@/components/ui/stars/FullStar.astro";
-import SecondaryCTA from "@components/ui/buttons/PrimaryCTA.astro";
 import Icon from "@components/ui/icons/Icon.astro";
 
 // Define props from Astro
 const { chosenBet, chosenCasino, texts } = Astro.props;
-
-// Define TypeScript type for products.
-type Product = {
-  name: string;
-  description: string;
-  price: string;
-  cents: string;
-  billingFrequency: string;
-  features: Array<string>;
-  purchaseBtnTitle: string;
-  purchaseLink: string;
-};
-
-interface ConclusionCardsProps {
-  chosenBet: {
-    title: string;
-    subTitle: string;
-    starterKit: Product;
-    professionalToolbox: Product;
-  };
-}
-
 ---
 
 <section

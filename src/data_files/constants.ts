@@ -1,6 +1,6 @@
 import ogImageSrc from "@images/social.png";
 
-type Locale = "en" | "sk" | "cz" | "ie";
+type Locale = "en" | "sk" | "cz";
 
 export const SITE = (locale: Locale = "en") => {
   const descriptions: Record<
@@ -35,14 +35,6 @@ export const SITE = (locale: Locale = "en") => {
         "CertainWager nabízí nejlepší sázkové stránky a kasina. Přečtěte si recenze a porovnejte nabídky. Naučte se, jak maximalizovat své zisky s našimi odbornými radami.",
       description_short:
         "CertainWager nabízí nejlepší sázkové stránky a kasina. Přečtěte si recenze a porovnejte nabídky.",
-    },
-    ie: {
-      title: "CertainWager IE",
-      tagline: "List of the best online betting sites and casinos",
-      description:
-        "CertainWager showcases the best online betting sites and casinos. Read reviews and compare offers. Learn how to maximize your profits with our expert insights and tips.",
-      description_short:
-        "CertainWager showcases the best online betting sites and casinos. Read reviews and compare offers.",
     },
   };
 
@@ -108,61 +100,8 @@ export const TEXTS = {
     whyUs: "Why Us",
     considerBefore: "Consider Before You Start Betting or Playing",
     readReview: "Read Review",
-  },
-  ie: {
-    blogLayoutDescription:
-      "Dive into the latest news, insider tips, and winning strategies in the thrilling world of sports betting and casinos.",
-    reviewLayoutName: "Top Casinos & Sports Betting Reviews | CertainWager",
-    reviewLayoutDescription:
-      "Discover 100% real and honest reviews from experts on the best casinos and sports betting sites.",
-    mainDescription:
-      "Unlock the best free bets and exclusive deals in the world of sports betting and casinos.",
-    reviewTitle: "Top Betting Sites & Casinos: Unbiased Reviews",
-    reviewDescription:
-      "Find and compare the best online betting sites and casinos. Read honest reviews and seize top offers.",
-    blogTitle: "Your Insider's Guide to Maximizing Profits",
-    blogDescription:
-      "Master the art of winning with our expert insights, tips, and strategies.",
-    heroSubtitle:
-      "The best bonus offers from verified betting sites and casinos. We provide comprehensive reviews, practical guides on how to obtain bonuses, and up-to-date information on betting trends. Use our tips to increase your chances of winning!",
-    heroAlt: "Exciting visuals showcasing money and betting opportunities",
-    contactTitle: "Get in Touch with Us",
-    emailSubscribe1: "Subscribe to our newsletter and be the first to get the ",
-    emailSubscribe2: "Latest Offers!",
-    subscribe: "Subscribe Now",
-    contactDescription:
-      "Have questions or need assistance? Reach out, and we'll respond as soon as possible.",
-    suggestedOffer: "Suggested Offers",
-    newestArticles: "Newest Articles",
-    share: "Share",
-    copyLink: "Copy Link",
-    all: "All",
-    casino: "Casino",
-    sportsBetting: "Sport Betting",
-    esport: "E-Sport",
-    crypto: "Crypto",
-    contactBtn: "Get in Touch",
-    bet: "Bet",
-    betCurrency: "£",
-    andGet: "and get",
-    inBonuses: "in Bonuses",
-    howToClaim: "How to Claim",
-    redeem: "Claim Bonus",
-    orUseCode: "or use code",
-    advertisementDisclosure: "Advertisement Disclosure",
-    view: "View",
-    options: "Options",
-    countries: "Countries",
-    depositMethods: "Deposit Methods",
-    customerSupport: "Customer Support",
-    license: "License",
-    review: "Review",
-    specifications: "Specifications",
-    pros: "Pros",
-    cons: "Cons",
-    whyUs: "Why Us",
-    considerBefore: "Consider Before You Start Betting or Playing",
-    readReview: "Read Review",
+    faq: "Frequently Asked Questions",
+    footerDisclaimer: `This website is intended for individuals over 18 years of age. CertainWager is an independent source of information about online casinos and betting sites that is not controlled by any gambling operator or other institution. All our reviews are created honestly, based on the best knowledge and judgments of our independent team members, but are for informational purposes only and under no circumstances should be considered legal advice. Before playing and betting with a selected company, you should always ensure that you meet all regulatory requirements.`,
   },
   sk: {
     blogLayoutDescription:
@@ -283,6 +222,8 @@ export const TEXTS = {
     considerBefore:
       "Pár Věcí, Které Je Potřeba Zvážit Předtím, Než začnete sázet nebo hrát",
     readReview: "Přečíst Recenzi",
+    faq: "Často kladené otázky",
+    footerDisclaimer: `Tento web je určený pro osoby starší 18 let. CertainWager je nezávislý zdroj informací o online kasinech a sázkových stránkách, který není kontrolován žádným provozovatelem hazardních her, ani žádnou jinou institucí. Všechny naše recenze vytváříme čestně, podle nejlepších znalostí a úsudků členů našeho nezávislého týmu, slouží však pouze k informačním účelům a za žádných okolností nemají sloužit jako právní rady. Před hraním a sázením ve vybrané společnosti byste se měli vždy ujistit, že splňujete všechny regulační požadavky.`,
   },
 };
 
@@ -308,26 +249,6 @@ export const WHYUS = {
     },
   ],
   en: [
-    {
-      title: "Independent Team",
-      content:
-        "Our reviews are independent and based on real player experiences and feedback.",
-      svg: "groups",
-    },
-    {
-      title: "Fairness Guarantee",
-      content:
-        "We guarantee fair reviews and transparency of all betting sites and casinos we review.",
-      svg: "verified",
-    },
-    {
-      title: "Relevant Reviews",
-      content:
-        "Our reviews are based on important criteria that matter to all players.",
-      svg: "books",
-    },
-  ],
-  ie: [
     {
       title: "Independent Team",
       content:
@@ -499,6 +420,154 @@ Znamenalo by to, že zdaneniu výhier budú okrem stávkových kancelárií podl
    Dnes už takmer každá online stávková kancelária na Slovensku poskytuje mobilnú aplikáciu na stiahnutie. Mobilné aplikácie sú dostupné pre Android a operačný systém iOS (Apple).
 
 V AppStore nájdete aplikácie na stiahnutie pre produkty iPhone a iPad. Bohužiaľ obchod Google Play aplikácie pre hazardné hry zatiaľ nepodporuje, preto je potrebné si stiahnuť aplikáciu priamo na stránkach stávkovej kancelárie.
+`,
+      imageSrc: "/src/images/app-development.png",
+      imageAlt: "Exclusive benefits",
+    },
+  ],
+  cz: [
+    {
+      title: "Bonusy ve sázkových kancelářích",
+      content: `
+      Především se jedná o vstupní bonusy, které získáte za registraci. Před vytvořením účtu je důležité si pečlivě přečíst podmínky nebo požadavky uvítacích bonusů (kromě vkladového bonusu je oblíbená i sázka bez rizika).
+
+      U bonusů je třeba sledovat např. požadavky na protočení, minimální výši kurzu, připsání bonusu (po vkladu/po částech/po protočení) nebo i bonusový kód (někdy je nutné ho zadat přímo při registraci).
+      V každé recenzi je bonus detailně rozebrán a kromě toho je vytvořena i velmi dobrá tabulka s porovnáním bonusů sázkových kanceláří. Na uvedené podstránce si můžete prostudovat všechny druhy bonusů, které online sázkové kanceláře nabízejí.
+`,
+      imageSrc: "/src/images/gift.png",
+      imageAlt: "Exkluzivní výhody",
+    },
+    {
+      title: "Hodnocení sázkových kanceláří a zkušenosti hráčů",
+      content: `
+      Každou online sázkovou kancelář hodnotíme na základě parametrů jako použitelnost webu, kurzová nabídka, live sázení, live streaming, mobilní sázení, sázkové bonusy, zákaznická podpora, bezpečnost sázkové kanceláře, možnosti vkladů, rychlost výběrů a osobní zkušenost.
+      Pokud si chcete přečíst, co všechno jednotlivé body zahrnují, přečtěte si je při porovnání sázkových kanceláří podle hodnocení. Každá recenze sázkové kanceláře obsahuje také konečný verdikt, který je vždy psán na základě osobní zkušenosti.
+    `,
+      imageSrc: "/src/images/review.png",
+      imageAlt: "Exkluzivní výhody",
+    },
+    {
+      title: "Jak získat svůj bonus",
+      content: `
+      <p>Získání bonusu je snadné! Postupujte podle našich kroků k registraci u vybrané sázkové kanceláře nebo kasina, ověřte svůj účet a aktivujte bonus. Začněte si užívat výhody extra financí nebo volných sázek hned teď.</p>
+      <ol class="list-disc list-inside mt-4 text-base">
+        <li>Vyberte sázkovou kancelář nebo kasino z našeho seznamu.</li>
+        <li>Klikněte na tlačítko 'Získat bonus'.</li>
+        <li>Dokončete proces registrace.</li>
+        <li>Ověřte svůj účet podle potřeby.</li>
+        <li>Proveďte kvalifikační vklad, pokud je to nutné.</li>
+        <li>Užijte si svůj bonus a začněte hrát!</li>
+    `,
+      imageSrc: "/src/images/list.png",
+      imageAlt: "Jak získat bonus",
+    },
+    {
+      title: "Kdo uděluje licence na hazardní hry v Česku?",
+      content: `
+      Díky nové legislativě byl v Česku vytvořen nový Úřad pro regulaci hazardních her (URHH).
+      <br />
+      Tento úřad je zodpovědný za vydávání licencí, ale také dohlíží na dodržování zákona o hazardních hrách a vede seznam legálních sázkových kanceláří i seznam blokovaných webových stránek a bankovních účtů. Kromě tvorby legislativy má na starosti všechna práva a povinnosti v oblasti regulace hazardních her.
+      
+    `,
+      imageSrc: "/src/images/certification.png",
+      imageAlt: "Licencované sázkové kanceláře",
+    },
+    {
+      title: "Daň z výher ve sázkových kancelářích v Česku",
+      content: `
+     Výhry ze sázkových kanceláří se v Česku aktuálně nezdaňují. Již se však uvažuje o legislativě, která by umožnila výhry zdanit podobně jako v sousedním Slovensku. 
+Znamenalo by to, že zdanění výher budou kromě sázkových kanceláří podléhat i loterie, kasina nebo poker herny. Více informací o placení daní v SR z hazardních her najdete v článku daň z výhry.
+`,
+      imageSrc: "/src/images/tax.png",
+      imageAlt: "Exkluzivní výhody",
+    },
+    {
+      title: "Hrajte zodpovědně",
+      content: `
+     Hazardní hry mohou být zábava, ale mohou se také v životě dané osoby změnit na obrovský problém. Patologické hráčství nejenže může vést k finančním ztrátám, ale může způsobit celou řadu dalších problémů, včetně symptomů souvisejících s duševním a fyzickým zdravím, rodinných a vztahových problémů a komplikací v práci. Nikdy nepovažujte hraní za způsob, jak vydělat.`,
+      imageSrc: "/src/images/breakingChain.png",
+      imageAlt: "Exkluzivní výhody",
+    },
+    {
+      title: "Mobilní aplikace sázkových kanceláří",
+      content: `
+   Dnes již téměř každá online sázková kancelář v Česku poskytuje mobilní aplikaci ke stažení. Mobilní aplikace jsou dostupné pro Android a operační systém iOS (Apple).
+
+V AppStore najdete aplikace ke stažení pro produkty iPhone a iPad. Bohužel obchod Google Play aplikace pro hazardní hry zatím nepodporuje, proto je nutné si stáhnout aplikaci přímo na stránkách sázkové kanceláře.
+`,
+      imageSrc: "/src/images/app-development.png",
+      imageAlt: "Exkluzivní výhody",
+    },
+  ],
+  en: [
+    {
+      title: "Bonuses in Betting Offices",
+      content: `
+      The first type of bonuses are welcome bonuses that are granted for registration. Before creating an account, it is essential to thoroughly read the terms and requirements of the welcome bonuses (in addition to deposit bonuses, risk-free bets are also popular).
+
+      For bonuses, it is important to pay attention to requirements like rollover conditions, minimum odds, how the bonus is credited (after deposit/in parts/after rollover), or even bonus codes (sometimes these need to be entered during registration).
+      Each review analyzes the bonuses in detail and provides an excellent comparison table of betting office bonuses. On the provided subpage, you can review all the types of bonuses offered by online betting offices.
+`,
+      imageSrc: "/src/images/gift.png",
+      imageAlt: "Exclusive benefits",
+    },
+    {
+      title: "Rating Betting Offices and Player Experiences",
+      content: `
+      We evaluate each online betting office based on parameters such as website usability, odds offer, live betting, live streaming, mobile betting, betting bonuses, customer support, security, deposit options, withdrawal speed, and personal experience.
+      If you want to know what each point entails, read about them in our comparison of betting offices by rating. Each betting office review also includes a final verdict, which is always written based on personal experience.
+    `,
+      imageSrc: "/src/images/review.png",
+      imageAlt: "Exclusive benefits",
+    },
+    {
+      title: "How to Claim Your Bonus",
+      content: `
+      <p>Claiming your bonus is easy! Follow our step-by-step guides to register with your chosen betting site or casino, verify your account, and activate your bonus. Start enjoying the benefits of extra funds or free bets right away.</p>
+      <ol class="list-disc list-inside mt-4 text-base">
+        <li>Choose a betting site or casino from our list.</li>
+        <li>Click on the 'Claim Bonus' button.</li>
+        <li>Complete the registration process.</li>
+        <li>Verify your account as required.</li>
+        <li>Make a qualifying deposit if necessary.</li>
+        <li>Enjoy your bonus and start playing!</li>
+    `,
+      imageSrc: "/src/images/list.png",
+      imageAlt: "How to claim bonus",
+    },
+    {
+      title: "Who Grants Gambling Licenses in Slovakia?",
+      content: `
+      Thanks to new legislation, a new Office for the Regulation of Gambling (URHH) has been established in Slovakia.
+      <br />
+      This office is responsible for issuing licenses, overseeing compliance with gambling laws, and maintaining lists of legal betting offices as well as blocked websites and bank accounts. In addition to creating legislation, it handles all rights and duties related to gambling regulation.
+      
+    `,
+      imageSrc: "/src/images/certification.png",
+      imageAlt: "Licensed betting sites",
+    },
+    {
+      title: "Tax on Winnings in Betting Offices in Slovakia",
+      content: `
+     Winnings from betting offices are currently not taxed in Slovakia. However, there is already discussion about legislation that would allow for taxing winnings similarly to the neighboring Czech Republic. 
+This would mean that winnings from betting offices, lotteries, casinos, and poker rooms would all be subject to taxation. More information about paying taxes on gambling winnings in the Czech Republic can be found in our article about tax on winnings.
+`,
+      imageSrc: "/src/images/tax.png",
+      imageAlt: "Exclusive benefits",
+    },
+    {
+      title: "Play Responsibly",
+      content: `
+     Gambling can be fun, but it can also become a significant problem in someone's life. Pathological gambling can lead not only to financial losses but also to a range of other issues, including symptoms related to mental and physical health, family and relationship problems, and complications at work. Never consider gambling as a way to make money.`,
+      imageSrc: "/src/images/breakingChain.png",
+      imageAlt: "Exclusive benefits",
+    },
+    {
+      title: "Mobile Apps for Betting Offices",
+      content: `
+   Today, almost every online betting office in Slovakia offers a mobile app for download. Mobile apps are available for Android and iOS (Apple) operating systems.
+
+In the AppStore, you can find apps for iPhone and iPad products. Unfortunately, the Google Play Store does not yet support gambling apps, so it is necessary to download the app directly from the betting office's website.
 `,
       imageSrc: "/src/images/app-development.png",
       imageAlt: "Exclusive benefits",

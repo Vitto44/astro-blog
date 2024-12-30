@@ -6,8 +6,13 @@ import heroImage from "@images/hero-image.png";
 import OfferSection from "@/components/sections/OfferSection.astro";
 import type { CollectionEntry } from "astro:content";
 import { getCollection } from "astro:content";
-import { SITE, TEXTS } from "@data/constants";
+import { SITE, TEXTS, FAQS } from "@data/constants";
 import { getCountryCode } from "@/utils/utils";
+import LandingText from "@/components/sections/landing/LandingText.astro";
+import FAQ from "@/components/sections/misc/FAQ.astro";
+import FeaturesGeneral from "@components/sections/landing/FeaturesGeneral.astro";
+import BigLandingCards from "@/components/sections/landing/BigLandingCards.astro";
+import ConclusionCards from "@/components/sections/landing/ConclusionCards.astro";
 
 const lang = Astro.currentLocale as keyof typeof TEXTS;
 
@@ -18,7 +23,12 @@ const offers: CollectionEntry<"reviews">[] = await getCollection(
   }
 );
 
+const chosenBet = offers.find((offer) => ("chosen" in offer.data && offer.data.chosen === true && offer.data.type === 2));
+const chosenCasino = offers.find((offer) => ("chosen" in offer.data && offer.data.chosen === true && offer.data.type === 1));
+
+
 const texts = TEXTS[lang];
+const faqs = FAQS[lang];
 ---
 
 <MainLayout
@@ -26,9 +36,9 @@ const texts = TEXTS[lang];
   structuredData={{
     "@context": "https://schema.org",
     "@type": "WebPage",
-    "@id": `https://certainWager.com/${lang}`,
-    url: `https://certainWager.com/${lang}`,
-    name: "CertainWager - Best Free Bets",
+    "@id": `https://certainWager.com/${lang}/blog`,
+    url: `https://certainWager.com/${lang}/blog`,
+    name: "Blog | CertainWager",
     description: texts.mainDescription,
     isPartOf: {
       "@type": "WebSite",
@@ -41,16 +51,33 @@ const texts = TEXTS[lang];
 >
 
   <HeroSection
-    title=`Vyhrávejte s <span class="text-yellow-500 dark:text-yellow-400 text-5xl lg:text-8xl">Exluzivními</span> Sázkami <span class="text-orange-500 dark:text-orange-300 text-5xl lg:text-8xl">Zdarma</span>`
+    title=`Unbiased List of
+    <span class="text-orange-500 dark:text-orange-300 text-3xl lg:text-5xl">Casino</span> 
+    <br/>
+    And
+    <span class="text-orange-500 dark:text-orange-300 text-3xl lg:text-5xl"> Betting Sites</span>
+    <span class="text-yellow-500 dark:text-yellow-400  text-5xl lg:text-6xl"> Bonuses</span>
+    in England 
+`
     subTitle={texts.heroSubtitle}
     src={heroImage}
     alt={texts.heroAlt}
   />
   
   <OfferSection
-    testimonials={offers.map((offer) => offer.data)}
+    testimonials={offers}
   />
 
+  <FeaturesGeneral/>
+
+  <BigLandingCards/>
+
+  <FAQ title={texts.faq} faqs={faqs} />
+
+  <hr class="my-12 -skew-y-3" />
   
-   
+  <ConclusionCards texts={texts} chosenBet={chosenBet} chosenCasino={chosenCasino}/>
+  
+  <LandingText />
+
 </MainLayout>

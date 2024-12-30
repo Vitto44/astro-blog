@@ -1,5 +1,5 @@
 /** @type {import('tailwindcss').Config} */
-import colors, { rose } from "tailwindcss/colors";
+import colors from "tailwindcss/colors";
 
 export default {
   content: [

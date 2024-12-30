@@ -33,8 +33,6 @@ function getCountryCode(lang: LanguageKeys = "en"): string {
   switch (lang) {
     case "en":
       return "en-GB";
-    case "ie":
-      return "en-IE";
     case "sk":
       return "sk-SK";
     case "cz":

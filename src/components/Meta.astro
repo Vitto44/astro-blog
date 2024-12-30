@@ -6,7 +6,7 @@ import faviconSvgSrc from "@images/icon.svg";
 import faviconSrc from "@images/icon.png";
 
 // Get the current locale from the URL path or default to 'en'
-type Locale = "en" | "sk" | "cz" | "ie";
+type Locale = "en" | "sk" | "cz";
 const lang = (Astro.url.pathname.split('/')[1] || 'en') as Locale;
 
 // Generate site data dynamically based on the current locale

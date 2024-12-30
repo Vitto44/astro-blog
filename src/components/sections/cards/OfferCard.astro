@@ -10,7 +10,6 @@ import { Image } from 'astro:assets';
 import type { CollectionEntry } from 'astro:content';
 
 const testimonial = Astro.props.testimonial as CollectionEntry<'reviews'>;
-const i = Astro.props.i as number;
 
 const testimonialData = Astro.props.testimonial.data;
 const {slug} = testimonial;
